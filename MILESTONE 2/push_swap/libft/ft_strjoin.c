@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/04 13:07:30 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/08/13 18:14:13 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/08/30 17:10:38 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	while (s2[++j] != '\0')
 		myarray[i + j] = s2[j];
 	myarray[i + j] = '\0';
-	//free(s1);
+	free((char *)s1);
 	return (myarray);
 }

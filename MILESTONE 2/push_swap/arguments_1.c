@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 18:58:35 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/08/28 13:20:37 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/08/30 19:42:04 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@ arg_join works joining every arg in just 1:
 	321 45 87 96
 */
 
-/*arrglar " " para que de error*/
-
 char	*arg_join(char **argv)
 {
 	int		i;
@@ -34,12 +32,15 @@ char	*arg_join(char **argv)
 	while (argv[i])
 	{
 		if (argv[i][0] == '\0')
+		{
+			free(str);
 			print_error();
+		}
 		if (i > 0)
 			str = ft_strjoin(str, " ");
 		str = ft_strjoin(str, argv[i]);
 		if (!str)
-			return (NULL);
+			print_error();
 		i++;
 	}
 	return (str);
@@ -75,15 +76,6 @@ int	arg_valid(char *str)
 }
 
 
-/*this function tells me if the number is correct, just an int*/
-
-int	is_min_or_max(long int nbr)
-{
-	if (nbr >= INT_MIN && nbr <= INT_MAX)
-		return (1);
-	return (0);
-}
-
 /*this fuction casts and fixes every number in an array to proof tha
 no one is duplicated*/
 
@@ -102,14 +94,17 @@ int	*number_array(char **new_num_list, int count)
 		nbr = ft_atol(new_num_list[i]);
 		if (!is_min_or_max(nbr))
 		{
-			free(num);
+			free_array(new_num_list);
 			print_error();
 		}
 		num[i] = (int)nbr;
 		i++;
 	}
 	if (repeat_number(num, count) == 0)
+	{
+		free_array(new_num_list);
 		print_error();
+	}
 	return (num);
 }
 
@@ -123,10 +118,16 @@ int	*get_imput(char *number_list)
 	int		count;
 
 	if (!arg_valid(number_list))
+	{
+		free(number_list);
 		print_error();
+	}
 	new_num_list = ft_split(number_list, ' ');
 	if (!new_num_list)
+	{
+		free(number_list);
 		return (0);
+	}
 	count = 0;
 	while (new_num_list[count])
 		count++;
@@ -137,6 +138,28 @@ int	*get_imput(char *number_list)
 	return (num);
 }
 
-/*hacer una funcion que averigue si se repiten valores en un array
-de ints (CREAR PRIMERO LA FUNCION QUE COLOQUE LOS NUMEROS EN UNA ARRAY
-DE INTS)*/
+/*this function is the main function, it calls the rest of them*/
+
+int	*final_input(char **str)
+{
+	int		size;
+	char	*final_argument;
+	int		*res;
+
+	final_argument = arg_join(str);
+	res = get_imput(final_argument);
+	if (!res || !no_empty_arg(str))
+	{
+		free(res);
+		print_error();
+	}
+	size = count_array(&str[1]);
+	//printf("esto es el size --> %d\n\n", size);
+	free(final_argument);
+	return (res);
+}
+
+
+/*			TE HAS QUEDADO AQUI, 
+	TIENES QUE METER LOS NUMEROS EN NODOS
+*/

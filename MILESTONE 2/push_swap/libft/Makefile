@@ -6,7 +6,7 @@
 #    By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/22 20:42:28 by unovo-ru          #+#    #+#              #
-#    Updated: 2025/08/07 18:56:25 by unovo-ru         ###   ########.fr        #
+#    Updated: 2025/08/30 18:44:15 by unovo-ru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ SRC = ft_isalpha.c \
 	ft_memcmp.c \
 	ft_strnstr.c \
 	ft_atoi.c \
+	ft_atol.c \
 	ft_calloc.c \
 	ft_strdup.c \
 	ft_substr.c \

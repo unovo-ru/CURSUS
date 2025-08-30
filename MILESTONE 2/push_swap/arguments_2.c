@@ -6,43 +6,13 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:05:42 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/08/28 13:42:25 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/08/30 18:48:29 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*REMEMBER CHECK CHANGES FOR ATOL*/
-
-/*this function change str* to long*/
-
-long	ft_atol(char *str)
-{
-	long	i;
-	long	sig;
-	long	num;
-
-	i = 0;
-	sig = 1;
-	while ((str[i] == '\t') || (str[i] == '\n') || (str[i] == '\r')
-		|| (str[i] == '\f') || (str[i] == ' ')
-		|| (str[i] == '\v'))
-		i++;
-	if (str[i] == '-')
-	{
-		sig = -sig;
-		i++;
-	}
-	else if (str[i] == '+')
-		i++;
-	num = 0;
-	while ((str[i] >= '0') && (str[i] <= '9'))
-	{
-		num = (num * 10) + (str[i] - '0');
-		i++;
-	}
-	return (num * sig);
-}
+/*this function frees the array for memory leaks*/
 
 char	**free_array(char **s)
 {
@@ -57,6 +27,8 @@ char	**free_array(char **s)
 	free(s);
 	return (NULL);
 }
+
+/*this function tells me if there are repeted numbers*/
 
 int	repeat_number(int *numbers, int count)
 {
@@ -78,6 +50,8 @@ int	repeat_number(int *numbers, int count)
 	return (1);
 }
 
+/*print an error message and exit*/
+
 void	print_error(void)
 {
 	write(2, "Error\n", 6);
@@ -86,7 +60,7 @@ void	print_error(void)
 
 /*this function tells me error if there is an empty argument*/
 
-/*int	no_empty_arg(char **argv)
+int	no_empty_arg(char **argv)
 {
 	int	i;
 	int	j;
@@ -108,15 +82,13 @@ void	print_error(void)
 	if (flag == 0)
 		return (0);
 	return (1);
-}*/
+}
 
-/*			TE HAS QUEDADO AQUI, 
-	TIENES QUE METER LOS NUMEROS NE NODOS
+/*this function tells me if the number is correct, just an int*/
 
-	REVISA LA FUNCION NO_EMPTY_ARG
-	
-	TIENES QUE EXPLICAR QUE HACE CADA UNA DE LAS
-		FUNCIONES QUE TIENES SIN COMENTAR
-	
-		TIENES QUE PROBAR LOS CAMBIOS HECHOS Y PARSEAR
-		ARGUMEMTOS*/
+int	is_min_or_max(long int nbr)
+{
+	if (nbr >= INT_MIN && nbr <= INT_MAX)
+		return (1);
+	return (0);
+}

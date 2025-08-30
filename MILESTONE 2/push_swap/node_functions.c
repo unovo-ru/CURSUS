@@ -6,19 +6,13 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:03:25 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/08/13 18:05:39 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/08/30 22:31:56 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* funciones que necesitare en los utils
-
-	ft_lstnew *
-	ft_lst_add_back *
-	ft_lstlast *
-
-*/
-
 #include "push_swap.h"
+
+/*this function fits every number in a node*/
 
 t_node	*ft_new_node(int data)
 {
@@ -27,12 +21,19 @@ t_node	*ft_new_node(int data)
 	aux = malloc(sizeof(t_node));
 	if (!aux)
 		return (NULL);
-	ft_memset(aux, 0, sizeof(t_node));
+	aux->index = 0;
+	aux->cost = 0;
 	aux->data = data;
+	aux->prev = aux;
+	aux->next = aux;
 	return (aux);
 }
 
-void	ft_add_node_back(t_node **lst, t_node *new)
+/*this function adds a node at the end of the list*/
+
+/*!!!!!!!		ADD THE PREVS		!!!!!!!!!!*/
+
+void	add_node_back(t_node **lst, t_node *new)
 {
 	t_node	*a;
 
@@ -49,6 +50,8 @@ void	ft_add_node_back(t_node **lst, t_node *new)
 	a->next = new;
 }
 
+/*!!!!!!!		IS IT NESSESARY????? 			!!!!!!!!!*/
+
 t_node	*ft_last_node(t_node *lst)
 {
 	if (!lst)
@@ -58,3 +61,35 @@ t_node	*ft_last_node(t_node *lst)
 	return (lst);
 }
 
+/*tengo que hacer que el nodo que apunte a NULL 
+sea el que apunte al primero de nuevo*/
+
+/*!!!!!!!CHECK IF IT IS RIGHT!!!!!*/
+
+void	ft_node_add_back(t_node **head, t_node *new_node)
+{
+	if (!new_node || !head)
+		return ;
+	if (*head == NULL)
+	{
+		*head = new_node;
+		return ;
+	}
+	(*head)->prev->next = new_node;
+	new_node->next = head;
+	new_node->prev = (*head)->prev;
+	(*head)->prev = new_node;
+}
+
+/*this function adds a node at the beginning of the list*/
+
+/*!!!!!!!CHECK IF IT IS RIGHT!!!!!*/
+
+void	ft_front_node(t_node **node, t_node *new_node)
+{
+	if (!new_node || !node)
+		return ;
+	new_node->next = *node;
+	new_node->prev = (&new_node);
+	*node = new_node;
+}

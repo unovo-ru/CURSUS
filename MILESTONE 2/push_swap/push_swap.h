@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:01:55 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/08/28 13:40:08 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/08/30 22:30:49 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,25 @@ int		arg_valid(char *str);
 int		is_min_or_max(long int nbr);
 int		*number_array(char **new_num_list, int count);
 int		*get_imput(char *number_list);
-long	ft_atol(char *str);
 char	**free_array(char **s);
 int		repeat_number(int *numbers, int count);
 void	print_error(void);
 int		no_empty_arg(char **argv);
+int		*final_input(char **str);
+int		count_array(char **array_ints);
+
+/*-----------  nodes functions -----------*/
+
+t_node	*node_aplication(char **str, int *num_array, int size);
+t_node	*ft_new_node(int data);
+void	ft_add_node_back(t_node **lst, t_node *new);
+t_node	*ft_last_node(t_node *lst);
+void	ft_node_add_back(t_node **node, t_node *new_node);
+void	ft_front_node(t_node **node, t_node *new_node);
+
+/*-----------  print nodes  -----------*/
+
+void	print_node(t_node *node);
 
 /*push swap is a void function just because i need to make tests whith them
 CHANGE IT LATER*/
