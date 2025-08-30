@@ -1,0 +1,67 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/04 16:01:55 by unovo-ru          #+#    #+#             */
+/*   Updated: 2025/08/28 13:40:08 by unovo-ru         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
+
+# include <limits.h>
+# include "./libft/libft.h"
+
+typedef struct t_node
+{
+	int				index;
+	int				data;
+	int				cost;
+	struct t_node	*prev;
+	struct t_node	*next;
+}			t_node;
+
+//typedef struct s_list
+//{
+//	void			*t_node;//t_nbr *
+//	struct s_list	*prev;
+//	struct s_list	*next;
+//}			t_list;
+
+
+/*!!!!!!! REMEMBER LINK BOTH STRUCTS !!!!!!!!!*/
+
+/*----------------  main  -----------------*/
+
+//int		main(int argc, char **argv);
+int		main(int argc, char **argv);
+
+/*-----------  parse arguments  -----------*/
+char	*arg_join(char **argv);
+int		arg_valid(char *str);
+int		is_min_or_max(long int nbr);
+int		*number_array(char **new_num_list, int count);
+int		*get_imput(char *number_list);
+long	ft_atol(char *str);
+char	**free_array(char **s);
+int		repeat_number(int *numbers, int count);
+void	print_error(void);
+int		no_empty_arg(char **argv);
+
+/*push swap is a void function just because i need to make tests whith them
+CHANGE IT LATER*/
+
+/*-------------  push swap  --------------*/
+
+void	push_swap(void);
+
+/*size_t	ft_let_count(const char *s, char c);
+size_t	ft_count_words(const char *s, char c);
+char	**free_array(char **s);
+char	*ft_substr(char const *s, unsigned int start, size_t len);*/
+
+#endif

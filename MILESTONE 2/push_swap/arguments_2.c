@@ -1,0 +1,122 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   arguments_2.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/08/13 18:05:42 by unovo-ru          #+#    #+#             */
+/*   Updated: 2025/08/28 13:42:25 by unovo-ru         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+/*REMEMBER CHECK CHANGES FOR ATOL*/
+
+/*this function change str* to long*/
+
+long	ft_atol(char *str)
+{
+	long	i;
+	long	sig;
+	long	num;
+
+	i = 0;
+	sig = 1;
+	while ((str[i] == '\t') || (str[i] == '\n') || (str[i] == '\r')
+		|| (str[i] == '\f') || (str[i] == ' ')
+		|| (str[i] == '\v'))
+		i++;
+	if (str[i] == '-')
+	{
+		sig = -sig;
+		i++;
+	}
+	else if (str[i] == '+')
+		i++;
+	num = 0;
+	while ((str[i] >= '0') && (str[i] <= '9'))
+	{
+		num = (num * 10) + (str[i] - '0');
+		i++;
+	}
+	return (num * sig);
+}
+
+char	**free_array(char **s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		free(s[i]);
+		i++;
+	}
+	free(s);
+	return (NULL);
+}
+
+int	repeat_number(int *numbers, int count)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < count)
+	{
+		j = i + 1;
+		while (j < count)
+		{
+			if (numbers[i] == numbers[j])
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+void	print_error(void)
+{
+	write(2, "Error\n", 6);
+	exit (0);
+}
+
+/*this function tells me error if there is an empty argument*/
+
+/*int	no_empty_arg(char **argv)
+{
+	int	i;
+	int	j;
+	int	flag;
+
+	i = 1;
+	j = 0;
+	flag = 0;
+	while (argv[i])
+	{
+		while (argv[i][j])
+		{
+			if (ft_isdigit((int)argv[i][j]))
+				flag = 1;
+			j++;
+		}
+		i++;
+	}
+	if (flag == 0)
+		return (0);
+	return (1);
+}*/
+
+/*			TE HAS QUEDADO AQUI, 
+	TIENES QUE METER LOS NUMEROS NE NODOS
+
+	REVISA LA FUNCION NO_EMPTY_ARG
+	
+	TIENES QUE EXPLICAR QUE HACE CADA UNA DE LAS
+		FUNCIONES QUE TIENES SIN COMENTAR
+	
+		TIENES QUE PROBAR LOS CAMBIOS HECHOS Y PARSEAR
+		ARGUMEMTOS*/
