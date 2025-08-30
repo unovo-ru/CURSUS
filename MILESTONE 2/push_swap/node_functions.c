@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:03:25 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/08/30 22:31:56 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/08/30 22:44:58 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_node	*ft_new_node(int data)
 
 /*!!!!!!!		ADD THE PREVS		!!!!!!!!!!*/
 
-void	add_node_back(t_node **lst, t_node *new)
+/*void	add_node_back(t_node **lst, t_node *new)
 {
 	t_node	*a;
 
@@ -48,7 +48,7 @@ void	add_node_back(t_node **lst, t_node *new)
 	while (a->next)
 		a = a->next;
 	a->next = new;
-}
+}*/
 
 /*!!!!!!!		IS IT NESSESARY????? 			!!!!!!!!!*/
 
@@ -76,7 +76,7 @@ void	ft_node_add_back(t_node **head, t_node *new_node)
 		return ;
 	}
 	(*head)->prev->next = new_node;
-	new_node->next = head;
+	new_node->next = (*head);
 	new_node->prev = (*head)->prev;
 	(*head)->prev = new_node;
 }
@@ -90,6 +90,6 @@ void	ft_front_node(t_node **node, t_node *new_node)
 	if (!new_node || !node)
 		return ;
 	new_node->next = *node;
-	new_node->prev = (&new_node);
+	new_node->prev = &(*new_node);
 	*node = new_node;
 }

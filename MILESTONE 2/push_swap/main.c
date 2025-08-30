@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 13:59:20 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/08/30 20:24:39 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/08/30 22:51:28 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	main(int argc, char **argv)
 {
 	(void)argc;
 	//int i = 0;
+	printf("llega");
 	int count = count_array(argv);
 	int *res = final_input(argv);
 	if (!res)

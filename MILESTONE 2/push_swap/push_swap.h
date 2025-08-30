@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:01:55 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/08/30 22:30:49 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/08/30 22:49:01 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int		count_array(char **array_ints);
 
 t_node	*node_aplication(char **str, int *num_array, int size);
 t_node	*ft_new_node(int data);
-void	ft_add_node_back(t_node **lst, t_node *new);
+void	ft_node_add_back(t_node **head, t_node *new_node);
 t_node	*ft_last_node(t_node *lst);
 void	ft_node_add_back(t_node **node, t_node *new_node);
 void	ft_front_node(t_node **node, t_node *new_node);
