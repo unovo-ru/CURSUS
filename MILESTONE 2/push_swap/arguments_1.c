@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arguments_1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 18:58:35 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/08/30 19:42:04 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/08/31 18:04:20 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,6 +160,6 @@ int	*final_input(char **str)
 }
 
 
-/*			TE HAS QUEDADO AQUI, 
+/*			TE HAS QUEDADO AQUI,
 	TIENES QUE METER LOS NUMEROS EN NODOS
 */
