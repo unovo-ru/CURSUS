@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:22:27 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/01 17:56:19 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/01 20:23:05 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,16 @@ void	swap(t_node **stack)
 	*/
 }
 
-void	push(t_node **stack)
+void	push(t_node **stack_dest, t_node **stack_source)
 {
+	t_node	**a;
+	t_node	**b;
 
+	a = stack_source;
+	b = stack_dest;
+	(*a)->prev->next = (*a)->next;
+	(*a)->next->prev = (*a)->prev;
+	
 	/*
 	pa
 	pb
