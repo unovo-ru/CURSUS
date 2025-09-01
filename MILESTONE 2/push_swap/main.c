@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 13:59:20 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/01 14:08:14 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/01 16:55:40 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int	main(int argc, char **argv)
 {
 	(void)argc;
+	t_node *stack_a;
+
 	//int i = 0;
 	int *res = final_input(argv);
 	int count = count_array(&argv[1]);
@@ -28,7 +30,8 @@ int	main(int argc, char **argv)
 	//	printf("esto es mi imput = %d\n\n", res[i]);
 	//	i++;
 	//}
-	node_aplication(argv, res, count);
+	stack_a = node_aplication(argv, res, count);
+	print_node(stack_a);
 	free(res);
 	return (0);
 }

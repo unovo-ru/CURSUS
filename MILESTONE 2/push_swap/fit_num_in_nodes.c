@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fit_num_in_nodes.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 16:45:09 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/01 14:11:27 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/01 17:16:15 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,22 +40,20 @@ t_node	*node_aplication(char **str, int *num_array, int size)
 	t_node	*new_node;
 
 	i = 0;
-	new_node = NULL;
 	head = ft_new_node(num_array[i]);
 	i++;
 	size = count_array(str);
-	printf("contenido de mi head --> [ %d ]\n\n", head->data);
-	print_node(head);
+	//printf("contenido de mi head --> [ %d ]\n\n", head->data);
+	//print_node(head);
 	while (i < size - 1)
 	{
 		new_node = ft_new_node(num_array[i]);
 		ft_node_add_back(&head, new_node);
 		if (!new_node)
 			free(new_node);
-		print_node(new_node);
+		//print_node(new_node);
 		i++;
 	}
-	print_node(head);
-	return (new_node);
+	//print_node(head);
+	return (head);
 }
-

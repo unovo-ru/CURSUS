@@ -1,14 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movemets.c                                         :+:      :+:    :+:   */
+/*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:22:27 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/08/04 16:35:04 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/01 17:56:19 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "push_swap.h"
 
 /*
 
@@ -25,3 +27,57 @@ funciones que tendre que hacer para cada uno de los movimientos
 			(rra y rrb) y ambos al mismo tiempo (rrr))
 
 */
+
+void	swap(t_node **stack)
+{
+	t_node	**h;
+
+	h = stack;
+	(*h)->prev->next = (*h)->next;
+	(*h)->next->prev = (*h)->prev;
+	(*h)->prev = (*h)->next;
+	(*h)->next = (*h)->next->next;
+	(*h)->prev->next = h;
+	(*h)->next->prev = h;
+	(*h) = (*h)->prev;
+
+	/*
+	sa
+	sb
+	ss
+	*/
+}
+
+void	push(t_node **stack)
+{
+
+	/*
+	pa
+	pb
+	*/
+}
+
+/*!!!!!!!!!!!!CHECK ROTATE!!!!!!!!!!!*/
+
+void	rotate(t_node **stack)
+{
+	t_node	**h;
+
+	h = stack;
+	(*h) = (*h)->next;
+
+	/*
+	ra
+	rb
+	rr
+	*/
+}
+
+void	reverse_rotate(t_node **stack)
+{
+	/*
+	rra
+	rrb
+	rrr
+	*/
+}
