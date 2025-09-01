@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 18:58:35 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/01 10:31:29 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/01 14:14:53 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ char	*arg_join(char **argv)
 	}
 	return (str);
 }
+
 
 /*this function tells me that the imput is valid, it takes only numbers and
 valid signs '-'*/
@@ -146,7 +147,7 @@ int	*final_input(char **str)
 	char	*final_argument;
 	int		*res;
 
-    final_argument = arg_join(str);
+	final_argument = arg_join(str);
 	res = get_imput(final_argument);
 	if (!res || !no_empty_arg(str))
 	{

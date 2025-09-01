@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 13:59:20 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/01 12:26:07 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/01 14:08:14 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 int	main(int argc, char **argv)
 {
 	(void)argc;
-	int i = 0;
+	//int i = 0;
 	int *res = final_input(argv);
 	int count = count_array(&argv[1]);
-    printf("esto es el size --> %d\n\n", count);
+	//printf("esto es el size --> %d\n\n", count);
 	if (!res)
 		print_error();
 	//printf("llega\n\n");
-    //node_aplication(argv, res, count - 1);
-	while (i < count)
-	{
-		printf("esto es mi imput = %d\n\n", res[i]);
-		i++;
-	}
-    node_aplication(argv, res, count);
+	//node_aplication(argv, res, count - 1);
+	//while (i < count)
+	//{
+	//	printf("esto es mi imput = %d\n\n", res[i]);
+	//	i++;
+	//}
+	node_aplication(argv, res, count);
 	free(res);
 	return (0);
 }
