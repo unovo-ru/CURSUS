@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 18:58:35 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/08/31 18:04:20 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/01 10:31:29 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,18 +142,18 @@ int	*get_imput(char *number_list)
 
 int	*final_input(char **str)
 {
-	int		size;
+	//int		size;
 	char	*final_argument;
 	int		*res;
 
-	final_argument = arg_join(str);
+    final_argument = arg_join(str);
 	res = get_imput(final_argument);
 	if (!res || !no_empty_arg(str))
 	{
 		free(res);
 		print_error();
 	}
-	size = count_array(&str[1]);
+	//size = count_array(&str[1]);
 	//printf("esto es el size --> %d\n\n", size);
 	free(final_argument);
 	return (res);

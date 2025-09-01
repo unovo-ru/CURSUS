@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fit_num_in_nodes.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 16:45:09 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/08/30 22:48:36 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/01 12:53:26 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,31 +27,37 @@ int	count_array(char **array_ints)
 /*this function calls every function about nodes*/
 
 
-/*!!!!!!!!!!!!!!!!!IF THIS CASE IS UNIVERSAL I MAY 
-			HAVE TO HARDCODE OTHER CASES 
+/*!!!!!!!!!!!!!!!!!IF THIS CASE IS UNIVERSAL I MAY
+			HAVE TO HARDCODE OTHER CASES
 LIKE WHEN I HAVE ONLY 3-4 NUMBERS!!!!!!!!!!!!!!!!*/
+
+/*AQUI TENGO EL SEGFAULT!!!!!!!!!!*/
 
 t_node	*node_aplication(char **str, int *num_array, int size)
 {
 	int		i;
-	t_node	**head;
+	t_node	*head;
 	t_node	*new_node;
 
 	i = 0;
-	head = NULL;
 	new_node = NULL;
-	(*head) = ft_new_node(num_array[i]);
+	head = ft_new_node(num_array[i]);
 	i++;
 	size = count_array(str);
+    printf("contenido de mi head --> [ %d ]\n\n", head->data);
+    print_node(head);
 	while (i < size - 1)
 	{
-		ft_node_add_back(head, new_node);
+        new_node = ft_new_node(num_array[i]);
+        ft_node_add_back(&head, new_node);
 		if (!new_node)
-			free(new_node);
-		new_node = new_node->next;
-		printf("contenido de mi nodo --> [ %d ]\n", new_node->data);
+        free(new_node);
 		i++;
+        print_node(new_node);
+        //printf("---------------------------\n\n");
+        //printf("contenido de mi nodo --> [ %d ]\n\n", new_node->data);
 	}
+    print_node(head);
 	return (new_node);
 }
 
