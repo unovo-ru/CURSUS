@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 13:59:20 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/02 14:04:26 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/02 20:04:19 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	main(int argc, char **argv)
 {
 	(void)argc;
 	t_node *stack_a;
+	t_node *stack_b = create_b_stack();
 
 	//int i = 0;
 	int *res = final_input(argv);
@@ -31,11 +32,18 @@ int	main(int argc, char **argv)
 	//	i++;
 	//}
 	stack_a = node_aplication(argv, res, count);
-	//print_node(stack_a);
-	//printf("-----------antes de rotar-------\n");
-	//swap(&stack_a);
-	//printf("-----------después de rotar-------\n");
-	//print_node(stack_a);
+	printf("-----------antes de rotar-------\n");
+	printf("\t------STACK A------\n");
+	print_node(stack_a);
+	printf("\t------STACK B------\n");
+	print_node(stack_b);
+	printf("-----------después de rotar-------\n");
+	//reverse_rotate(&stack_a);
+	push(&stack_a, &stack_b);
+	printf("\t------STACK A------\n");
+	print_node(stack_a);
+	printf("\t------STACK B------\n");
+	print_node(stack_b);
 	//printf("tamaño del stack %d\n", ft_node_size(stack_a));
 	free(res);
 	return (0);

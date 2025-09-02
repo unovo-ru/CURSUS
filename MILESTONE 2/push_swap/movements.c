@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:22:27 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/02 14:43:11 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/02 19:51:16 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	push(t_node **stack_source, t_node **stack_dest)
 
 	a = stack_source;
 	b = stack_dest;
-	if (ft_node_size(b) == 0)
+/*	if (ft_node_size(b) == 0)
 		{
 			(*a)->prev->next = (*a)->next;
 			(*a)->next->prev = (*a)->prev;
@@ -64,7 +64,7 @@ void	push(t_node **stack_source, t_node **stack_dest)
 			(*b)->next = (*b);
 		}
 	else if (ft_node_size(b) > 0)
-		{
+		{*/
 			(*a)->prev->next = (*a)->next;
 			(*a)->next->prev = (*a)->prev;
 			(*a)->prev = (*b)->prev;
@@ -73,12 +73,7 @@ void	push(t_node **stack_source, t_node **stack_dest)
 			(*a) = (*a)->next;
 			(*b)->prev->next = (*b);
 			(*b) = (*b)->prev;
-		}
-
-	/*
-	pa
-	pb
-	*/
+		//}
 }
 
 /*!!!!!!!!!!!!CORRECT!!!!!!!!!!!*/

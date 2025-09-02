@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:01:55 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/02 15:00:35 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/02 19:52:21 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,22 +64,33 @@ void	ft_front_node(t_node **node, t_node *new_node);
 
 int	ft_node_size(t_node **stack);
 
+/*------------create the stack b------------*/
+/*HACER UNA FUNCION PARA CREAR EL STACK_B?????*/
+
+t_node	*create_b_stack(void);
+
 /*-----------  print nodes  -----------*/
 
 void	print_node(t_node *node);
 
 /*--------------moves------------------*/
 void	rotate(t_node **stack); //CORRECT
-void	reverse_rotate(t_node **stack);
+void	reverse_rotate(t_node **stack); //CORRECT
 void	swap(t_node **stack); //CORRECT
+
+
 void	push(t_node **stack_source, t_node **stack_dest);
+
+				/*!!!!!!!!WRONG!!!!!!*/
+				 /*REMAKE PUSH MOVES*/
+
 
 /*-----------------actions---------------*/
 void	sa(t_node *stack_a);
 void	sb(t_node *stack_b);
 void	ss(t_node *stack_a, t_node *stack_b);
 void	pa(t_node *stack_a, t_node *stack_b);
-void	pb(t_node *stack_b, t_node *stack_a);				/*------------CHECK ALL ACTIONS-----------*/
+void	pb(t_node *stack_b, t_node *stack_a);	/*------------CHECK ALL ACTIONS-----------*/
 
 void	ra(t_node *stack_a);
 void	rb(t_node *stack_b);

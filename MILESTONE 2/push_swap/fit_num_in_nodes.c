@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 16:45:09 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/02 14:04:17 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/02 19:50:18 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,14 @@ t_node	*node_aplication(char **str, int *num_array, int size)
 	//printf("-----------esto es el head -------");
 	//print_node(head);
 	return (head);
+}
+
+
+
+t_node	*create_b_stack(void)
+{
+	t_node	*stack_b;
+
+	stack_b = ft_new_node(0);
+	return (stack_b);
 }
