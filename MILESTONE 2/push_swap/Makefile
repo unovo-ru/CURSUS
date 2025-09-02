@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/07 18:08:01 by unovo-ru          #+#    #+#              #
-#    Updated: 2025/09/01 12:42:43 by marvin           ###   ########.fr        #
+#    Updated: 2025/09/02 14:53:58 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,9 @@ SRC = push_swap.c \
 		arguments_2.c \
 		node_functions.c \
 		fit_num_in_nodes.c \
+		actions_a.c \
+		actions_b.c \
+		actions_both.c \
 		main.c \
 		print_node.c
 

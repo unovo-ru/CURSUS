@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fit_num_in_nodes.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 16:45:09 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/01 17:16:15 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/02 14:04:17 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ t_node	*node_aplication(char **str, int *num_array, int size)
 		//print_node(new_node);
 		i++;
 	}
+	//printf("-----------esto es el head -------");
 	//print_node(head);
 	return (head);
 }

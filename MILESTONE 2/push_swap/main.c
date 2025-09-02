@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 13:59:20 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/01 16:55:40 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/02 14:04:26 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,12 @@ int	main(int argc, char **argv)
 	//	i++;
 	//}
 	stack_a = node_aplication(argv, res, count);
-	print_node(stack_a);
+	//print_node(stack_a);
+	//printf("-----------antes de rotar-------\n");
+	//swap(&stack_a);
+	//printf("-----------después de rotar-------\n");
+	//print_node(stack_a);
+	//printf("tamaño del stack %d\n", ft_node_size(stack_a));
 	free(res);
 	return (0);
 }

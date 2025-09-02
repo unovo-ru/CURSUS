@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   node_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:03:25 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/08/30 22:44:58 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/02 13:46:33 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ t_node	*ft_last_node(t_node *lst)
 	return (lst);
 }
 
-/*tengo que hacer que el nodo que apunte a NULL 
+/*tengo que hacer que el nodo que apunte a NULL
 sea el que apunte al primero de nuevo*/
 
 /*!!!!!!!CHECK IF IT IS RIGHT!!!!!*/
@@ -92,4 +92,28 @@ void	ft_front_node(t_node **node, t_node *new_node)
 	new_node->next = *node;
 	new_node->prev = &(*new_node);
 	*node = new_node;
+}
+
+/*int	ft_node_size(t_node **stack)
+{
+	if (stack == 0)
+		return (0);
+	else
+		return (1 + ft_node_size(&(*stack)->next));
+}*/
+
+int	ft_node_size(t_node **stack)
+{
+	int	count;
+
+	count = 0;
+	if (stack == 0)
+		return (0);
+	else
+		while (*stack)
+		{
+			(*stack) = (*stack)->next;
+			count++;
+		}
+	return (count);
 }
