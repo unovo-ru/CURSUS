@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:22:27 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/03 19:27:52 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/03 20:56:30 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ void	swap(t_node **stack)
 	ss
 	*/
 }
+
+
+/*COMPARAR CON EL DE ABAJO*/
 
 void	push(t_node **stack_source, t_node **stack_dest)
 {
@@ -124,7 +127,3 @@ void	reverse_rotate(t_node **stack)
 	h = stack;
 	(*h) = (*h)->prev;
 }
-
-/*rra
-rrb
-rrr*/
