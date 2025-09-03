@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:22:27 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/02 19:51:16 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/03 18:43:22 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,46 @@ void	swap(t_node **stack)
 	*/
 }
 
+
 void	push(t_node **stack_source, t_node **stack_dest)
+{
+	t_node *a;
+
+	if (!*stack_source)
+		return;
+	a = *stack_source;
+	// Si solo hay un nodo en stack_source
+	a->prev->next = a->next;
+	a->next->prev = a->prev;
+	*stack_source = a->next;
+	if (!*stack_dest)
+	{
+	// Stack destino vacío: el nodo apunta a sí mismo
+		a->next = a;
+		a->prev = a;
+		*stack_dest = a;
+	}
+	else
+	{
+	// Insertar al inicio del stack_dest
+		a->next = *stack_dest;
+		a->prev = (*stack_dest)->prev;
+		(*stack_dest)->prev->next = a;
+		(*stack_dest)->prev = a;
+		*stack_dest = a;
+	}
+}
+
+/*void	push(t_node **stack_source, t_node **stack_dest)
 {
 	t_node	**a;
 	t_node	**b;
 
 	a = stack_source;
 	b = stack_dest;
-/*	if (ft_node_size(b) == 0)
+	if (!*stack_source)
+		return;
+	if (ft_node_size(b) == 0)
 		{
 			(*a)->prev->next = (*a)->next;
 			(*a)->next->prev = (*a)->prev;
@@ -64,7 +96,7 @@ void	push(t_node **stack_source, t_node **stack_dest)
 			(*b)->next = (*b);
 		}
 	else if (ft_node_size(b) > 0)
-		{*/
+		{
 			(*a)->prev->next = (*a)->next;
 			(*a)->next->prev = (*a)->prev;
 			(*a)->prev = (*b)->prev;
@@ -73,8 +105,8 @@ void	push(t_node **stack_source, t_node **stack_dest)
 			(*a) = (*a)->next;
 			(*b)->prev->next = (*b);
 			(*b) = (*b)->prev;
-		//}
-}
+		}
+}*/
 
 /*!!!!!!!!!!!!CORRECT!!!!!!!!!!!*/
 

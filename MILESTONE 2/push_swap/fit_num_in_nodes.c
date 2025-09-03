@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 16:45:09 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/02 19:50:18 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/03 19:20:30 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	count_array(char **array_ints)
 	count = 0;
 	while (array_ints[count])
 		count++;
-	return (count);
+	return (count + 1);
 }
 
 /*this function calls every function about nodes*/

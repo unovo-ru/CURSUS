@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_node.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 21:14:51 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/01 17:18:30 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/03 18:28:17 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,11 @@ void	print_node(t_node *node)
 	t_node	*aux;
 
 	aux = node;
+	if (!node)
+	{
+		printf("(stack vacío)\n");
+		return;
+	}
 	while (1)
 	{
 		printf("---------------------------\n\n");
