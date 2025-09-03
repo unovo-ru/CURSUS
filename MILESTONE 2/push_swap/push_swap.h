@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:01:55 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/03 19:06:29 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/03 19:36:42 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,19 +86,19 @@ void	push(t_node **stack_source, t_node **stack_dest);
 
 
 /*-----------------actions---------------*/
-void	sa(t_node *stack_a);
-void	sb(t_node *stack_b);
-void	ss(t_node *stack_a, t_node *stack_b);
-void	pa(t_node *stack_a, t_node *stack_b);
-void	pb(t_node *stack_b, t_node *stack_a);	/*------------CHECK ALL ACTIONS-----------*/
+void	sa(t_node **stack_a);
+void	sb(t_node **stack_b);
+void	ss(t_node **stack_a, t_node **stack_b);
+void	pa(t_node **stack_a, t_node **stack_b);
+void	pb(t_node **stack_b, t_node **stack_a);	/*------------CHECK ALL ACTIONS-----------*/
 
-void	ra(t_node *stack_a);
-void	rb(t_node *stack_b);
-void	rr(t_node *stack_a, t_node *stack_b);
+void	ra(t_node **stack_a);
+void	rb(t_node **stack_b);
+void	rr(t_node **stack_a, t_node **stack_b);
 
-void	rra(t_node *stack_a);
-void	rrb(t_node *stack_b);
-void	rrr(t_node *stack_a, t_node *stack_b);
+void	rra(t_node **stack_a);
+void	rrb(t_node **stack_b);
+void	rrr(t_node **stack_a, t_node **stack_b);
 /*push swap is a void function just because i need to make tests whith them
 CHANGE IT LATER*/
 

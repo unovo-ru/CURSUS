@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:22:27 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/03 18:43:22 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/03 19:27:52 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	swap(t_node **stack)
 	ss
 	*/
 }
-
 
 void	push(t_node **stack_source, t_node **stack_dest)
 {

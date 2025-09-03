@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 13:59:20 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/03 19:21:33 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/03 20:30:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,62 @@ int	main(int argc, char **argv)
 	print_node(stack_b);
 	printf("-----------después de rotar-------\n");
 	//reverse_rotate(&stack_a);
-	push(&stack_a, &stack_b);
-	push(&stack_a, &stack_b);
+//	push(&stack_a, &stack_b);
+//	push(&stack_a, &stack_b);
+//	print_node(stack_a);
+//	printf("\t------STACK B------\n");
+//	print_node(stack_b);
+
+
+/*	printf("--------PRUEBA DE MOVIMIENTO-------\n");
+	//sa sb ss
+	printf("\t------STACK A------\n");
+	ss(&stack_a, &stack_b);
+	sa(&stack_a);
+	print_node(stack_a);
+//	sb(&stack_b);
+	printf("\t------STACK B------\n");
+	print_node(stack_b);
+*/
+
+/*	//ra rb rr
+	printf("--------PRUEBA DE MOVIMIENTO-------\n");
+//	rr(&stack_a, &stack_b);
+	printf("\t------STACK A------\n");
+	ra(&stack_a);
+	print_node(stack_a);
+	printf("\t------STACK B------\n");
+	rb(&stack_b);
+	print_node(stack_b);
+*/
+
+//pa pb
+
+	printf("--------PRUEBA DE MOVIMIENTO-------\n");
+
+	printf("\t------STACK A------\n");
+	pa(&stack_a, &stack_b);
+//	pa(&stack_a, &stack_b);
+	print_node(stack_a);
+	printf("\t------STACK B------\n");
+	print_node(stack_b);
+	pb(&stack_b, &stack_a);
+//	pb(&stack_b, &stack_b);
 	printf("\t------STACK A------\n");
 	print_node(stack_a);
 	printf("\t------STACK B------\n");
 	print_node(stack_b);
+
+	//rra rrb rrr
+//	rra(&stack_a);
+//	rrb(&stack_b);
+//	rrr(&stack_a, &stack_b);
+
+
+	//printf("\t------STACK A------\n");
+	//print_node(stack_a);
+	//printf("\t------STACK B------\n");
+	//print_node(stack_b);
 	//printf("tamaño del stack %d\n", ft_node_size(stack_a));
 	free(res);
 	return (0);
