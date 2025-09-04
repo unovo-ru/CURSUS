@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fit_num_in_nodes.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 16:45:09 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/03 19:46:33 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/04 19:12:16 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,16 @@
 
 /*this function counts how many inst i have in my array*/
 
-int	count_array(char **array_ints)
+int	count_array(char *array_ints)
 {
-	int	count;
+	int		count;
+	char	**array;
 
+	array = ft_split(array_ints, ' ');
 	count = 0;
-	while (array_ints[count])
+	while (array[count])
 		count++;
+	free_array(array);
 	return (count);
 }
 
@@ -33,29 +36,27 @@ LIKE WHEN I HAVE ONLY 3-4 NUMBERS!!!!!!!!!!!!!!!!*/
 
 /*AQUI TENGO EL SEGFAULT!!!!!!!!!!*/
 
-t_node	*node_aplication(char **str, int *num_array, int size)
+t_node	*node_aplication(int *num_array, int size)
 {
 	int		i;
 	t_node	*head;
 	t_node	*new_node;
 
-	i = 0;
-	head = ft_new_node(num_array[i]);
-	i++;
-	size = count_array(str);
-	//printf("contenido de mi head --> [ %d ]\n\n", head->data);
-	//print_node(head);
-	while (i < size - 1)
+	i = 1;
+	head = ft_new_node(num_array[0]);
+	// i++;
+	while (i < size)
 	{
 		new_node = ft_new_node(num_array[i]);
 		ft_node_add_back(&head, new_node);
 		if (!new_node)
-			free(new_node);
-		//print_node(new_node);
+		{
+			free(num_array);
+			return (NULL);
+		}
 		i++;
 	}
-	//printf("-----------esto es el head -------");
-	//print_node(head);
+	free(num_array);
 	return (head);
 }
 
@@ -67,4 +68,22 @@ t_node	*create_b_stack(void)
 
 	stack_b = ft_new_node(0);
 	return (stack_b);
+}
+
+void	free_nodes(t_node **node)
+{
+	t_node	*current;
+	t_node	*next;
+
+	current = (*node);
+	if (!current)
+		return ;
+	while (1)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+		if (current == (*node))
+			break ;
+	}
 }

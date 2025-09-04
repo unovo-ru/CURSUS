@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arguments_1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 18:58:35 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/01 14:19:45 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/04 19:14:08 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,13 +88,14 @@ int	*number_array(char **new_num_list, int count)
 
 	num = (int *)malloc(sizeof(int) * count);
 	if (!num)
-		return (0);
+		return (NULL);
 	i = 0;
-	while (i < count)
+	while (i < count && new_num_list)
 	{
 		nbr = ft_atol(new_num_list[i]);
 		if (!is_min_or_max(nbr))
 		{
+			free(num);
 			free_array(new_num_list);
 			print_error();
 		}
@@ -103,6 +104,7 @@ int	*number_array(char **new_num_list, int count)
 	}
 	if (repeat_number(num, count) == 0)
 	{
+		free(num);
 		free_array(new_num_list);
 		print_error();
 	}
@@ -149,6 +151,7 @@ int	*final_input(char **str)
 
 	final_argument = arg_join(str);
 	res = get_imput(final_argument);
+	printf("este es el input final = %s\n", final_argument);
 	if (!res || !no_empty_arg(str))
 	{
 		free(res);
@@ -160,7 +163,3 @@ int	*final_input(char **str)
 	return (res);
 }
 
-
-/*			TE HAS QUEDADO AQUI,
-	TIENES QUE METER LOS NUMEROS EN NODOS
-*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   movements.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:22:27 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/03 20:56:30 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/04 15:57:18 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,25 +53,22 @@ void	swap(t_node **stack)
 
 void	push(t_node **stack_source, t_node **stack_dest)
 {
-	t_node *a;
+	t_node	*a;
 
 	if (!*stack_source)
-		return;
+		return ;
 	a = *stack_source;
-	// Si solo hay un nodo en stack_source
 	a->prev->next = a->next;
 	a->next->prev = a->prev;
 	*stack_source = a->next;
 	if (!*stack_dest)
 	{
-	// Stack destino vacío: el nodo apunta a sí mismo
 		a->next = a;
 		a->prev = a;
 		*stack_dest = a;
 	}
 	else
 	{
-	// Insertar al inicio del stack_dest
 		a->next = *stack_dest;
 		a->prev = (*stack_dest)->prev;
 		(*stack_dest)->prev->next = a;

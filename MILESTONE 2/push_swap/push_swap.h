@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:01:55 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/03 19:36:42 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/04 19:06:28 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,18 +51,19 @@ int		repeat_number(int *numbers, int count);
 void	print_error(void);
 int		no_empty_arg(char **argv);
 int		*final_input(char **str);
-int		count_array(char **array_ints);
+int		count_array(char *array_ints);
 
 /*-----------  nodes functions -----------*/
 
-t_node	*node_aplication(char **str, int *num_array, int size);
+t_node	*node_aplication(int *num_array, int size);
 t_node	*ft_new_node(int data);
 void	ft_node_add_back(t_node **head, t_node *new_node);
 t_node	*ft_last_node(t_node *lst);
 void	ft_node_add_back(t_node **node, t_node *new_node);
 void	ft_front_node(t_node **node, t_node *new_node);
 
-int	ft_node_size(t_node **stack);
+void	free_nodes(t_node **node);
+int		ft_node_size(t_node **stack);
 
 /*------------create the stack b------------*/
 /*HACER UNA FUNCION PARA CREAR EL STACK_B?????*/
@@ -104,7 +105,7 @@ CHANGE IT LATER*/
 
 /*-------------  push swap  --------------*/
 
-void	push_swap(void);
+t_node	*push_swap(char **str);
 
 /*size_t	ft_let_count(const char *s, char c);
 size_t	ft_count_words(const char *s, char c);

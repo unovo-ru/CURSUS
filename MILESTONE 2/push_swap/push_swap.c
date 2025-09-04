@@ -6,20 +6,34 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:01:44 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/08/11 13:55:35 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/04 19:14:24 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_swap(void)/*t_node stack_a, t_node stack_b, char *list*/
+t_node	*push_swap(char **str)
 {
-	/*
-	aqui se iran llamando a las funciones para que estas ordenen 
-	y escriban los movimientos (r,rr,p,pp...)
-	*/
-	write(1, "AGUANTE BOQUITA", 16);
+	int		size;
+	char	*final_argument;
+	int		*res;
+	t_node	*stack;
+
+	final_argument = arg_join(str);
+	res = get_imput(final_argument);
+	if (!res || !no_empty_arg(str))
+	{
+		free(res);
+		print_error();
+	}
+	size = count_array(final_argument);
+	stack = node_aplication(res, size);
+	printf("este es el input final = %s\n", final_argument);
+	printf("este es el size = %d\n", size);
+	free(final_argument);
+	return (stack);
 }
+
 
 /*int	main()
 {

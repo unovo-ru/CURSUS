@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 13:59:20 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/03 20:55:00 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/04 19:17:03 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,20 @@ int	main(int argc, char **argv)
 	t_node *stack_a;
 	t_node *stack_b = NULL;
 
-	int i = 0;
-	int *res = final_input(argv);
-	int count = count_array(&argv[1]);
-	printf("esto es el size --> %d\n\n", count);
-	if (!res)
-		print_error();
-	printf("llega\n\n");
-	node_aplication(argv, res, count - 1);
-	while (i < count)
-	{
-		printf("esto es mi imput = %d\n\n", res[i]);
-		i++;
-	}
-	stack_a = node_aplication(argv, res, count);
-	//print_node(stack_a);
+	// int i = 0;
+	// int *res = final_input(argv);
+	// if (!res)
+	// 	print_error();
+	// printf("llega\n\n");
+	// node_aplication(argv, res);
+	// while (i < 4)
+	// {
+	// 	printf("esto es mi imput = %d\n\n", res[i]);
+	// 	i++;
+	// }
+	// stack_a = node_aplication(argv, res);
+	stack_a = push_swap(argv);
+	print_node(stack_a);
 	printf("-----------antes de rotar-------\n");
 	printf("\t------STACK A------\n");
 	print_node(stack_a);
@@ -47,39 +46,38 @@ int	main(int argc, char **argv)
 	print_node(stack_b);
 
 
-/*	printf("--------PRUEBA DE MOVIMIENTO-------\n");
+	printf("--------PRUEBA DE MOVIMIENTO-------\n");
 	//sa sb ss
 	printf("\t------STACK A------\n");
 	ss(&stack_a, &stack_b);
 	sa(&stack_a);
 	print_node(stack_a);
-//	sb(&stack_b);
+	sb(&stack_b);
 	printf("\t------STACK B------\n");
 	print_node(stack_b);
-*/
 
-/*	//ra rb rr
+
+	//ra rb rr
 	printf("--------PRUEBA DE MOVIMIENTO-------\n");
-//	rr(&stack_a, &stack_b);
+	rr(&stack_a, &stack_b);
 	printf("\t------STACK A------\n");
 	ra(&stack_a);
 	print_node(stack_a);
 	printf("\t------STACK B------\n");
 	rb(&stack_b);
 	print_node(stack_b);
-*/
 
 //pa pb
 
-	printf("--------PRUEBA DE MOVIMIENTO-------\n");
+//	printf("--------PRUEBA DE MOVIMIENTO-------\n");
 
 //rra rrb rrr
-	rrr(&stack_a, &stack_b);
+//	rrr(&stack_a, &stack_b);
 //	rra(&stack_a);
-	print_node(stack_a);
+//	print_node(stack_a);
 
 //	rrb(&stack_b);
-	print_node(stack_b);
+//	print_node(stack_b);
 
 //	rrr(&stack_a, &stack_b);
 
@@ -89,7 +87,8 @@ int	main(int argc, char **argv)
 	//printf("\t------STACK B------\n");
 	//print_node(stack_b);
 	//printf("tamaño del stack %d\n", ft_node_size(stack_a));
-	free(res);
+	free_nodes(&stack_a);
+	free_nodes(&stack_b);
 	return (0);
 }
 
