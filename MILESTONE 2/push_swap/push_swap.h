@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:01:55 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/04 19:06:28 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/05 16:40:35 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void	ft_front_node(t_node **node, t_node *new_node);
 
 void	free_nodes(t_node **node);
 int		ft_node_size(t_node **stack);
+
+int	is_correct(t_node *stack_a); /*compruebo si el input ya viene ordenado*/
 
 /*------------create the stack b------------*/
 /*HACER UNA FUNCION PARA CREAR EL STACK_B?????*/

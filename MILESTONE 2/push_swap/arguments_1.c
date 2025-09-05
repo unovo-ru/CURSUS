@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 18:58:35 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/04 19:14:08 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/05 17:54:11 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,12 +97,13 @@ int	*number_array(char **new_num_list, int count)
 		{
 			free(num);
 			free_array(new_num_list);
+			printf("llega\n");
 			print_error();
 		}
 		num[i] = (int)nbr;
 		i++;
 	}
-	if (repeat_number(num, count) == 0)
+	if (!repeat_number(num, count))
 	{
 		free(num);
 		free_array(new_num_list);

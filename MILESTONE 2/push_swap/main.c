@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 13:59:20 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/04 19:17:03 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/05 16:56:31 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,30 @@
 int	main(int argc, char **argv)
 {
 	(void)argc;
-	t_node *stack_a;
+	t_node *stack_a = NULL;
 	t_node *stack_b = NULL;
 
+
+	stack_a = push_swap(argv);
+	printf("-----------antes de rotar-------\n");
+	printf("\t------STACK A------\n");
+	print_node(stack_a);
+	printf("\t------STACK B------\n\n\n");
+	print_node(stack_b);
+	pb(&stack_a, &stack_b);
+	//pb(&stack_a, &stack_b);
+	//pb(&stack_a, &stack_b);
+	//pb(&stack_a, &stack_b);
+	printf("-----------después de rotar-------\n");
+	printf("\t------STACK A------\n");
+	print_node(stack_a);
+	printf("\t------STACK B------\n");
+	print_node(stack_b);
+
+
+
+
+	
 	// int i = 0;
 	// int *res = final_input(argv);
 	// if (!res)
@@ -30,42 +51,42 @@ int	main(int argc, char **argv)
 	// 	i++;
 	// }
 	// stack_a = node_aplication(argv, res);
-	stack_a = push_swap(argv);
-	print_node(stack_a);
-	printf("-----------antes de rotar-------\n");
-	printf("\t------STACK A------\n");
-	print_node(stack_a);
-	printf("\t------STACK B------\n");
-	print_node(stack_b);
-	printf("-----------después de rotar-------\n");
-	//reverse_rotate(&stack_a);
-	push(&stack_a, &stack_b);
-	push(&stack_a, &stack_b);
-	print_node(stack_a);
-	printf("\t------STACK B------\n");
-	print_node(stack_b);
+	// stack_a = push_swap(argv);
+	// print_node(stack_a);
+	// printf("-----------antes de rotar-------\n");
+	// printf("\t------STACK A------\n");
+	// print_node(stack_a);
+	// printf("\t------STACK B------\n");
+	// print_node(stack_b);
+	// printf("-----------después de rotar-------\n");
+	// //reverse_rotate(&stack_a);
+	// push(&stack_a, &stack_b);
+	// push(&stack_a, &stack_b);
+	// print_node(stack_a);
+	// printf("\t------STACK B------\n");
+	// print_node(stack_b);
 
 
-	printf("--------PRUEBA DE MOVIMIENTO-------\n");
-	//sa sb ss
-	printf("\t------STACK A------\n");
-	ss(&stack_a, &stack_b);
-	sa(&stack_a);
-	print_node(stack_a);
-	sb(&stack_b);
-	printf("\t------STACK B------\n");
-	print_node(stack_b);
+	// printf("--------PRUEBA DE MOVIMIENTO-------\n");
+	// //sa sb ss
+	// printf("\t------STACK A------\n");
+	// ss(&stack_a, &stack_b);
+	// sa(&stack_a);
+	// print_node(stack_a);
+	// sb(&stack_b);
+	// printf("\t------STACK B------\n");
+	// print_node(stack_b);
 
 
 	//ra rb rr
-	printf("--------PRUEBA DE MOVIMIENTO-------\n");
-	rr(&stack_a, &stack_b);
-	printf("\t------STACK A------\n");
-	ra(&stack_a);
-	print_node(stack_a);
-	printf("\t------STACK B------\n");
-	rb(&stack_b);
-	print_node(stack_b);
+	// printf("--------PRUEBA DE MOVIMIENTO-------\n");
+	// rr(&stack_a, &stack_b);
+	// printf("\t------STACK A------\n");
+	// ra(&stack_a);
+	// print_node(stack_a);
+	// printf("\t------STACK B------\n");
+	// rb(&stack_b);
+	// print_node(stack_b);
 
 //pa pb
 
