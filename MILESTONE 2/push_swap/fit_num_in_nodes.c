@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fit_num_in_nodes.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 16:45:09 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/04 19:12:16 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/06 14:37:48 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ t_node	*node_aplication(int *num_array, int size)
 
 	i = 1;
 	head = ft_new_node(num_array[0]);
-	// i++;
 	while (i < size)
 	{
 		new_node = ft_new_node(num_array[i]);

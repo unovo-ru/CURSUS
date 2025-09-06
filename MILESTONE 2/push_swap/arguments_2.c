@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arguments_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:05:42 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/04 17:23:26 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/06 18:05:44 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*this function frees the array for memory leaks*/
 
-char	**free_array(char **s)
+void	free_array(char **s)
 {
 	int	i;
 
@@ -25,7 +25,6 @@ char	**free_array(char **s)
 		i++;
 	}
 	free(s);
-	return (NULL);
 }
 
 /*this function tells me if there are repeted numbers*/
@@ -42,7 +41,10 @@ int	repeat_number(int *numbers, int count)
 		while (j < count)
 		{
 			if (numbers[i] == numbers[j])
+			{
+				//free(numbers);
 				return (0);
+			}
 			j++;
 		}
 		i++;
@@ -52,6 +54,19 @@ int	repeat_number(int *numbers, int count)
 
 /*print an error message and exit*/
 
+/*void	print_error(char *array, char **str, int *num, t_node **node)
+{
+	if(array)
+		free(array);
+	if(str)
+		free_array(str);
+	if(num)
+		free(num);
+	if(node)
+		free_nodes(&(*node));
+	write(2, "Error\n", 6);
+	exit(0);
+}*/
 void	print_error(void)
 {
 	write(2, "Error\n", 6);

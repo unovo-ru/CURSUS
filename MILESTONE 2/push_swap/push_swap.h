@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:01:55 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/04 19:06:28 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/06 16:59:54 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,9 @@ int		arg_valid(char *str);
 int		is_min_or_max(long int nbr);
 int		*number_array(char **new_num_list, int count);
 int		*get_imput(char *number_list);
-char	**free_array(char **s);
+void	free_array(char **s);
 int		repeat_number(int *numbers, int count);
+//void	print_error(char *array, char **str, int *num, t_node **node);
 void	print_error(void);
 int		no_empty_arg(char **argv);
 int		*final_input(char **str);

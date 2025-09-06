@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 13:59:20 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/04 19:17:03 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/06 18:34:00 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,33 +39,33 @@ int	main(int argc, char **argv)
 	print_node(stack_b);
 	printf("-----------después de rotar-------\n");
 	//reverse_rotate(&stack_a);
-	push(&stack_a, &stack_b);
-	push(&stack_a, &stack_b);
+//	push(&stack_a, &stack_b);
+//	push(&stack_a, &stack_b);
 	print_node(stack_a);
 	printf("\t------STACK B------\n");
 	print_node(stack_b);
 
 
-	printf("--------PRUEBA DE MOVIMIENTO-------\n");
+//	printf("--------PRUEBA DE MOVIMIENTO-------\n");
 	//sa sb ss
-	printf("\t------STACK A------\n");
-	ss(&stack_a, &stack_b);
-	sa(&stack_a);
-	print_node(stack_a);
-	sb(&stack_b);
-	printf("\t------STACK B------\n");
-	print_node(stack_b);
+//	printf("\t------STACK A------\n");
+//	ss(&stack_a, &stack_b);
+//	sa(&stack_a);
+//	print_node(stack_a);
+//	sb(&stack_b);
+//	printf("\t------STACK B------\n");
+//	print_node(stack_b);
 
 
 	//ra rb rr
-	printf("--------PRUEBA DE MOVIMIENTO-------\n");
-	rr(&stack_a, &stack_b);
-	printf("\t------STACK A------\n");
-	ra(&stack_a);
-	print_node(stack_a);
-	printf("\t------STACK B------\n");
-	rb(&stack_b);
-	print_node(stack_b);
+//	printf("--------PRUEBA DE MOVIMIENTO-------\n");
+//	rr(&stack_a, &stack_b);
+//	printf("\t------STACK A------\n");
+//	ra(&stack_a);
+//	print_node(stack_a);
+//	printf("\t------STACK B------\n");
+//	rb(&stack_b);
+//	print_node(stack_b);
 
 //pa pb
 
@@ -87,7 +87,8 @@ int	main(int argc, char **argv)
 	//printf("\t------STACK B------\n");
 	//print_node(stack_b);
 	//printf("tamaño del stack %d\n", ft_node_size(stack_a));
-	free_nodes(&stack_a);
+
+	free_nodes(&stack_a); /* POR QUE DA ERROR LIBERAR EL NODO A?*/
 	free_nodes(&stack_b);
 	return (0);
 }

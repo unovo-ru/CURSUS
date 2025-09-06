@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:01:44 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/04 19:14:24 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/06 18:28:12 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,14 @@ t_node	*push_swap(char **str)
 	t_node	*stack;
 
 	final_argument = arg_join(str);
+	if (!final_argument)
+		free(final_argument);
 	res = get_imput(final_argument);
+	//free(final_argument);
 	if (!res || !no_empty_arg(str))
 	{
 		free(res);
+		free(final_argument);
 		print_error();
 	}
 	size = count_array(final_argument);
@@ -37,13 +41,13 @@ t_node	*push_swap(char **str)
 
 /*int	main()
 {
-	
+
 	parseo:
 	1 que solo acepte numeros (caso contyrario debe saltar "ERROR")
 	2 los valores han de estar acotados en MAX_INT y MIN_INT
-	3 los argumentos no deben distinguir entre los que van con comillas 
+	3 los argumentos no deben distinguir entre los que van con comillas
 	o sin comillas
-	
+
 	push_swap();
 	return (0);
 }*/

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   arguments_1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 18:58:35 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/04 19:14:08 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/06 18:35:18 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,27 @@ char	*arg_join(char **argv)
 	i = 1;
 	str = ft_strdup("");
 	if (!str)
+	{
+		free(str);
 		return (NULL);
+	}
 	while (argv[i])
 	{
 		if (argv[i][0] == '\0')
 		{
 			free(str);
 			print_error();
+			//return (NULL);
 		}
 		if (i > 0)
 			str = ft_strjoin(str, " ");
 		str = ft_strjoin(str, argv[i]);
 		if (!str)
+		{
+			free(str);
 			print_error();
+			//return (NULL);
+		}
 		i++;
 	}
 	return (str);
@@ -96,17 +104,15 @@ int	*number_array(char **new_num_list, int count)
 		if (!is_min_or_max(nbr))
 		{
 			free(num);
-			free_array(new_num_list);
-			print_error();
+			return (0);
 		}
 		num[i] = (int)nbr;
 		i++;
 	}
-	if (repeat_number(num, count) == 0)
+	if (!repeat_number(num, count))
 	{
 		free(num);
-		free_array(new_num_list);
-		print_error();
+		return (0);
 	}
 	return (num);
 }
@@ -122,22 +128,28 @@ int	*get_imput(char *number_list)
 
 	if (!arg_valid(number_list))
 	{
-		free(number_list);
-		print_error();
+		//free(number_list);
+		//print_error();
+		return (0);
 	}
 	new_num_list = ft_split(number_list, ' ');
 	if (!new_num_list)
 	{
-		free(number_list);
+		//free(number_list);
 		return (0);
 	}
 	count = 0;
 	while (new_num_list[count])
 		count++;
+	//printf("este es mi count = %d\n\n", count);
+	//free(number_list);
 	num = number_array(new_num_list, count);
 	free_array(new_num_list);
 	if (!num)
+	{
+		free(num);
 		return (0);
+	}
 	return (num);
 }
 
