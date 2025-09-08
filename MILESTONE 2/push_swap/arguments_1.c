@@ -38,7 +38,6 @@ char	*arg_join(char **argv)
 		{
 			free(str);
 			print_error();
-			//return (NULL);
 		}
 		if (i > 0)
 			str = ft_strjoin(str, " ");
@@ -47,7 +46,6 @@ char	*arg_join(char **argv)
 		{
 			free(str);
 			print_error();
-			//return (NULL);
 		}
 		i++;
 	}
@@ -127,22 +125,13 @@ int	*get_imput(char *number_list)
 	int		count;
 
 	if (!arg_valid(number_list))
-	{
-		//free(number_list);
-		//print_error();
 		return (0);
-	}
 	new_num_list = ft_split(number_list, ' ');
 	if (!new_num_list)
-	{
-		//free(number_list);
 		return (0);
-	}
 	count = 0;
 	while (new_num_list[count])
 		count++;
-	//printf("este es mi count = %d\n\n", count);
-	//free(number_list);
 	num = number_array(new_num_list, count);
 	free_array(new_num_list);
 	if (!num)
@@ -157,7 +146,6 @@ int	*get_imput(char *number_list)
 
 int	*final_input(char **str)
 {
-	//int		size;
 	char	*final_argument;
 	int		*res;
 
@@ -169,8 +157,6 @@ int	*final_input(char **str)
 		free(res);
 		print_error();
 	}
-	//size = count_array(&str[1]);
-	//printf("esto es el size --> %d\n\n", size);
 	free(final_argument);
 	return (res);
 }

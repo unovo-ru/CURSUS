@@ -15,7 +15,7 @@
 int	main(int argc, char **argv)
 {
 	(void)argc;
-	t_node *stack_a;
+	t_node *stack_a = NULL;
 	t_node *stack_b = NULL;
 
 	// int i = 0;
@@ -31,19 +31,27 @@ int	main(int argc, char **argv)
 	// }
 	// stack_a = node_aplication(argv, res);
 	stack_a = push_swap(argv);
-	print_node(stack_a);
-	printf("-----------antes de rotar-------\n");
+	is_min(&stack_a);
 	printf("\t------STACK A------\n");
 	print_node(stack_a);
 	printf("\t------STACK B------\n");
 	print_node(stack_b);
-	printf("-----------después de rotar-------\n");
-	//reverse_rotate(&stack_a);
-//	push(&stack_a, &stack_b);
-//	push(&stack_a, &stack_b);
-	print_node(stack_a);
-	printf("\t------STACK B------\n");
-	print_node(stack_b);
+
+	// if(!is_correct(stack_a))
+	// {
+		// printf("-----------antes de rotar-------\n");
+		// printf("\t------STACK A------\n");
+		// print_node(stack_a);
+	// }
+	// printf("\t------STACK B------\n");
+	// print_node(stack_b);
+	// printf("-----------después de rotar-------\n");
+	// reverse_rotate(&stack_a);
+	// push(&stack_a, &stack_b);
+	// push(&stack_a, &stack_b);
+	// print_node(stack_a);
+	// printf("\t------STACK B------\n");
+	// print_node(stack_b);
 
 
 //	printf("--------PRUEBA DE MOVIMIENTO-------\n");

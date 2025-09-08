@@ -23,7 +23,6 @@ t_node	*push_swap(char **str)
 	if (!final_argument)
 		free(final_argument);
 	res = get_imput(final_argument);
-	//free(final_argument);
 	if (!res || !no_empty_arg(str))
 	{
 		free(res);
@@ -32,8 +31,29 @@ t_node	*push_swap(char **str)
 	}
 	size = count_array(final_argument);
 	stack = node_aplication(res, size);
-	printf("este es el input final = %s\n", final_argument);
-	printf("este es el size = %d\n", size);
+	//print_node(stack);
+	if (!is_correct(stack))
+	{
+		// printf("\n\nhola\n\n");
+		free(stack);
+		free(final_argument);
+		return (NULL);
+	}
+	select_hc(size, &stack);
+	is_min(&stack);
+	index_node(stack);
+	printf("\t------STACK A------\n");
+	print_node(stack);
+	// printf("este es el input final = %s\n", final_argument);
+	// printf("este es el size = %d\n", size);
+	// if (!is_correct(stack))
+	// {
+	// 	printf("hola\n\n");
+	// 	free(stack);
+	// 	free(final_argument);
+	// 	return (NULL);
+	// }
+	//else
 	free(final_argument);
 	return (stack);
 }

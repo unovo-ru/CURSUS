@@ -41,10 +41,7 @@ int	repeat_number(int *numbers, int count)
 		while (j < count)
 		{
 			if (numbers[i] == numbers[j])
-			{
-				//free(numbers);
 				return (0);
-			}
 			j++;
 		}
 		i++;

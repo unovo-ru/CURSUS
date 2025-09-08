@@ -37,7 +37,6 @@ typedef struct t_node
 
 /*----------------  main  -----------------*/
 
-//int		main(int argc, char **argv);
 int		main(int argc, char **argv);
 
 /*-----------  parse arguments  -----------*/
@@ -67,7 +66,6 @@ void	free_nodes(t_node **node);
 int		ft_node_size(t_node **stack);
 
 /*------------create the stack b------------*/
-/*HACER UNA FUNCION PARA CREAR EL STACK_B?????*/
 
 t_node	*create_b_stack(void);
 
@@ -83,16 +81,13 @@ void	swap(t_node **stack); //CORRECT
 
 void	push(t_node **stack_source, t_node **stack_dest);
 
-				/*!!!!!!!!WRONG!!!!!!*/
-				 /*REMAKE PUSH MOVES*/
-
 
 /*-----------------actions---------------*/
 void	sa(t_node **stack_a);
 void	sb(t_node **stack_b);
 void	ss(t_node **stack_a, t_node **stack_b);
 void	pa(t_node **stack_a, t_node **stack_b);
-void	pb(t_node **stack_b, t_node **stack_a);	/*------------CHECK ALL ACTIONS-----------*/
+void	pb(t_node **stack_b, t_node **stack_a);
 
 void	ra(t_node **stack_a);
 void	rb(t_node **stack_b);
@@ -101,8 +96,19 @@ void	rr(t_node **stack_a, t_node **stack_b);
 void	rra(t_node **stack_a);
 void	rrb(t_node **stack_b);
 void	rrr(t_node **stack_a, t_node **stack_b);
-/*push swap is a void function just because i need to make tests whith them
-CHANGE IT LATER*/
+
+/*------------------algorithm------------------*/
+
+void	index_node(t_node *stack_a);
+int		is_correct(t_node *stack_a);
+// void	select_hc(int size, t_node **stack_a, t_node **stack_b);
+void	select_hc(int size, t_node **stack_a);
+void	sort_2(t_node **stack_a);
+void	sort_3(t_node **stack_a);
+void	sort_4(t_node **stack_a, t_node **stack_b);
+void	sort_5(t_node **stack_a, t_node **stack_b);
+int		is_min(t_node **stack_a);
+
 
 /*-------------  push swap  --------------*/
 
