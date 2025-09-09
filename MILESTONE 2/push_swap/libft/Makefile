@@ -6,7 +6,7 @@
 #    By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/22 20:42:28 by unovo-ru          #+#    #+#              #
-#    Updated: 2025/08/30 18:44:15 by unovo-ru         ###   ########.fr        #
+#    Updated: 2025/09/09 18:20:38 by unovo-ru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = libft.a
 
 # Compiler and compilation flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -fPIE
 
 # Source files and object files
 SRC = ft_isalpha.c \
