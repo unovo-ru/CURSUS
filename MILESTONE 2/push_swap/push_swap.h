@@ -100,7 +100,8 @@ void	rrr(t_node **stack_a, t_node **stack_b);
 /*------------------algorithm------------------*/
 
 void	index_node(t_node *stack_a);
-int		is_correct(t_node *stack_a);
+// int		is_correct(t_node *stack_a);
+int		is_correct(int *array_ints, int size);
 // void	select_hc(int size, t_node **stack_a, t_node **stack_b);
 void	select_hc(int size, t_node **stack_a);
 void	sort_2(t_node **stack_a);

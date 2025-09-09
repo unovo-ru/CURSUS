@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 18:54:13 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/08 21:39:57 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/09 15:08:19 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,28 +44,49 @@ void	index_node(t_node *stack_a)
 	}
 }
 
-int	is_correct(t_node *stack_a)
-{
-	t_node	*aux;
+// int	is_correct(t_node *stack_a)
+// {
+// 	t_node	*aux;
 
-	aux = stack_a;
-	printf("este es el stack_a [ %d ]\n", stack_a->data);
-	printf("este es el stack_a->next [ %d ]\n", stack_a->next->data);
-	while (stack_a->next != aux)
+// 	aux = stack_a;
+// 	printf("este es el stack_a [ %d ]\n", stack_a->data);
+// 	printf("este es el stack_a->next [ %d ]\n", stack_a->next->data);
+// 	while (stack_a->next != aux)
+// 	{
+// 		if ((stack_a->data) < (stack_a->next->data))
+// 		{
+// 			free(aux);
+// 			return (0);
+// 		}
+// 		stack_a = stack_a->next;
+// 	}
+// 	return (1);
+// }
+
+int	is_correct(int *array_ints, int size)
+{
+	int	i;
+
+	i = 0;
+	// printf("este es el stack_a [ %d ]\n", array_ints[i]);
+	// printf("este es el stack_a->next [ %d ]\n",  array_ints[i + 1]);
+	while (i < size - 1)
 	{
-		if ((stack_a->data) < (stack_a->next->data))
+		if (array_ints[i] > array_ints[i + 1])
 		{
-			free(aux);
-			return (0);
+			// printf("este es el valor de i [ %d ]\n", array_ints[i + 1]);
+			// printf("este es el valor de i [ %d ]\n", array_ints[i + 2]);
+			// printf("este es el valor de i [ %d ]\n", array_ints[i]);
+			return (1);
 		}
-		stack_a = stack_a->next;
+		i++;
 	}
-	return (1);
+	return (0);
 }
 
 void	sort_2(t_node **stack_a)
 {
-	sa(stack_a);
+	ra(stack_a);
 }
 
 void	sort_3(t_node **stack_a)
@@ -77,22 +98,21 @@ void	sort_3(t_node **stack_a)
 	a = (*stack_a)->data;
 	b = (*stack_a)->next->data;
 	c = (*stack_a)->next->next->data;
-	if (a < b > c && a < c)
+	if (a < b && b > c && a < c)
 	{
 		rra(stack_a);
 		sa(stack_a);
 	}
-	else if (a < b > c && a > c)
+	else if (a < b && b > c && a > c)
 		rra(stack_a);
-	else if (a > b > c && a > c)
+	else if (a > b && b > c && a > c)
 	{
-		printf("holo");
 		sa(stack_a);
 		rra(stack_a);
 	}
-	else if (a > b < c && a > c)
+	else if (a > b && b < c && a > c)
 		ra(stack_a);
-	else if (a > b < c && a < c)
+	else if (a > b && b < c && a < c)
 		sa(stack_a);
 }
 
@@ -112,7 +132,7 @@ int	is_min(t_node **stack_a)
 			n = current->data;
 		current = current->next;
 	}
-	printf("este es el menor [ %d ]\n\n", n);
+	// printf("este es el menor [ %d ]\n\n", n);
 	return (n);
 }
 

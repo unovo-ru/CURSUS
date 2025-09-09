@@ -17,7 +17,8 @@ t_node	*push_swap(char **str)
 	int		size;
 	char	*final_argument;
 	int		*res;
-	t_node	*stack;
+	t_node	*stack = NULL;
+	t_node	*stack_b = NULL;
 
 	final_argument = arg_join(str);
 	if (!final_argument)
@@ -30,20 +31,30 @@ t_node	*push_swap(char **str)
 		print_error();
 	}
 	size = count_array(final_argument);
-	stack = node_aplication(res, size);
-	//print_node(stack);
-	if (!is_correct(stack))
+	if (is_correct(res, size) == 1)
 	{
-		// printf("\n\nhola\n\n");
-		free(stack);
-		free(final_argument);
-		return (NULL);
+		stack = node_aplication(res, size);
+		print_node(stack);
+		printf("\t------STACK A------\n");
+		sort_4(&stack, &stack_b);
+		print_node(stack);
 	}
-	select_hc(size, &stack);
-	is_min(&stack);
-	index_node(stack);
-	printf("\t------STACK A------\n");
-	print_node(stack);
+	else
+		free(res);
+	// if (is_correct(res, size) == 0)
+	// {
+	// 	printf("\n\nhola\n\n");
+	// 	free(final_argument);
+	// 	return (NULL);
+	// }
+	// else
+	// {
+	// 	select_hc(size, &stack);
+	// 	// is_min(&stack);
+	// 	// index_node(stack);
+	// 	printf("\t------STACK A------\n");
+	// 	print_node(stack);
+	// }
 	// printf("este es el input final = %s\n", final_argument);
 	// printf("este es el size = %d\n", size);
 	// if (!is_correct(stack))
