@@ -78,7 +78,7 @@ void	rotate(t_node **stack); //CORRECT
 void	reverse_rotate(t_node **stack); //CORRECT
 void	swap(t_node **stack); //CORRECT
 
-
+void	empty_dest(t_node **stack_source);
 void	push(t_node **stack_source, t_node **stack_dest);
 
 

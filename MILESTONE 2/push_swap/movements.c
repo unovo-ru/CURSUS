@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:22:27 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/10 18:39:58 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/10 19:25:53 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,15 @@ void	push(t_node **stack_source, t_node **stack_dest)
 	if (!*stack_source)
 		return ;
 	a = *stack_source;
-	if (a->next == a)
-		*stack_source = NULL;
-	else
-	{
-		a->prev->next = a->next;
-		a->next->prev = a->prev;
-		*stack_source = a->next;
-	}
+	empty_dest(stack_source);
+	// if (a->next == a)
+	// 	*stack_source = NULL;
+	// else
+	// {
+	// 	a->prev->next = a->next;
+	// 	a->next->prev = a->prev;
+	// 	*stack_source = a->next;
+	// }
 	if (!*stack_dest)
 	{
 		a->next = a;
@@ -83,66 +84,22 @@ void	push(t_node **stack_source, t_node **stack_dest)
 }
 
 
-void	push(t_node **stack_source, t_node **stack_dest)
+void	empty_dest(t_node **stack_source)
 {
 	t_node	*a;
 
-	if (!*stack_source)
-		return ;
 	a = *stack_source;
 	if (a->next == a)
 		*stack_source = NULL;
-	else 
+	else
 	{
 		a->prev->next = a->next;
 		a->next->prev = a->prev;
 		*stack_source = a->next;
 	}
-	if (!*stack_dest)
-	{
-		a->next = a;
-		a->prev = a;
-		*stack_dest = a;
-	}
-	else
-	{
-		a->next = *stack_dest;
-		a->prev = (*stack_dest)->prev;
-		(*stack_dest)->prev->next = a;
-		(*stack_dest)->prev = a;
-		*stack_dest = a;
-	}
 }
 
-/*void	push(t_node **stack_source, t_node **stack_dest)
-{
-	t_node	**a;
-	t_node	**b;
 
-	a = stack_source;
-	b = stack_dest;
-	if (!*stack_source)
-		return;
-	if (ft_node_size(b) == 0)
-		{
-			(*a)->prev->next = (*a)->next;
-			(*a)->next->prev = (*a)->prev;
-			(*b) = (*a);
-			(*b)->prev = (*b);
-			(*b)->next = (*b);
-		}
-	else if (ft_node_size(b) > 0)
-		{
-			(*a)->prev->next = (*a)->next;
-			(*a)->next->prev = (*a)->prev;
-			(*a)->prev = (*b)->prev;
-			(*b)->prev = (*a);
-			(*b)->prev->prev->next = (*a);
-			(*a) = (*a)->next;
-			(*b)->prev->next = (*b);
-			(*b) = (*b)->prev;
-		}
-}*/
 
 /*!!!!!!!!!!!!CORRECT!!!!!!!!!!!*/
 
