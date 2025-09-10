@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 19:29:37 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/09 18:10:38 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/10 18:09:25 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,30 @@ void	sort_5(t_node **stack_a, t_node **stack_b)
 	// tmp = *stack_a;
 	// i = 0;
 	min = is_min(stack_a);
+	printf("este es el menos  = %d\n", min);
 	while ((*stack_a)->data != min)
 		ra(stack_a);
 	pb(stack_a, stack_b);
+	min = is_min(stack_a);
+	printf("este es el menos  = %d\n", min);
+	if ((*stack_a)->data == min)
+		pb(stack_a, stack_b);
+	else
+	{
+		while ((*stack_a)->data != min)
+			ra(stack_a);
+	}
+	// printf("####### STACK A #######");
+	// print_node((*stack_a));
+	// printf("####### STACK B #######");
+	// print_node((*stack_b));
 	sort_3(stack_a);
 	pa(stack_b, stack_a);
 	pa(stack_b, stack_a);
-	pa(stack_b, stack_a);
+	printf("####### STACK A #######");
+	print_node((*stack_a));
+	printf("####### STACK B #######");
+	print_node((*stack_b));
 }
 
 /*void	sort_5(t_node **stack_a, t_node **stack_b)
@@ -56,16 +73,21 @@ void	sort_4(t_node **stack_a, t_node **stack_b)
 {
 	int		min;
 	//int		i;
-	//t_node	*tmp;
+	// t_node	*tmp;
 
-	//tmp = *stack_a;
+	// tmp = *stack_a;
 	// i = 0;
+	// stack_b = NULL;
 	min = is_min(stack_a);
 	while ((*stack_a)->data != min)
 		ra(stack_a);
 	pb(stack_a, stack_b);
 	sort_3(stack_a);
 	pa(stack_b, stack_a);
+	printf("####### STACK A #######");
+	print_node(*stack_a);
+	printf("####### STACK B #######");
+	print_node(*stack_b);
 }
 /*void	sort_4(t_node **stack_a, t_node **stack_b)
 {

@@ -34,10 +34,11 @@ t_node	*push_swap(char **str)
 	if (is_correct(res, size) == 1)
 	{
 		stack = node_aplication(res, size);
-		print_node(stack);
-		printf("\t------STACK A------\n");
+		// printf("\t------STACK A------\n");
+		// print_node(stack);
 		sort_4(&stack, &stack_b);
-		print_node(stack);
+		// print_node(stack);
+		// print_node(stack_b);
 	}
 	else
 		free(res);

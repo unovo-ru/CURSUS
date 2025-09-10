@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:22:27 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/04 15:57:18 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/10 18:39:58 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,46 @@ void	push(t_node **stack_source, t_node **stack_dest)
 	if (!*stack_source)
 		return ;
 	a = *stack_source;
-	a->prev->next = a->next;
-	a->next->prev = a->prev;
-	*stack_source = a->next;
+	if (a->next == a)
+		*stack_source = NULL;
+	else
+	{
+		a->prev->next = a->next;
+		a->next->prev = a->prev;
+		*stack_source = a->next;
+	}
+	if (!*stack_dest)
+	{
+		a->next = a;
+		a->prev = a;
+		*stack_dest = a;
+	}
+	else
+	{
+		a->next = *stack_dest;
+		a->prev = (*stack_dest)->prev;
+		(*stack_dest)->prev->next = a;
+		(*stack_dest)->prev = a;
+		*stack_dest = a;
+	}
+}
+
+
+void	push(t_node **stack_source, t_node **stack_dest)
+{
+	t_node	*a;
+
+	if (!*stack_source)
+		return ;
+	a = *stack_source;
+	if (a->next == a)
+		*stack_source = NULL;
+	else 
+	{
+		a->prev->next = a->next;
+		a->next->prev = a->prev;
+		*stack_source = a->next;
+	}
 	if (!*stack_dest)
 	{
 		a->next = a;
