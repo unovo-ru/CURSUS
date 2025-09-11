@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   node_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:03:25 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/02 13:46:33 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/11 13:54:43 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,16 +104,22 @@ void	ft_front_node(t_node **node, t_node *new_node)
 
 int	ft_node_size(t_node **stack)
 {
-	int	count;
+	int		count;
+	t_node	*aux;
 
 	count = 0;
+	aux = *stack;
 	if (stack == 0)
 		return (0);
 	else
-		while (*stack)
+	{
+		while (1)
 		{
 			(*stack) = (*stack)->next;
 			count++;
+			if ((*stack) == aux)
+				break ;
 		}
+	}
 	return (count);
 }

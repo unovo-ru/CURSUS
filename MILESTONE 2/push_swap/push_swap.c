@@ -34,20 +34,14 @@ t_node	*push_swap(char **str)
 	if (is_correct(res, size) == 1)
 	{
 		stack = node_aplication(res, size);
+		index_node(stack);
 		print_node(stack);
-		printf("\t------STACK A------\n");
+		// printf("\t------STACK A------\n");
 		select_hc(size, &stack);
-		// print_node(stack);
-		// sort_2(&stack);
-		// sort_3(&stack);
-		// sort_4(&stack, &stack_b);
-		// sort_5(&stack, &stack_b);
 		printf("####### STACK A #######");
 		print_node(stack);
 		printf("####### STACK B #######");
 		print_node(stack_b);
-		// print_node(stack);
-		// print_node(stack_b);
 	}
 	else
 		free(res);

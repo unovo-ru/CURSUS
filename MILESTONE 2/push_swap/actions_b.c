@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 17:28:41 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/10 18:36:09 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/11 13:24:41 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,15 @@ void	rb(t_node **stack_b)
 
 void	pb(t_node **stack_b, t_node **stack_a)
 {
-	/*tengo que ser capaz de mandar nodos a A y que B se quede vacio*/
 	if ((*stack_b)->next == (*stack_b))
 	{
 		push(stack_b, stack_a);
 		ft_printf("pb\n");
-		printf("un elemento\n\n");
 		*stack_b = NULL;
 	}
 	else
 	{
 		push(stack_b, stack_a);
-		printf("mas de un elemento\n\n");
 		ft_printf("pb\n");
 	}
 }
