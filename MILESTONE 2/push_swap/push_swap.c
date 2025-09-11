@@ -18,7 +18,7 @@ t_node	*push_swap(char **str)
 	char	*final_argument;
 	int		*res;
 	t_node	*stack = NULL;
-	// t_node	*stack_b = NULL;
+	t_node	*stack_b = NULL;
 
 	final_argument = arg_join(str);
 	if (!final_argument)
@@ -34,9 +34,18 @@ t_node	*push_swap(char **str)
 	if (is_correct(res, size) == 1)
 	{
 		stack = node_aplication(res, size);
-		// printf("\t------STACK A------\n");
+		print_node(stack);
+		printf("\t------STACK A------\n");
+		select_hc(size, &stack);
 		// print_node(stack);
-		sort_3(&stack);
+		// sort_2(&stack);
+		// sort_3(&stack);
+		// sort_4(&stack, &stack_b);
+		// sort_5(&stack, &stack_b);
+		printf("####### STACK A #######");
+		print_node(stack);
+		printf("####### STACK B #######");
+		print_node(stack_b);
 		// print_node(stack);
 		// print_node(stack_b);
 	}

@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 19:29:37 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/10 18:09:25 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/11 13:17:28 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,12 @@
 void	sort_5(t_node **stack_a, t_node **stack_b)
 {
 	int		min;
-	// int		i;
-	// t_node	*tmp;
 
-	// tmp = *stack_a;
-	// i = 0;
 	min = is_min(stack_a);
-	printf("este es el menos  = %d\n", min);
 	while ((*stack_a)->data != min)
 		ra(stack_a);
 	pb(stack_a, stack_b);
 	min = is_min(stack_a);
-	printf("este es el menos  = %d\n", min);
 	if ((*stack_a)->data == min)
 		pb(stack_a, stack_b);
 	else
@@ -34,17 +28,10 @@ void	sort_5(t_node **stack_a, t_node **stack_b)
 		while ((*stack_a)->data != min)
 			ra(stack_a);
 	}
-	// printf("####### STACK A #######");
-	// print_node((*stack_a));
-	// printf("####### STACK B #######");
-	// print_node((*stack_b));
+	pb(stack_a, stack_b);
 	sort_3(stack_a);
 	pa(stack_b, stack_a);
 	pa(stack_b, stack_a);
-	printf("####### STACK A #######");
-	print_node((*stack_a));
-	printf("####### STACK B #######");
-	print_node((*stack_b));
 }
 
 /*void	sort_5(t_node **stack_a, t_node **stack_b)
@@ -72,22 +59,13 @@ void	sort_5(t_node **stack_a, t_node **stack_b)
 void	sort_4(t_node **stack_a, t_node **stack_b)
 {
 	int		min;
-	//int		i;
-	// t_node	*tmp;
 
-	// tmp = *stack_a;
-	// i = 0;
-	// stack_b = NULL;
 	min = is_min(stack_a);
 	while ((*stack_a)->data != min)
 		ra(stack_a);
 	pb(stack_a, stack_b);
 	sort_3(stack_a);
 	pa(stack_b, stack_a);
-	printf("####### STACK A #######");
-	print_node(*stack_a);
-	printf("####### STACK B #######");
-	print_node(*stack_b);
 }
 /*void	sort_4(t_node **stack_a, t_node **stack_b)
 {
@@ -152,31 +130,19 @@ SITIOS DONDE TAMBIEN LO CREO
 
 void	select_hc(int size, t_node **stack_a)
 {
-	t_node	**stack_b;
+	t_node	*stack_b;
 
 	stack_b = NULL;
 	if (size <= 5)
 	{
 		if (size == 2)
-		{
-			printf("sort_2\n\n");
 			sort_2(stack_a);
-		}
 		else if (size == 3)
-		{
-			printf("sort_3\n\n");
 			sort_3(stack_a);
-		}
 		else if (size == 4)
-		{
-			printf("sort_4\n\n");
-			sort_4(stack_a, stack_a);
-		}
+			sort_4(stack_a, &stack_b);
 		else if (size == 5)
-		{
-			printf("sort_5\n\n");
-			sort_5(stack_a, stack_b);
-		}
+			sort_5(stack_a, &stack_b);
 	}
 	else
 		return ;
