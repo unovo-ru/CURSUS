@@ -109,6 +109,8 @@ void	sort_3(t_node **stack_a);
 void	sort_4(t_node **stack_a, t_node **stack_b);
 void	sort_5(t_node **stack_a, t_node **stack_b);
 int		is_min(t_node **stack_a);
+void	push_minor_to_b(t_node **stack_a, t_node **stack_b);
+int		is_min_in_mid(t_node **stack_a);
 
 
 /*-------------  push swap  --------------*/
