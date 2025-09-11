@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 18:54:13 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/11 16:40:08 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/11 19:23:53 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,15 @@ int	is_min(t_node **stack_a)
 	return (n);
 }
 
+/*
+
+1.-ELIMINAR LAS DOS FUNCIONES DE ABAJO
+2.-EMPEZAR A CALCULAR COSTES HACERLO MEDIANTE:
+	-> EL CALCULO DE LA POS 
+		--> USANDO EL MIN (MIRAR PUSH_MIN_TO_B)
+3.- CALCULA EL TARGET
+
+*/
 
 void	push_minor_to_b(t_node **stack_a, t_node **stack_b)
 {
