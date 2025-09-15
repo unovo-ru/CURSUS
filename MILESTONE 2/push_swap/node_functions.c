@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:03:25 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/12 12:51:33 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/15 17:57:50 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_node	*ft_new_node(int data)
 	if (!aux)
 		return (NULL);
 	aux->index = -1;
+	aux->pos = -1;
 	aux->cost = 0;
 	aux->data = data;
 	aux->prev = aux;

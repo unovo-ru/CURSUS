@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 17:29:41 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/12 17:58:34 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/15 18:03:12 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,21 +61,20 @@ void	index_node(t_node **stack_a, int size)
 // 	while (1)
 // 	{
 // 		if((*stack_a)->index == (*stack_b)->index - 1)
-			
 // 	}
 // }
 
-int	target_b(t_node **stack_b)
-{
-	t_node	*aux;
-	int		target;
+// int	target_b(t_node **stack_b)
+// {
+// 	t_node	*aux;
+// 	int		target;
 
-	target = 0;
-	aux = *stack_b;
-	while (1)
-	{
-		aux = aux->next;
-		if (aux == (*stack_b))
-			break ;
-	}
-}
+// 	target = 0;
+// 	aux = *stack_b;
+// 	while (1)
+// 	{
+// 		aux = aux->next;
+// 		if (aux == (*stack_b))
+// 			break ;
+// 	}
+// }

@@ -101,7 +101,8 @@ void	rrr(t_node **stack_a, t_node **stack_b);
 /*------------------algorithm------------------*/
 
 void	index_node(t_node **stack_a, int size);
-int		target_node(t_node **stack_a, t_node **stack_b);
+int		min_aux(int n, t_node *aux, t_node *current);
+// int		target_node(t_node **stack_a, t_node **stack_b);
 void	position_node(t_node *stack_a);
 int		is_min(t_node **stack_a);
 int		is_correct(int *array_ints, int size);

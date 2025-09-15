@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 18:54:13 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/12 17:41:03 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/15 18:02:00 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	select_hc(int size, t_node **stack_a)
 			sort_4(stack_a, &stack_b);
 		else if (size == 5)
 			sort_5(stack_a, &stack_b);
-		else
-			push_minor_to_b(stack_a, &stack_b);
+		// else
+			// push_minor_to_b(stack_a, &stack_b);
 	}
 	else
 		return ;
@@ -57,16 +57,55 @@ int	is_min(t_node **stack_a)
 	t_node	*current;
 
 	aux = (*stack_a);
-	n = aux->data;
-	current = aux->next;
-	while (current != aux)
+	current = aux;
+	while (1)
 	{
-		if (n > current->data && current->index < 0)
+		if (current->index < 0)
+		{
+			n = current->data;
+			break ;
+		}
+		current = current->next;
+		if (current == aux)
+			break ;
+	}
+	current = aux->next;
+	n = min_aux(n, aux, current);
+	return (n);
+}
+
+int	min_aux(int n, t_node *aux, t_node *current)
+{
+	current = aux;
+	while (1)
+	{
+		if (current->index < 0 && current->data < n)
 			n = current->data;
 		current = current->next;
+		if (current == aux)
+			break ;
 	}
 	return (n);
 }
+
+
+// void	position_node(t_node **stack)
+// {
+// 	t_node	*aux;
+// 	int		i;
+
+// 	i = 1;
+// 	aux = (*stack);
+// 	while (1)
+// 	{
+// 		aux->pos = i;
+// 		aux = aux->next;
+// 		i++;
+// 		if (aux == (*stack))
+// 			break ;
+// 	}
+// }
+
 
 /*no necesito estas 2 funciones*/
 

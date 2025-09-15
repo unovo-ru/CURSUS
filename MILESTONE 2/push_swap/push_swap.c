@@ -37,6 +37,7 @@ t_node	*push_swap(char **str)
 		print_node(stack);
 		printf("\t------STACK A------\n");
 		index_node(&stack, size);
+		position_node(stack);
 		print_node(stack);
 		printf("\t------STACK A------\n");
 		// select_hc(size, &stack);
