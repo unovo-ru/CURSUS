@@ -6,7 +6,7 @@
 #    By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/07 18:08:01 by unovo-ru          #+#    #+#              #
-#    Updated: 2025/09/09 15:04:35 by unovo-ru         ###   ########.fr        #
+#    Updated: 2025/09/12 17:33:06 by unovo-ru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRC = push_swap.c \
 		fit_num_in_nodes.c \
 		algorithm_1.c \
 		algorithm_2.c \
+		algorithm_3.c \
 		actions_a.c \
 		actions_b.c \
 		actions_both.c \

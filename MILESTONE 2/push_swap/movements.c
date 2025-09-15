@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:22:27 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/10 19:25:53 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/12 17:55:50 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,14 +59,6 @@ void	push(t_node **stack_source, t_node **stack_dest)
 		return ;
 	a = *stack_source;
 	empty_dest(stack_source);
-	// if (a->next == a)
-	// 	*stack_source = NULL;
-	// else
-	// {
-	// 	a->prev->next = a->next;
-	// 	a->next->prev = a->prev;
-	// 	*stack_source = a->next;
-	// }
 	if (!*stack_dest)
 	{
 		a->next = a;

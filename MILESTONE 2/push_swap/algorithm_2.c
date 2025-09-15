@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 19:29:37 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/11 15:54:30 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/12 17:40:27 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,25 +79,4 @@ void	sort_5(t_node **stack_a, t_node **stack_b)
 	pa(stack_b, stack_a);
 }
 
-void	select_hc(int size, t_node **stack_a)
-{
-	t_node	*stack_b;
-
-	stack_b = NULL;
-	if (size >= 2)
-	{
-		if (size == 2)
-			sort_2(stack_a);
-		else if (size == 3)
-			sort_3(stack_a);
-		else if (size == 4)
-			sort_4(stack_a, &stack_b);
-		else if (size == 5)
-			sort_5(stack_a, &stack_b);
-		else
-			push_minor_to_b(stack_a, &stack_b);
-	}
-	else
-		return ;
-}
 

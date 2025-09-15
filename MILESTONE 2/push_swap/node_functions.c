@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:03:25 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/11 13:54:43 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/12 12:51:33 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_node	*ft_new_node(int data)
 	aux = malloc(sizeof(t_node));
 	if (!aux)
 		return (NULL);
-	aux->index = 0;
+	aux->index = -1;
 	aux->cost = 0;
 	aux->data = data;
 	aux->prev = aux;

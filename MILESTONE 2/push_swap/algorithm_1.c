@@ -6,42 +6,34 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 18:54:13 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/11 19:23:53 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/12 17:41:03 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*
-1.- estan ordenados salgo al volver al inicio
-2.- mientras esten ordenados itero para encontrar donde no lo estan
-3.-rompemos en el momento que deje de estar ordenado
-*/
+/*this function selects which the algorithm*/
 
-/*CHECK THE ORDER OF THESE 3 FUNCTIONS!!!!!!!!!*/
-
-/*
-i must manege if the input are:
-- its alredy in order (1 2 3). is_correct
-- 2 numbers. sort_2
-- 3 numbers. sort_3
-*/
-
-void	index_node(t_node *stack_a)
+void	select_hc(int size, t_node **stack_a)
 {
-	t_node	*aux;
-	int		i;
+	t_node	*stack_b;
 
-	aux = stack_a;
-	i = 1;
-	while (1)
+	stack_b = NULL;
+	if (size >= 2)
 	{
-		stack_a->index = i;
-		stack_a = stack_a->next;
-		i++;
-		if (stack_a == aux)
-			return ;
+		if (size == 2)
+			sort_2(stack_a);
+		else if (size == 3)
+			sort_3(stack_a);
+		else if (size == 4)
+			sort_4(stack_a, &stack_b);
+		else if (size == 5)
+			sort_5(stack_a, &stack_b);
+		else
+			push_minor_to_b(stack_a, &stack_b);
 	}
+	else
+		return ;
 }
 
 int	is_correct(int *array_ints, int size)
@@ -69,24 +61,16 @@ int	is_min(t_node **stack_a)
 	current = aux->next;
 	while (current != aux)
 	{
-		if (n > current->data)
+		if (n > current->data && current->index < 0)
 			n = current->data;
 		current = current->next;
 	}
 	return (n);
 }
 
-/*
+/*no necesito estas 2 funciones*/
 
-1.-ELIMINAR LAS DOS FUNCIONES DE ABAJO
-2.-EMPEZAR A CALCULAR COSTES HACERLO MEDIANTE:
-	-> EL CALCULO DE LA POS 
-		--> USANDO EL MIN (MIRAR PUSH_MIN_TO_B)
-3.- CALCULA EL TARGET
-
-*/
-
-void	push_minor_to_b(t_node **stack_a, t_node **stack_b)
+/*void	push_minor_to_b(t_node **stack_a, t_node **stack_b)
 {
 	int	min;
 
@@ -132,4 +116,4 @@ int	is_min_in_mid(t_node **stack_a)
 	}
 	return (0);
 
-}
+}*/

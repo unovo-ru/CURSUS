@@ -21,6 +21,8 @@ typedef struct t_node
 	int				index;
 	int				data;
 	int				cost;
+	int				pos;
+	int				target;
 	struct t_node	*prev;
 	struct t_node	*next;
 }			t_node;
@@ -74,10 +76,9 @@ t_node	*create_b_stack(void);
 void	print_node(t_node *node);
 
 /*--------------moves------------------*/
-void	rotate(t_node **stack); //CORRECT
-void	reverse_rotate(t_node **stack); //CORRECT
-void	swap(t_node **stack); //CORRECT
-
+void	rotate(t_node **stack);
+void	reverse_rotate(t_node **stack);
+void	swap(t_node **stack);
 void	empty_dest(t_node **stack_source);
 void	push(t_node **stack_source, t_node **stack_dest);
 
@@ -99,18 +100,20 @@ void	rrr(t_node **stack_a, t_node **stack_b);
 
 /*------------------algorithm------------------*/
 
-void	index_node(t_node *stack_a);
-// int		is_correct(t_node *stack_a);
+void	index_node(t_node **stack_a, int size);
+int		target_node(t_node **stack_a, t_node **stack_b);
+void	position_node(t_node *stack_a);
+int		is_min(t_node **stack_a);
 int		is_correct(int *array_ints, int size);
-// void	select_hc(int size, t_node **stack_a, t_node **stack_b);
 void	select_hc(int size, t_node **stack_a);
 void	sort_2(t_node **stack_a);
 void	sort_3(t_node **stack_a);
 void	sort_4(t_node **stack_a, t_node **stack_b);
 void	sort_5(t_node **stack_a, t_node **stack_b);
-int		is_min(t_node **stack_a);
-void	push_minor_to_b(t_node **stack_a, t_node **stack_b);
-int		is_min_in_mid(t_node **stack_a);
+
+
+// void	push_minor_to_b(t_node **stack_a, t_node **stack_b);
+// int		is_min_in_mid(t_node **stack_a);
 
 
 /*-------------  push swap  --------------*/
