@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 19:29:37 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/12 17:40:27 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/16 19:38:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void	sort_4(t_node **stack_a, t_node **stack_b)
 void	sort_5(t_node **stack_a, t_node **stack_b)
 {
 	int	min;
+	printf("llegamos\n\n");
 
 	min = is_min(stack_a);
 	while ((*stack_a)->data != min)

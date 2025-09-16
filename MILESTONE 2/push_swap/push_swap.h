@@ -20,7 +20,8 @@ typedef struct t_node
 {
 	int				index;
 	int				data;
-	int				cost;
+	int				cost_a;
+	int				cost_b;
 	int				pos;
 	int				target;
 	struct t_node	*prev;
@@ -111,6 +112,7 @@ void	sort_2(t_node **stack_a);
 void	sort_3(t_node **stack_a);
 void	sort_4(t_node **stack_a, t_node **stack_b);
 void	sort_5(t_node **stack_a, t_node **stack_b);
+void	sort_stack(t_node **stack_a, t_node **stack_b, int size);
 
 
 // void	push_minor_to_b(t_node **stack_a, t_node **stack_b);

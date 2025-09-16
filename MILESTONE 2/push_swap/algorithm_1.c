@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 18:54:13 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/15 18:02:00 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/16 20:33:55 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	select_hc(int size, t_node **stack_a)
 			sort_4(stack_a, &stack_b);
 		else if (size == 5)
 			sort_5(stack_a, &stack_b);
-		// else
-			// push_minor_to_b(stack_a, &stack_b);
+		else
+			sort_stack(stack_a, &stack_b, size);
 	}
 	else
 		return ;
@@ -87,6 +87,45 @@ int	min_aux(int n, t_node *aux, t_node *current)
 	}
 	return (n);
 }
+
+void	sort_stack(t_node **stack_a, t_node **stack_b, int size)
+{
+	int	count;
+
+	total_cost = MAX_INT;
+	count = size;
+	while (count-- > 3)
+		pb(stack_a, stack_b);
+	sort_3(stack_a);
+	while (stack_b)
+	{
+
+	}
+	// printf("\t------STACK A------\n");
+	// print_node((*stack_a));
+	// printf("\t------STACK B------\n");
+	// print_node((*stack_b));
+}
+
+void	calculate_cost(t_node **stack_a, t_node **stack_b,
+											 int costa, int costb)
+{
+	int	min_cost_a;
+	int	min_cost_b;
+	int	total_cost;
+	int	pos_min_cost;
+	t_node	*aux_b;
+
+	while (1)
+	{
+		aux_b = aux_b->next;
+		if (aux_b == (*stack_b))
+			break ;
+	}
+}
+
+
+
 
 
 // void	position_node(t_node **stack)

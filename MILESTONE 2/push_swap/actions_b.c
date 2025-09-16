@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 17:28:41 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/11 13:24:41 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/16 19:46:23 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,19 +24,11 @@ void	rb(t_node **stack_b)
 	ft_printf("rb\n");
 }
 
-void	pb(t_node **stack_b, t_node **stack_a)
+
+void	pb(t_node **stack_a, t_node **stack_b)
 {
-	if ((*stack_b)->next == (*stack_b))
-	{
-		push(stack_b, stack_a);
-		ft_printf("pb\n");
-		*stack_b = NULL;
-	}
-	else
-	{
-		push(stack_b, stack_a);
-		ft_printf("pb\n");
-	}
+	push(&(*stack_a), &(*stack_b));
+	ft_printf("pb\n");
 }
 
 void	rrb(t_node **stack_b)

@@ -36,12 +36,37 @@ t_node	*push_swap(char **str)
 		stack = node_aplication(res, size);
 		index_node(&stack, size);
 		position_node(stack);
+		select_hc(size, &stack);
 	}
 	else
 		free(res);
 	free(final_argument);
 	return (stack);
 }
+
+
+/*necesito esta funcion para calcular el size del stack siempre*/
+
+// int	get_stack_size(t_stack	*stack)
+// {
+// 	int	size;
+
+// 	size = 0;
+// 	if (!stack)
+// 		return (0);
+// 	while (stack)
+// 	{
+// 		stack = stack->next;
+// 		size++;
+// 	}
+// 	return (size);
+// }
+
+
+
+
+
+
 
 		// print_node(stack);
 		// printf("\t------STACK A------\n");

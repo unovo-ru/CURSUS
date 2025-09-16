@@ -6,7 +6,7 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 17:20:41 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/16 15:17:15 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/16 19:46:28 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,21 @@ void	ra(t_node **stack_a)
 	ft_printf("ra\n");
 }
 
-void	pa(t_node **stack_a, t_node **stack_b)
+void	pa(t_node **stack_b, t_node **stack_a)
 {
-	push(&(*stack_a), &(*stack_b));
-	ft_printf("pa\n");
+	if ((*stack_b)->next == (*stack_b))
+	{
+		push(stack_b, stack_a);
+		ft_printf("pa\n");
+		*stack_b = NULL;
+	}
+	else
+	{
+		push(stack_b, stack_a);
+		ft_printf("pb\n");
+	}
 }
+
 
 void	rra(t_node **stack_a)
 {
