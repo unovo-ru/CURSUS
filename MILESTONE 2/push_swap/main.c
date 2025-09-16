@@ -31,11 +31,12 @@ int	main(int argc, char **argv)
 	// }
 	// stack_a = node_aplication(argv, res);
 	stack_a = push_swap(argv);
-	// is_min(&stack_a);
-	// printf("\t------STACK A------\n");
-	// print_node(stack_a);
-	// printf("\t------STACK B------\n");
-	// print_node(stack_b);
+	printf("llega");
+	is_min(&stack_a);
+	printf("\t------STACK A------\n");
+	print_node(stack_a);
+	printf("\t------STACK B------\n");
+	print_node(stack_b);
 
 	// if(!is_correct(stack_a))
 	// {
