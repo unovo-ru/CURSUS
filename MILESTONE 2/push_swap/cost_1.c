@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 16:19:18 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/17 20:32:17 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/17 20:51:40 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	pos_and_cost_a(t_node **stack)
 		if (position <= half_size)
 			aux->cost_a = position;
 		else
-			aux->cost_a = size - position (-1);
+			aux->cost_a = (size - position -1);
 		aux = aux->next;
 		if (aux == (*stack))
 			break ;
