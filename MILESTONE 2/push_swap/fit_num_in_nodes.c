@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fit_num_in_nodes.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 16:45:09 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/06 14:37:48 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/17 16:16:54 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,6 @@ t_node	*node_aplication(int *num_array, int size)
 	free(num_array);
 	return (head);
 }
-
-
 
 t_node	*create_b_stack(void)
 {

@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:03:25 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/15 17:57:50 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/17 16:20:05 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ t_node	*ft_new_node(int data)
 		return (NULL);
 	aux->index = -1;
 	aux->pos = -1;
-	aux->cost = 0;
+	aux->cost_a = 0;
+	aux->cost_b = 0;
 	aux->data = data;
 	aux->prev = aux;
 	aux->next = aux;
@@ -103,24 +104,4 @@ void	ft_front_node(t_node **node, t_node *new_node)
 		return (1 + ft_node_size(&(*stack)->next));
 }*/
 
-int	ft_node_size(t_node **stack)
-{
-	int		count;
-	t_node	*aux;
 
-	count = 0;
-	aux = *stack;
-	if (stack == 0)
-		return (0);
-	else
-	{
-		while (1)
-		{
-			(*stack) = (*stack)->next;
-			count++;
-			if ((*stack) == aux)
-				break ;
-		}
-	}
-	return (count);
-}

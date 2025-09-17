@@ -66,7 +66,7 @@ void	ft_node_add_back(t_node **node, t_node *new_node);
 void	ft_front_node(t_node **node, t_node *new_node);
 
 void	free_nodes(t_node **node);
-int		ft_node_size(t_node **stack);
+int		stack_size(t_node **stack);
 
 /*------------create the stack b------------*/
 
