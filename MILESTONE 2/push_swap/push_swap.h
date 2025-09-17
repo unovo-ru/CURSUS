@@ -68,6 +68,12 @@ void	ft_front_node(t_node **node, t_node *new_node);
 void	free_nodes(t_node **node);
 int		stack_size(t_node **stack);
 
+void	pos_and_cost_a(t_node **stack);
+void	pos_and_cost_b(t_node **stack);
+void	cost_both(t_node **stack_a, t_node **stack_b);
+
+
+
 /*------------create the stack b------------*/
 
 t_node	*create_b_stack(void);

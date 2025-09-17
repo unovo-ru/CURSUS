@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 17:11:24 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/17 17:16:48 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/17 20:24:02 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,46 @@ void	target_node(t_node **stack_a, t_node **stack_b)
 	
 }
 
-t_node	*find_min_index(t_node **stack)
-{
-	t_node	*aux;
-	t_node	*current;
+// t_node	*find_min_index(t_node **stack)
+// {
+	// t_node	*aux;
+	// t_node	*current;
+// 
+	// aux = (*stack);
+	// current = (*stack)->next;
+	// while (1)
+	// {
+		// if (current->index < aux->index)
+			// aux = current;
+		// current = current->next;
+		// if (current == stack)
+			// break ;
+	// }
+	// return (aux);
+// }
 
-	aux = (*stack);
-	current = (*stack)->next;
+void	b_target_in_a(t_node **stack_a, t_node **stack_b)
+{
+	t_node	*aux_a;
+	t_node	*aux_b;
+
+	position_node((*stack_a));
+	position_node((*stack_b));
+	aux_a = (*stack_a);
+	aux_b = (*stack_b);
 	while (1)
 	{
-		if (current->index < aux->index)
-			aux = current;
-		current = current->next;
-		if (current == stack)
+		while (1)
+		{
+			if (aux_b->index < aux_a->index)
+				aux_b->target = aux_a->pos;
+			aux_a = aux_a->next;
+			if (aux_a == (*stack_a))
+				break ;
+		}
+		aux_b = aux_b->next;
+		if (aux_b == (*stack_b))
 			break ;
 	}
-	return (aux);
 }
 
-t_node	*target_a(t_node **stack_a, int )

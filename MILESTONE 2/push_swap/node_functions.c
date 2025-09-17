@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:03:25 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/17 16:20:05 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/17 20:00:04 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_node	*ft_new_node(int data)
 	aux->pos = -1;
 	aux->cost_a = 0;
 	aux->cost_b = 0;
+	aux->target = -1;
 	aux->data = data;
 	aux->prev = aux;
 	aux->next = aux;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print_node.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 21:14:51 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/16 15:37:06 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/17 19:19:52 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ void	print_node(t_node *node)
 		printf("INDEX --> [ %d ]\n", aux->index);
 		// printf("COST --> [ %d ]\n", aux->cost);
 		printf("POS --> [ %d ]\n", aux->pos);
-		// printf("PREV --> [ %d ]\n", aux->prev->data);
-		// printf("NEXT --> [ %d ]\n", aux->next->data);
+		printf("PREV --> [ %d ]\n", aux->prev->data);
+		printf("NEXT --> [ %d ]\n", aux->next->data);
 		printf("---------------------------\n\n");
 		aux = aux->next;
 		if (aux == node)

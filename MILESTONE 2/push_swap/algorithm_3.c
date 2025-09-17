@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 17:29:41 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/15 18:03:12 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/17 20:05:45 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ void	index_node(t_node **stack_a, int size)
 	int		i;
 	t_node	*aux;
 
-	i = 0;
+	i = 1;
 	aux = *stack_a;
-	while (i < size)
+	while (i < size + 1)
 	{
 		min = is_min(stack_a);
 		if (aux->data == min && aux->index < 0)
