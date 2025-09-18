@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 18:54:13 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/17 19:45:24 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/18 15:51:13 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	select_hc(int size, t_node **stack_a)
 	}
 	else
 		return ;
+	free_nodes(&stack_b);
 }
 
 int	is_correct(int *array_ints, int size)
@@ -103,6 +104,7 @@ void	sort_stack(t_node **stack_a, t_node **stack_b, int size)
 	}
 	while (1)
 	{
+		b_target_in_a(stack_a, stack_b);
 		if (stack_size(stack_a) == 3)
 			break ;
 		if ((*stack_a)->index < size - 2)

@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 16:45:09 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/17 16:16:54 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/18 15:33:33 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,12 @@ t_node	*node_aplication(int *num_array, int size)
 
 	i = 1;
 	head = ft_new_node(num_array[0]);
+	if (!head)
+	{
+		free(num_array);
+		free(head);
+		return (NULL);
+	}
 	while (i < size)
 	{
 		new_node = ft_new_node(num_array[i]);

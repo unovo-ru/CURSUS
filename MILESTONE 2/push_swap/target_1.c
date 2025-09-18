@@ -6,16 +6,16 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 17:11:24 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/17 20:24:02 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/18 15:38:10 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	target_node(t_node **stack_a, t_node **stack_b)
-{
+// void	target_node(t_node **stack_a, t_node **stack_b)
+// {
 	
-}
+// }
 
 // t_node	*find_min_index(t_node **stack)
 // {
@@ -40,8 +40,8 @@ void	b_target_in_a(t_node **stack_a, t_node **stack_b)
 	t_node	*aux_a;
 	t_node	*aux_b;
 
-	position_node((*stack_a));
-	position_node((*stack_b));
+	position_node(stack_a);
+	position_node(stack_b);
 	aux_a = (*stack_a);
 	aux_b = (*stack_b);
 	while (1)
@@ -49,7 +49,7 @@ void	b_target_in_a(t_node **stack_a, t_node **stack_b)
 		while (1)
 		{
 			if (aux_b->index < aux_a->index)
-				aux_b->target = aux_a->pos;
+				aux_b->target = aux_a->index;
 			aux_a = aux_a->next;
 			if (aux_a == (*stack_a))
 				break ;

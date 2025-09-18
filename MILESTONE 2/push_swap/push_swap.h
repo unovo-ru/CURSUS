@@ -72,6 +72,8 @@ void	pos_and_cost_a(t_node **stack);
 void	pos_and_cost_b(t_node **stack);
 void	cost_both(t_node **stack_a, t_node **stack_b);
 
+void	b_target_in_a(t_node **stack_a, t_node **stack_b);
+
 
 
 /*------------create the stack b------------*/
@@ -110,7 +112,7 @@ void	rrr(t_node **stack_a, t_node **stack_b);
 void	index_node(t_node **stack_a, int size);
 int		min_aux(int n, t_node *aux, t_node *current);
 // int		target_node(t_node **stack_a, t_node **stack_b);
-void	position_node(t_node *stack_a);
+void	position_node(t_node **stack_a);
 int		is_min(t_node **stack_a);
 int		is_correct(int *array_ints, int size);
 void	select_hc(int size, t_node **stack_a);

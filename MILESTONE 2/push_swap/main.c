@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 {
 	(void)argc;
 	t_node *stack_a = NULL;
-	t_node *stack_b = NULL;
+	// t_node *stack_b = NULL;
 
 	// int i = 0;
 	// int *res = final_input(argv);
@@ -98,7 +98,7 @@ int	main(int argc, char **argv)
 	//printf("tamaño del stack %d\n", ft_node_size(stack_a));
 
 	free_nodes(&stack_a); /* POR QUE DA ERROR LIBERAR EL NODO A?*/
-	free_nodes(&stack_b);
+	// free_nodes(&stack_b);
 	return (0);
 }
 

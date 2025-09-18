@@ -6,25 +6,25 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 17:29:41 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/17 20:05:45 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/18 15:36:32 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	position_node(t_node *stack_a)
+void	position_node(t_node **stack_a)
 {
 	t_node	*aux;
 	int		i;
 
-	aux = stack_a;
+	aux = *stack_a;
 	i = 1;
 	while (1)
 	{
-		stack_a->pos = i;
-		stack_a = stack_a->next;
+		aux->pos = i;
+		aux = aux->next;
 		i++;
-		if (stack_a == aux)
+		if (aux == (*stack_a))
 			return ;
 	}
 }

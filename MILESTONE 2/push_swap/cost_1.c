@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 16:19:18 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/17 20:51:40 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/18 15:40:58 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int	stack_size(t_node **stack)
 	{
 		while (1)
 		{
-			(*stack) = (*stack)->next;
+			aux = aux->next;
 			count++;
-			if ((*stack) == aux)
+			if (aux == (*stack))
 				break ;
 		}
 	}
