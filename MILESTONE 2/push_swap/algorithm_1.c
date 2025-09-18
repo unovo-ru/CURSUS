@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 18:54:13 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/18 19:12:51 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/18 21:41:10 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,7 @@ void	sort_stack(t_node **stack_a, t_node **stack_b, int size)
 	b_target_in_a(stack_a, stack_b);
 	position_node(stack_a);
 	position_node(stack_b);
+	cost_both(stack_a, stack_b);
 	printf("\t------STACK A------\n");
 	print_node((*stack_a));
 	printf("\t------STACK B------\n");

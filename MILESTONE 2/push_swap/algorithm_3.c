@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/12 17:29:41 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/18 15:36:32 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/18 21:47:45 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	position_node(t_node **stack_a)
 	int		i;
 
 	aux = *stack_a;
-	i = 1;
+	i = 0;
 	while (1)
 	{
 		aux->pos = i;

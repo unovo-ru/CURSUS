@@ -22,6 +22,7 @@ typedef struct t_node
 	int				data;
 	int				cost_a;
 	int				cost_b;
+	int				total_cost;
 	int				pos;
 	int				target;
 	struct t_node	*prev;
