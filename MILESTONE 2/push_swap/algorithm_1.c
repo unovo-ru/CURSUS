@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 18:54:13 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/18 15:59:52 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/18 19:12:51 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ void	sort_stack(t_node **stack_a, t_node **stack_b, int size)
 	int	count;
 
 	count = size;
+	printf("Size: %d\n", size);
 	while (count)
 	{
 		if ((*stack_a)->index < size / 2 + (size % 2))
@@ -104,7 +105,6 @@ void	sort_stack(t_node **stack_a, t_node **stack_b, int size)
 	}
 	while (1)
 	{
-		b_target_in_a(stack_a, stack_b);
 		if (stack_size(stack_a) == 3)
 			break ;
 		if ((*stack_a)->index < size - 2)
@@ -113,6 +113,9 @@ void	sort_stack(t_node **stack_a, t_node **stack_b, int size)
 			ra(stack_a);
 	}
 	sort_3(stack_a);
+	b_target_in_a(stack_a, stack_b);
+	position_node(stack_a);
+	position_node(stack_b);
 	printf("\t------STACK A------\n");
 	print_node((*stack_a));
 	printf("\t------STACK B------\n");

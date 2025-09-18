@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 20:46:39 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/08/30 18:44:30 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/18 19:05:54 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <ctype.h>
 # include <string.h>
+# include <stdarg.h>
 # include <fcntl.h>
 
 # ifndef BUFFER_SIZE
