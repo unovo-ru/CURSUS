@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 17:11:24 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/19 11:57:10 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/19 14:43:09 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	b_target_in_a(t_node **stack_a, t_node **stack_b)
 {
 	t_node	*aux_a;
 	t_node	*aux_b;
+	// t_node	*tmp;
 
 	position_node(stack_a);
 	position_node(stack_b);
@@ -45,15 +46,14 @@ void	b_target_in_a(t_node **stack_a, t_node **stack_b)
 	aux_b = (*stack_b);
 	while (1)
 	{
+		// tmp = NULL;
 		while (1)
 		{
-			// aux_a = aux_a->next;
-			// printf("A target: %d, a po: %d\n", aux_a->target, aux_a->pos);
 			if (aux_b->index < aux_a->index)
 				aux_b->target = aux_a->pos;
+			aux_a = aux_a->next;
 			if (aux_a == (*stack_a))
 				break ;
-			aux_a = aux_a->next;
 		}
 		aux_b = aux_b->next;
 		if (aux_b == (*stack_b))

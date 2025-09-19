@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 16:19:18 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/19 13:30:56 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/19 14:46:20 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,14 @@ int	cost(t_node **stack, int position)
 void	cost_both(t_node **stack_a, t_node **stack_b)
 {
 	t_node	*aux_b;
+	t_node	*aux_a;
 
+	aux_a = (*stack_a);
 	aux_b = (*stack_b);
 	while (1)
 	{
-		aux_b->cost_a = cost(stack_a, aux_b->target);
-		aux_b->cost_b = cost(stack_b, aux_b->pos);
+		aux_b->cost_a = cost(&aux_a, aux_b->target);
+		aux_b->cost_b = cost(&aux_b, aux_b->pos);
 		aux_b = aux_b->next;
 		if (aux_b == (*stack_b))
 			break ;
@@ -125,19 +127,46 @@ t_node	*take_cheapest(t_node **stack)
 
 void	this_is_the_way(t_node **stack_a, t_node **stack_b, t_node **cheapest)
 {
+	//ft_printf("")
 	if ((*cheapest)->cost_a < 0 && (*cheapest)->cost_b < 0)
+	{
 		rrr(stack_a, stack_b);
+		(*cheapest)->cost_a--;
+		(*cheapest)->cost_b--;
+		(*cheapest)->total_cost -= 2;
+	}
 	else if ((*cheapest)->cost_a > 0 && (*cheapest)->cost_b > 0)
+	{
 		rr(stack_a, stack_b);
+		(*cheapest)->cost_a--;
+		(*cheapest)->cost_b--;
+		(*cheapest)->total_cost -= 2;
+	}
 	else if ((*cheapest)->cost_a < 0)
+	{
 		rra(stack_a);
-	if ((*cheapest)->cost_a > 0)
+		(*cheapest)->cost_a--;
+		(*cheapest)->total_cost--;
+	}
+	else if ((*cheapest)->cost_a > 0)
+	{
 		ra(stack_a);
+		(*cheapest)->cost_a--;
+		(*cheapest)->total_cost--;
+	}
 	else if ((*cheapest)->cost_b < 0)
+	{
 		rrb(stack_b);
-	if ((*cheapest)->cost_b > 0)
+		(*cheapest)->cost_b--;
+		(*cheapest)->total_cost--;
+	}
+	else if ((*cheapest)->cost_b > 0)
+	{
 		rb(stack_b);
-	(*cheapest)->total_cost--;
+		(*cheapest)->cost_b--;
+		(*cheapest)->total_cost--;
+	}
+	// (*cheapest)->total_cost--;
 }
 
 void	heavy_bucle(t_node **stack_a, t_node **stack_b)
@@ -150,9 +179,20 @@ void	heavy_bucle(t_node **stack_a, t_node **stack_b)
 		cost_both(stack_a, stack_b);
 		total_cost(stack_b);
 		cheapest = take_cheapest(stack_b);
+		printf("\t------STACK A------\n");
+		print_node((*stack_a));
+		printf("\t------STACK B------\n");
+		print_node((*stack_b));
+		printf("\t------CHEAPEST------\n");
+		exit (1);
+		// printf("index del cheapest %d\n", cheapest->index);
+		// printf("target del cheapest %d\n", cheapest->target);
+		// printf("coste a del cheapest %d\n", cheapest->cost_a);
+		// printf("coste b del cheapest %d\n", cheapest->cost_b);
 		while (cheapest->total_cost > 0)
 			this_is_the_way(stack_a, stack_b, &cheapest);
 		if (cheapest->total_cost == 0)
 			pa(stack_b, stack_a);
+		// b_target_in_a(stack_a, stack_b);
 	}
 }

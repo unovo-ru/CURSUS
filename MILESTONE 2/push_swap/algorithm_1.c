@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 18:54:13 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/19 13:15:59 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/19 14:45:08 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,11 +121,11 @@ void	sort_stack(t_node **stack_a, t_node **stack_b, int size)
 	// cost_both(stack_a, stack_b);
 	// total_cost(stack_b);
 	// cheapest = take_cheapest(stack_b);
-	printf("\t------STACK A------\n");
-	print_node((*stack_a));
-	printf("\t------STACK B------\n");
-	print_node((*stack_b));
-	printf("\t------CHEAPEST------\n");
+	// printf("\t------STACK A------\n");
+	// print_node((*stack_a));
+	// printf("\t------STACK B------\n");
+	// print_node((*stack_b));
+	// printf("\t------CHEAPEST------\n");
 	// print_node(cheapest);
 }
 
