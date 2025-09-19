@@ -6,33 +6,12 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 16:19:18 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/18 21:49:06 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/19 11:57:20 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	stack_size(t_node **stack)
-{
-	int		count;
-	t_node	*aux;
-
-	count = 0;
-	aux = *stack;
-	if (stack == 0)
-		return (0);
-	else
-	{
-		while (1)
-		{
-			aux = aux->next;
-			count++;
-			if (aux == (*stack))
-				break ;
-		}
-	}
-	return (count);
-}
 
 // void	pos_and_cost_a(t_node **stack)
 // {
@@ -81,7 +60,6 @@ int	cost(t_node **stack, int position)
 	return (cost);
 }
 
-
 void	cost_both(t_node **stack_a, t_node **stack_b)
 {
 	// t_node	*aux_a;
@@ -103,4 +81,44 @@ void	cost_both(t_node **stack_a, t_node **stack_b)
 	// print_node((*stack_b));
 }
 
+int	abs_cost(int nbr)
+{
+	if (nbr < 0)
+		nbr = -nbr;
+	return (nbr);
+}
+
 void	total_cost(t_node **stack_b)
+{
+	t_node	*aux_b;
+
+	while (1)
+	{
+		aux_b->total_cost = abs_cost(aux_b->cost_a) + abs_cost(aux_b->cost_b);
+		aux_b = aux_b->next;
+		if (aux_b == (*stack_b))
+			break ;
+	}
+}
+
+t_node	*take_cheapest(t_node **stack)
+{
+	int		min_cost;
+	t_node	*aux;
+	t_node	*cheapest;
+
+	aux = *stack;
+	cheapest = aux;
+	min_cost = aux->total_cost;
+	aux = aux->next;
+	while (aux != (*stack))
+	{
+		if (min_cost > aux->total_cost)
+		{
+			min_cost = aux->total_cost;
+			cheapest = aux;
+		}
+		aux = aux->next;
+	}
+	rerturn (cheapest);
+}

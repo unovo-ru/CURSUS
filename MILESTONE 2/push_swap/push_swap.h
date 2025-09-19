@@ -69,12 +69,12 @@ void	ft_front_node(t_node **node, t_node *new_node);
 void	free_nodes(t_node **node);
 int		stack_size(t_node **stack);
 
-void	pos_and_cost_a(t_node **stack);
-void	pos_and_cost_b(t_node **stack);
+int		cost(t_node **stack, int position);
+int		abs_cost(int nbr);
 void	cost_both(t_node **stack_a, t_node **stack_b);
-
+void	total_cost(t_node **stack_b);
 void	b_target_in_a(t_node **stack_a, t_node **stack_b);
-
+t_node	*take_cheapest(t_node **stack);
 
 
 /*------------create the stack b------------*/
