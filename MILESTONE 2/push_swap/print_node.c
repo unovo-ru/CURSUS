@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 21:14:51 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/18 21:42:03 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/19 11:59:53 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	print_node(t_node *node)
 		printf("INDEX --> [ %d ]\n", aux->index);
 		printf("COST A--> [ %d ]\n", aux->cost_a);
 		printf("COST B--> [ %d ]\n", aux->cost_b);
+		printf("TOTAL COST --> [ %d ]\n", aux->total_cost);
 		printf("TARGET --> [ %d ]\n", aux->target);
 		printf("POS --> [ %d ]\n", aux->pos);
 		// printf("PREV --> [ %d ]\n", aux->prev->data);

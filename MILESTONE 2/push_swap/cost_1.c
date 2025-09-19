@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 16:19:18 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/19 11:57:20 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/19 13:17:08 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,8 @@ int	cost(t_node **stack, int position)
 
 void	cost_both(t_node **stack_a, t_node **stack_b)
 {
-	// t_node	*aux_a;
 	t_node	*aux_b;
 
-	// aux_a = (*stack_a);
 	aux_b = (*stack_b);
 	while (1)
 	{
@@ -91,7 +89,9 @@ int	abs_cost(int nbr)
 void	total_cost(t_node **stack_b)
 {
 	t_node	*aux_b;
+	// t_node	*current;
 
+	aux_b = (*stack_b);
 	while (1)
 	{
 		aux_b->total_cost = abs_cost(aux_b->cost_a) + abs_cost(aux_b->cost_b);
@@ -120,5 +120,39 @@ t_node	*take_cheapest(t_node **stack)
 		}
 		aux = aux->next;
 	}
-	rerturn (cheapest);
+	return (cheapest);
+}
+
+void	this_is_the_way(t_node **stack_a, t_node **stack_b, t_node *cheapest)
+{
+	if (cheapest->cost_a < 0 && cheapest->cost_b < 0)
+		rrr(stack_a, stack_b);
+	else if (cheapest->cost_a > 0 && cheapest->cost_b > 0)
+		rr(stack_a, stack_b);
+	else if (cheapest->cost_a < 0)
+		rra(stack_a);
+	else if (cheapest->cost_a > 0)
+		ra(stack_a);
+	else if (cheapest->cost_b < 0)
+		rrb(stack_b);
+	else if (cheapest->cost_b > 0)
+		rb(stack_b);
+	cheapest->total_cost--;
+}
+
+void	heavy_bucle(t_node **stack_a, t_node **stack_b)
+{
+	t_node	*cheapest;
+
+	while (stack_b)
+	{
+		b_target_in_a(stack_a, stack_b);
+		cost_both(stack_a, stack_b);
+		total_cost(stack_b);
+		cheapest = take_cheapest(stack_b);
+		while (cheapest->total_cost > 0)
+			this_is_the_way(stack_a, stack_b, cheapest);
+		if (cheapest->total_cost == 0)
+			pa(stack_b, stack_a);
+	}
 }

@@ -43,6 +43,7 @@ t_node	*push_swap(char **str)
 		position_node(&stack);
 		// sort_4(&stack);
 		select_hc(size, &stack);
+		heavy_
 		// b_target_in_a((&stack), (&stack_b));
 		// printf("\t------STACK A------\n");
 		// print_node((stack));

@@ -76,6 +76,10 @@ void	total_cost(t_node **stack_b);
 void	b_target_in_a(t_node **stack_a, t_node **stack_b);
 t_node	*take_cheapest(t_node **stack);
 
+void	heavy_bucle(t_node **stack_a, t_node **stack_b)
+void	this_is_the_way(t_node **stack_a, t_node **stack_b, t_node *cheapest)
+
+
 
 /*------------create the stack b------------*/
 
