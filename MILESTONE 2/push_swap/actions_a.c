@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 17:20:41 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/19 13:31:40 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/19 18:56:37 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	sa(t_node **stack_a)
 
 void	ra(t_node **stack_a)
 {
+	if (!*stack_a || !stack_a || (*stack_a)->next == (*stack_a))
+		return ;
 	rotate(&(*stack_a));
 	ft_printf("ra\n");
 }

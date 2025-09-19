@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   actions_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 17:28:41 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/16 19:46:23 by marvin           ###   ########.fr       */
+/*   Updated: 2025/09/19 18:56:56 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	sb(t_node **stack_b)
 
 void	rb(t_node **stack_b)
 {
+	if (!*stack_b || !stack_b || (*stack_b)->next == (*stack_b))
+		return ;
 	rotate(stack_b);
 	ft_printf("rb\n");
 }
