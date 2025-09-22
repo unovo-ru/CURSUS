@@ -6,7 +6,7 @@
 #    By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/07 18:08:01 by unovo-ru          #+#    #+#              #
-#    Updated: 2025/09/18 13:18:18 by unovo-ru         ###   ########.fr        #
+#    Updated: 2025/09/22 15:02:22 by unovo-ru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRC = push_swap.c \
 		algorithm_3.c \
 		target_1.c \
 		cost_1.c \
+		cost_2.c \
 		actions_a.c \
 		actions_b.c \
 		actions_both.c \

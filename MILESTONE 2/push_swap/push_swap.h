@@ -13,7 +13,6 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <limits.h>
 # include "./libft/libft.h"
 
 typedef struct t_node
@@ -29,15 +28,6 @@ typedef struct t_node
 	struct t_node	*next;
 }			t_node;
 
-//typedef struct s_list
-//{
-//	void			*t_node;//t_nbr *
-//	struct s_list	*prev;
-//	struct s_list	*next;
-//}			t_list;
-
-
-/*!!!!!!! REMEMBER LINK BOTH STRUCTS !!!!!!!!!*/
 
 /*----------------  main  -----------------*/
 
@@ -51,7 +41,6 @@ int		*number_array(char **new_num_list, int count);
 int		*get_imput(char *number_list);
 void	free_array(char **s);
 int		repeat_number(int *numbers, int count);
-//void	print_error(char *array, char **str, int *num, t_node **node);
 void	print_error(void);
 int		no_empty_arg(char **argv);
 int		*final_input(char **str);
@@ -65,28 +54,13 @@ void	ft_node_add_back(t_node **head, t_node *new_node);
 t_node	*ft_last_node(t_node *lst);
 void	ft_node_add_back(t_node **node, t_node *new_node);
 void	ft_front_node(t_node **node, t_node *new_node);
-
 void	free_nodes(t_node **node);
 int		stack_size(t_node **stack);
 
-int		cost(t_node **stack, int position);
-int		abs_cost(int nbr);
-void	cost_both(t_node **stack_a, t_node **stack_b);
-void	total_cost(t_node **stack_b);
-void	b_target_in_a(t_node **stack_a, t_node **stack_b);
-t_node	*take_cheapest(t_node **stack);
-
-void	heavy_bucle(t_node **stack_a, t_node **stack_b);
-void	this_is_the_way(t_node **stack_a, t_node **stack_b, t_node **cheapest);
-
-
-
 /*------------create the stack b------------*/
-
 t_node	*create_b_stack(void);
 
 /*-----------  print nodes  -----------*/
-
 void	print_node(t_node *node);
 
 /*--------------moves------------------*/
@@ -113,10 +87,8 @@ void	rrb(t_node **stack_b);
 void	rrr(t_node **stack_a, t_node **stack_b);
 
 /*------------------algorithm------------------*/
-
 void	index_node(t_node **stack_a, int size);
 int		min_aux(int n, t_node *aux, t_node *current);
-// int		target_node(t_node **stack_a, t_node **stack_b);
 void	position_node(t_node **stack_a);
 int		is_min(t_node **stack_a);
 int		is_correct(int *array_ints, int size);
@@ -126,19 +98,25 @@ void	sort_3(t_node **stack_a);
 void	sort_4(t_node **stack_a, t_node **stack_b);
 void	sort_5(t_node **stack_a, t_node **stack_b);
 void	sort_stack(t_node **stack_a, t_node **stack_b, int size);
+int		cost(t_node **stack, int position);
+int		abs_cost(int nbr);
+void	cost_both(t_node **stack_a, t_node **stack_b);
+void	total_cost(t_node **stack_b);
+void	b_target_in_a(t_node **stack_a, t_node **stack_b);
+t_node	*take_cheapest(t_node **stack);
+void	heavy_bucle(t_node **stack_a, t_node **stack_b);
+void	this_is_the_way(t_node **stack_a, t_node **stack_b, t_node **cheapest);
+void	final_sort(t_node **stack);
+int		*push_swap_extension(char *str, char **arg);
+int		min_pos_aux(int n, t_node *aux, t_node *current);
+int		is_min_pos(t_node **stack_a);
+void	b_target_in_a_extension(t_node **stack_a, t_node **stack_b);
 
 
-// void	push_minor_to_b(t_node **stack_a, t_node **stack_b);
-// int		is_min_in_mid(t_node **stack_a);
 
 
 /*-------------  push swap  --------------*/
 
 t_node	*push_swap(char **str);
-
-/*size_t	ft_let_count(const char *s, char c);
-size_t	ft_count_words(const char *s, char c);
-char	**free_array(char **s);
-char	*ft_substr(char const *s, unsigned int start, size_t len);*/
 
 #endif

@@ -12,23 +12,32 @@
 
 #include "push_swap.h"
 
+int	*push_swap_extension(char *str, char **arg)
+{
+	int	*res;
+
+	if (!str)
+		free(str);
+	res = get_imput(str);
+	if (!res || !no_empty_arg(arg))
+	{
+		free(res);
+		free(str);
+		print_error();
+	}
+	return (res);
+}
+
 t_node	*push_swap(char **str)
 {
 	int		size;
 	char	*final_argument;
 	int		*res;
-	t_node	*stack = NULL;
+	t_node	*stack;
 
+	stack = NULL;
 	final_argument = arg_join(str);
-	if (!final_argument)
-		free(final_argument);
-	res = get_imput(final_argument);
-	if (!res || !no_empty_arg(str))
-	{
-		free(res);
-		free(final_argument);
-		print_error();
-	}
+	res = push_swap_extension(final_argument, str);
 	size = count_array(final_argument);
 	if (is_correct(res, size) == 1)
 	{
@@ -47,36 +56,3 @@ t_node	*push_swap(char **str)
 	free(final_argument);
 	return (stack);
 }
-
-/*necesito esta funcion para calcular el size del stack siempre*/
-
-// int	get_stack_size(t_stack	*stack)
-// {
-// 	int	size;
-
-// 	size = 0;
-// 	if (!stack)
-// 		return (0);
-// 	while (stack)
-// 	{
-// 		stack = stack->next;
-// 		size++;
-// 	}
-// 	return (size);
-// }
-
-
-
-
-
-
-
-		// print_node(stack);
-		// printf("\t------STACK A------\n");
-		// // printf("\t------STACK A------\n");
-		// // select_hc(size, &stack);
-		// // printf("####### STACK A #######");
-		// // print_node(stack);
-		// // printf("####### STACK B #######");
-		// // print_node(stack_b);
-

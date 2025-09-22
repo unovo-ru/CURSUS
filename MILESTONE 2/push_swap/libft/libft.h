@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 20:46:39 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/18 19:05:54 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/22 15:13:08 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <string.h>
 # include <stdarg.h>
 # include <fcntl.h>
+# include <limits.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
@@ -31,7 +32,7 @@
 
 typedef struct s_list
 {
-	void			*content;//t_nbr *
+	void			*content;
 	struct s_list	*prev;
 	struct s_list	*next;
 }			t_list;

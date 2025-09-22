@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 17:20:41 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/19 18:56:37 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/22 14:57:12 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ void	pa(t_node **stack_b, t_node **stack_a)
 		ft_printf("pa\n");
 	}
 }
-
 
 void	rra(t_node **stack_a)
 {

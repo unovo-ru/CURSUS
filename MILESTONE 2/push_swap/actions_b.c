@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/01 17:28:41 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/19 18:56:56 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/22 14:57:19 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	rb(t_node **stack_b)
 	rotate(stack_b);
 	ft_printf("rb\n");
 }
-
 
 void	pb(t_node **stack_a, t_node **stack_b)
 {

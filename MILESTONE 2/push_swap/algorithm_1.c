@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 18:54:13 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/22 14:35:53 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/22 16:00:35 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,5 +113,5 @@ void	sort_stack(t_node **stack_a, t_node **stack_b, int size)
 	}
 	sort_3(stack_a);
 	heavy_bucle(stack_a, stack_b);
-
+	final_sort(stack_a);
 }

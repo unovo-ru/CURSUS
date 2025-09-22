@@ -6,27 +6,11 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:22:27 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/18 15:48:29 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/22 15:05:51 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*
-
-funciones que tendre que hacer para cada uno de los movimientos
-
-	s (swap --> se lo puedo pasar a ambos STACKS A y B)
-	ss (doble swap --> se le pasa a ambos al mismo tiempo)
-	pa (push --> pasar de B a A)
-	pb (push --> pasar de A a B)
-	r (rotate --> se puede pasar a ambos nodos rotar todos
-			los nodos 1 posicion a la derecha PRIMERO acaba ULTIMO)
-	rr (doble rotate --> rota ambos nodos al mismo tiempo)
-	rrr (reverse rotate --> se le puede pasar a ambos por separados
-			(rra y rrb) y ambos al mismo tiempo (rrr))
-
-*/
 
 void	swap(t_node **stack)
 {
@@ -40,23 +24,7 @@ void	swap(t_node **stack)
 	(*h)->prev->next = (*h);
 	(*h)->next->prev = (*h);
 	(*h) = (*h)->prev;
-
-	// (*stack)->prev->next = (*stack)->next;
-	// (*stack)->next->prev = (*stack)->prev;
-	// (*stack)->prev = (*stack)->next;
-	// (*stack)->next = (*stack)->next->next;
-	// (*stack)->prev->next = (*stack);
-	// (*stack)->next->prev = (*stack);
-	// (*stack) = (*stack)->prev;
-	/*
-	sa
-	sb
-	ss
-	*/
 }
-
-
-/*COMPARAR CON EL DE ABAJO*/
 
 void	push(t_node **stack_source, t_node **stack_dest)
 {
@@ -82,7 +50,6 @@ void	push(t_node **stack_source, t_node **stack_dest)
 	}
 }
 
-
 void	empty_dest(t_node **stack_source)
 {
 	t_node	*a;
@@ -97,10 +64,6 @@ void	empty_dest(t_node **stack_source)
 		*stack_source = a->next;
 	}
 }
-
-
-
-/*!!!!!!!!!!!!CORRECT!!!!!!!!!!!*/
 
 void	rotate(t_node **stack)
 {

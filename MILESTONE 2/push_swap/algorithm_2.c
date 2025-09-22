@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 19:29:37 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/17 16:16:38 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/22 14:57:56 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void	sort_5(t_node **stack_a, t_node **stack_b)
 {
 	int	min;
 
-	printf("llegamos\n\n");
 	min = is_min(stack_a);
 	while ((*stack_a)->data != min)
 		ra(stack_a);
@@ -79,5 +78,3 @@ void	sort_5(t_node **stack_a, t_node **stack_b)
 	pa(stack_b, stack_a);
 	pa(stack_b, stack_a);
 }
-
-

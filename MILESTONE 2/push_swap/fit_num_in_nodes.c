@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 16:45:09 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/22 14:33:13 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/22 15:03:27 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,6 @@ int	count_array(char *array_ints)
 }
 
 /*this function calls every function about nodes*/
-
-
-/*!!!!!!!!!!!!!!!!!IF THIS CASE IS UNIVERSAL I MAY
-			HAVE TO HARDCODE OTHER CASES
-LIKE WHEN I HAVE ONLY 3-4 NUMBERS!!!!!!!!!!!!!!!!*/
-
-/*AQUI TENGO EL SEGFAULT!!!!!!!!!!*/
 
 t_node	*node_aplication(int *num_array, int size)
 {

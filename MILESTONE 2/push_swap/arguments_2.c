@@ -51,19 +51,6 @@ int	repeat_number(int *numbers, int count)
 
 /*print an error message and exit*/
 
-/*void	print_error(char *array, char **str, int *num, t_node **node)
-{
-	if(array)
-		free(array);
-	if(str)
-		free_array(str);
-	if(num)
-		free(num);
-	if(node)
-		free_nodes(&(*node));
-	write(2, "Error\n", 6);
-	exit(0);
-}*/
 void	print_error(void)
 {
 	write(2, "Error\n", 6);

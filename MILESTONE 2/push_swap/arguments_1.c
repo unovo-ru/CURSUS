@@ -12,14 +12,6 @@
 
 #include "push_swap.h"
 
-/*
-arg_join works joining every arg in just 1:
-
-	321 "45 87" 96
-	"321 45 87 96"
-	321 45 87 96
-*/
-
 char	*arg_join(char **argv)
 {
 	int		i;
@@ -151,7 +143,6 @@ int	*final_input(char **str)
 
 	final_argument = arg_join(str);
 	res = get_imput(final_argument);
-	printf("este es el input final = %s\n", final_argument);
 	if (!res || !no_empty_arg(str))
 	{
 		free(res);
