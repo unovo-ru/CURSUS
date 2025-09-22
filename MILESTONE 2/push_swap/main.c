@@ -16,7 +16,8 @@ int	main(int argc, char **argv)
 {
 	t_node	*stack_a;
 
-	(void)argc;
+	if (argc == 1)
+		return (0);
 	stack_a = push_swap(argv);
 	free_nodes(&stack_a);
 	return (0);

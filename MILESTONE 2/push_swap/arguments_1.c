@@ -12,6 +12,15 @@
 
 #include "push_swap.h"
 
+void	arg_join_extension(char *str)
+{
+	if (!str)
+	{
+		free(str);
+		return ;
+	}
+}
+
 char	*arg_join(char **argv)
 {
 	int		i;
@@ -19,11 +28,7 @@ char	*arg_join(char **argv)
 
 	i = 1;
 	str = ft_strdup("");
-	if (!str)
-	{
-		free(str);
-		return (NULL);
-	}
+	arg_join_extension(str);
 	while (argv[i])
 	{
 		if (argv[i][0] == '\0')
@@ -134,21 +139,4 @@ int	*get_imput(char *number_list)
 	return (num);
 }
 
-/*this function is the main function, it calls the rest of them*/
-
-int	*final_input(char **str)
-{
-	char	*final_argument;
-	int		*res;
-
-	final_argument = arg_join(str);
-	res = get_imput(final_argument);
-	if (!res || !no_empty_arg(str))
-	{
-		free(res);
-		print_error();
-	}
-	free(final_argument);
-	return (res);
-}
 

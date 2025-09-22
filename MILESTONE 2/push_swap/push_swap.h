@@ -35,6 +35,7 @@ int		main(int argc, char **argv);
 
 /*-----------  parse arguments  -----------*/
 char	*arg_join(char **argv);
+void	arg_join_extension(char *str);
 int		arg_valid(char *str);
 int		is_min_or_max(long int nbr);
 int		*number_array(char **new_num_list, int count);
@@ -95,8 +96,6 @@ int		is_correct(int *array_ints, int size);
 void	select_hc(int size, t_node **stack_a);
 void	sort_2(t_node **stack_a);
 void	sort_3(t_node **stack_a);
-void	sort_4(t_node **stack_a, t_node **stack_b);
-void	sort_5(t_node **stack_a, t_node **stack_b);
 void	sort_stack(t_node **stack_a, t_node **stack_b, int size);
 int		cost(t_node **stack, int position);
 int		abs_cost(int nbr);
@@ -110,7 +109,7 @@ void	final_sort(t_node **stack);
 int		*push_swap_extension(char *str, char **arg);
 int		min_pos_aux(int n, t_node *aux, t_node *current);
 int		is_min_pos(t_node **stack_a);
-void	b_target_in_a_extension(t_node **stack_a, t_node **stack_b);
+// void	b_target_in_a_extension(t_node **stack_a, t_node **stack_b);
 
 
 

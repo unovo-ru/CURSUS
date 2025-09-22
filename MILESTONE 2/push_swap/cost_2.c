@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/22 15:00:30 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/22 18:21:09 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/22 19:50:58 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,8 @@ void	final_sort(t_node **stack)
 	size = stack_size(stack);
 	aux = (*stack);
 	i = 0;
-	// printf("llegamos\n\n");
 	while (i < size)
 	{
-		// printf("este es aux %d\n\n", aux->index);
 		if (aux->index == 1)
 			break ;
 		aux = aux->next;
@@ -98,6 +96,5 @@ void	heavy_bucle(t_node **stack_a, t_node **stack_b)
 		if (cheapest->total_cost == 0)
 			pa(stack_b, stack_a);
 	}
-	// final_sort(stack_a);
 }
 
