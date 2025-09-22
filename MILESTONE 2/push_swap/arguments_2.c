@@ -83,6 +83,7 @@ int	no_empty_arg(char **argv)
 	flag = 0;
 	while (argv[i])
 	{
+		j = 0;
 		while (argv[i][j])
 		{
 			if (ft_isdigit((int)argv[i][j]))

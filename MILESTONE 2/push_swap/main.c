@@ -17,7 +17,7 @@ int	main(int argc, char **argv)
 	(void)argc;
 	t_node *stack_a = NULL;
 	// t_node *stack_b = NULL;
-
+	
 	// int i = 0;
 	// int *res = final_input(argv);
 	// if (!res)
@@ -26,10 +26,10 @@ int	main(int argc, char **argv)
 	// node_aplication(argv, res);
 	// while (i < 4)
 	// {
-	// 	printf("esto es mi imput = %d\n\n", res[i]);
-	// 	i++;
-	// }
-	// stack_a = node_aplication(argv, res);
+		// 	printf("esto es mi imput = %d\n\n", res[i]);
+		// 	i++;
+		// }
+		// stack_a = node_aplication(argv, res);
 	stack_a = push_swap(argv);
 	//printf("llega");
 	//is_min(&stack_a);
