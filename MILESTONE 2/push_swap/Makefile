@@ -6,7 +6,7 @@
 #    By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/07 18:08:01 by unovo-ru          #+#    #+#              #
-#    Updated: 2025/09/23 18:25:06 by unovo-ru         ###   ########.fr        #
+#    Updated: 2025/09/23 20:17:30 by unovo-ru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,8 +52,18 @@ OBJ = $(patsubst $(SRCDIR)/%, $(OBJ_DIR)/%, $(ALLFILES:%.c=%.o))
 
 SRC_BONUS_DIR=src_bonus
 
-SRC_BONUS= \
-		main.c
+SRC_BONUS= push_swap_bonus.c \
+		movements_bonus.c \
+		arguments_1_bonus.c \
+		arguments_2_bonus.c \
+		arguments_3_bonus.c \
+		node_functions_bonus.c \
+		fit_num_in_nodes_bonus.c \
+		actions_a_bonus.c \
+		actions_b_bonus.c \
+		actions_both_bonus.c \
+		main_bonus.c \
+
 
 ALLFILES_BONUS:=$(addprefix $(SRC_BONUS_DIR)/, $(SRC_BONUS))
 

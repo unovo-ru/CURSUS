@@ -58,7 +58,7 @@ void	free_nodes(t_node **node);
 int		stack_size(t_node **stack);
 
 /*------------create the stack b------------*/
-t_node	*create_b_stack(void);
+// t_node	*create_b_stack(void);
 
 /*-----------  print nodes  -----------*/
 // void	print_node(t_node *node);

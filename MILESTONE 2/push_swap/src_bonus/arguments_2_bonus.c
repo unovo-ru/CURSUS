@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arguments_2.c                                      :+:      :+:    :+:   */
+/*   arguments_2_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/13 18:05:42 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/06 18:05:44 by marvin           ###   ########.fr       */
+/*   Created: 2025/09/23 20:01:12 by unovo-ru          #+#    #+#             */
+/*   Updated: 2025/09/23 20:01:12 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 /*this function frees the array for memory leaks*/
 
@@ -54,7 +54,7 @@ int	repeat_number(int *numbers, int count)
 void	print_error(void)
 {
 	write(2, "Error\n", 6);
-	exit (0);
+	exit (1);
 }
 
 /*this function tells me error if there is an empty argument*/

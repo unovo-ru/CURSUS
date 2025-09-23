@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   actions_both.c                                     :+:      :+:    :+:   */
+/*   stack_size_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/01 17:31:30 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/22 19:32:42 by unovo-ru         ###   ########.fr       */
+/*   Created: 2025/09/23 19:26:16 by unovo-ru          #+#    #+#             */
+/*   Updated: 2025/09/23 20:07:37 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-void	ss(t_node **stack_a, t_node **stack_b)
+int	stack_size(t_node **stack)
 {
-	swap(stack_a);
-	swap(stack_b);
-	ft_printf("ss\n");
+	int		count;
+	t_node	*aux;
+
+	count = 0;
+	if (!stack)
+		return (0);
+	aux = *stack;
+	while (1)
+	{
+		aux = aux->next;
+		count++;
+		if (aux == (*stack))
+			break ;
+	}
+	return (count);
 }
-
-void	rr(t_node **stack_a, t_node **stack_b)
+void	ft_free_stacks(t_node **stack_a, t_node **stack_b)
 {
-	rotate(stack_a);
-	rotate(stack_b);
-	ft_printf("rr\n");
-}
-
-void	rrr(t_node **stack_a, t_node **stack_b)
-{
-	reverse_rotate(stack_a);
-	reverse_rotate(stack_b);
-	ft_printf("rrr\n");
+	free_nodes(stack_a);
+	free_nodes(stack_a);
+	print_error();
 }

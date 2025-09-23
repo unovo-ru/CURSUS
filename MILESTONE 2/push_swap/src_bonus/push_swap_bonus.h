@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/04 16:01:55 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/06 16:59:54 by marvin           ###   ########.fr       */
+/*   Created: 2025/09/23 19:58:51 by unovo-ru          #+#    #+#             */
+/*   Updated: 2025/09/23 19:58:51 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
 # include "../libft/libft.h"
+# include <stdbool.h>
 
 typedef struct t_node
 {
-	int				index;
 	int				data;
-	int				cost_a;
-	int				cost_b;
-	int				total_cost;
-	int				pos;
-	int				target;
 	struct t_node	*prev;
 	struct t_node	*next;
 }			t_node;
@@ -56,9 +51,10 @@ void	ft_node_add_back(t_node **node, t_node *new_node);
 void	ft_front_node(t_node **node, t_node *new_node);
 void	free_nodes(t_node **node);
 int		stack_size(t_node **stack);
+void	ft_free_stacks(t_node **stack_a, t_node **stack_b);
 
 /*------------create the stack b------------*/
-t_node	*create_b_stack(void);
+// t_node	*create_b_stack(void);
 
 /*-----------  print nodes  -----------*/
 // void	print_node(t_node *node);
@@ -112,12 +108,15 @@ t_node	*take_cheapest(t_node **stack);
 void	heavy_bucle(t_node **stack_a, t_node **stack_b);
 void	this_is_the_way(t_node **stack_a, t_node **stack_b, t_node **cheapest);
 void	final_sort(t_node **stack);
-int		*push_swap_extension(char *str, char **arg);
 int		min_pos_aux(int n, t_node *aux, t_node *current);
 int		is_min_pos(t_node **stack_a);
 
 /*-------------  push swap  --------------*/
 
 t_node	*push_swap(char **str);
+int		*push_swap_extension(char *str, char **arg);
+bool	is_sorted(t_node **stack);
+void	gnl_call(t_node **stack_a, t_node **stack_b);
+void	move_if(char *str, t_node **stack_a, t_node **stack_b);
 
 #endif

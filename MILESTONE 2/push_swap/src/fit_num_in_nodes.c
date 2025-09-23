@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/30 16:45:09 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/22 15:03:27 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/23 20:03:23 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,13 @@ t_node	*node_aplication(int *num_array, int size)
 	return (head);
 }
 
-t_node	*create_b_stack(void)
-{
-	t_node	*stack_b;
+// t_node	*create_b_stack(void)
+// {
+// 	t_node	*stack_b;
 
-	stack_b = ft_new_node(0);
-	return (stack_b);
-}
+// 	stack_b = ft_new_node(0);
+// 	return (stack_b);
+// }
 
 void	free_nodes(t_node **node)
 {

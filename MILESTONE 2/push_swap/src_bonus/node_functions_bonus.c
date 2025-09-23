@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   node_functions.c                                   :+:      :+:    :+:   */
+/*   node_functions_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:03:25 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/22 15:06:19 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/23 20:14:20 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 /*this function fits every number in a node*/
 
@@ -21,12 +21,6 @@ t_node	*ft_new_node(int data)
 	aux = malloc(sizeof(t_node));
 	if (!aux)
 		return (NULL);
-	aux->index = -1;
-	aux->pos = -1;
-	aux->cost_a = 0;
-	aux->cost_b = 0;
-	aux->total_cost = 0;
-	aux->target = -1;
 	aux->data = data;
 	aux->prev = aux;
 	aux->next = aux;

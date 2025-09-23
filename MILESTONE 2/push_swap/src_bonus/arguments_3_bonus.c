@@ -1,39 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   actions_b.c                                        :+:      :+:    :+:   */
+/*   arguments_3_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/01 17:28:41 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/22 19:32:21 by unovo-ru         ###   ########.fr       */
+/*   Created: 2025/09/22 19:50:12 by unovo-ru          #+#    #+#             */
+/*   Updated: 2025/09/23 20:01:25 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
-void	sb(t_node **stack_b)
-{
-	swap(stack_b);
-	ft_printf("sb\n");
-}
+/*this function is the main function, it calls the rest of them*/
 
-void	rb(t_node **stack_b)
+int	*final_input(char **str)
 {
-	if (!*stack_b || !stack_b || (*stack_b)->next == (*stack_b))
-		return ;
-	rotate(stack_b);
-	ft_printf("rb\n");
-}
+	char	*final_argument;
+	int		*res;
 
-void	pb(t_node **stack_a, t_node **stack_b)
-{
-	push(stack_a, stack_b);
-	ft_printf("pb\n");
-}
-
-void	rrb(t_node **stack_b)
-{
-	reverse_rotate(stack_b);
-	ft_printf("rrb\n");
+	final_argument = arg_join(str);
+	res = get_imput(final_argument);
+	if (!res || !no_empty_arg(str))
+	{
+		free(res);
+		print_error();
+	}
+	free(final_argument);
+	return (res);
 }
