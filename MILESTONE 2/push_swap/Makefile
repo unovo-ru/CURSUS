@@ -6,7 +6,7 @@
 #    By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/07 18:08:01 by unovo-ru          #+#    #+#              #
-#    Updated: 2025/09/23 12:17:58 by unovo-ru         ###   ########.fr        #
+#    Updated: 2025/09/23 16:20:55 by unovo-ru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,6 @@ SRC = push_swap.c \
 		actions_b.c \
 		actions_both.c \
 		main.c \
-		print_node.c
 
 OBJ_DIR = obj
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)

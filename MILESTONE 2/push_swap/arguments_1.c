@@ -57,6 +57,8 @@ int	arg_valid(char *str)
 	int	i;
 
 	i = 0;
+	if (ft_strncmp(str, "18446744073709551616", 20))
+		return (0);
 	while (str[i])
 	{
 		if (str[i] == ' ')

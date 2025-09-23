@@ -61,7 +61,7 @@ int		stack_size(t_node **stack);
 t_node	*create_b_stack(void);
 
 /*-----------  print nodes  -----------*/
-void	print_node(t_node *node);
+// void	print_node(t_node *node);
 
 /*--------------moves------------------*/
 void	rotate(t_node **stack);
