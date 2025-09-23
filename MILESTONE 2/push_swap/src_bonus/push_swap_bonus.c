@@ -60,14 +60,6 @@ void	gnl_call(t_node **stack_a, t_node **stack_b)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
-	// t_node *aux = (*stack_b);
-	// while (1)
-	// {
-	// 	printf("%d\n", aux->data);
-	// 	aux = aux->next;
-	// 	if (aux == (*stack_a))
-	// 		break ;
-	// }
 }
 
 void	move_if(char *str, t_node **stack_a, t_node **stack_b)
@@ -111,7 +103,6 @@ t_node	*push_swap(char **str)
 	final_argument = arg_join(str);
 	res = push_swap_extension(final_argument, str);
 	size = count_array(final_argument);
-
 	stack = node_aplication(res, size);
 	if (!stack)
 	{

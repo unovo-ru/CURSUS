@@ -28,6 +28,7 @@ typedef struct t_node
 int		main(int argc, char **argv);
 
 /*-----------  parse arguments  -----------*/
+
 char	*arg_join(char **argv);
 void	arg_join_extension(char *str);
 int		arg_valid(char *str);
@@ -53,11 +54,6 @@ void	free_nodes(t_node **node);
 int		stack_size(t_node **stack);
 void	ft_free_stacks(t_node **stack_a, t_node **stack_b);
 
-/*------------create the stack b------------*/
-// t_node	*create_b_stack(void);
-
-/*-----------  print nodes  -----------*/
-// void	print_node(t_node *node);
 
 /*--------------moves------------------*/
 void	rotate(t_node **stack);
