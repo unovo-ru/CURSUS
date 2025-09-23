@@ -1,41 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   actions_b.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/30 18:43:28 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/23 19:14:26 by unovo-ru         ###   ########.fr       */
+/*   Created: 2025/09/01 17:28:41 by unovo-ru          #+#    #+#             */
+/*   Updated: 2025/09/22 19:32:21 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-long	ft_atol(char *str)
+void	sb(t_node **stack_b)
 {
-	long	i;
-	long	sig;
-	long	num;
+	swap(stack_b);
+	ft_printf("sb\n");
+}
 
-	i = 0;
-	sig = 1;
-	while (str[i] < 32)
-		i++;
-	if (str[i] == '-')
-	{
-		sig = -sig;
-		i++;
-	}
-	else if (str[i] == '+')
-		i++;
-	num = 0;
-	while ((str[i] >= '0') && (str[i] <= '9'))
-	{
-		num = (num * 10) + (str[i] - '0');
-		i++;
-		if (num > LONG_MAX)
-			return (LONG_MAX);
-	}
-	return (num * sig);
+void	rb(t_node **stack_b)
+{
+	if (!*stack_b || !stack_b || (*stack_b)->next == (*stack_b))
+		return ;
+	rotate(stack_b);
+	ft_printf("rb\n");
+}
+
+void	pb(t_node **stack_a, t_node **stack_b)
+{
+	push(stack_a, stack_b);
+	ft_printf("pb\n");
+}
+
+void	rrb(t_node **stack_b)
+{
+	reverse_rotate(stack_b);
+	ft_printf("rrb\n");
 }

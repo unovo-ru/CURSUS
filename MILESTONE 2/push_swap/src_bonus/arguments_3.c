@@ -1,41 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atol.c                                          :+:      :+:    :+:   */
+/*   arguments_3.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/30 18:43:28 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/23 19:14:26 by unovo-ru         ###   ########.fr       */
+/*   Created: 2025/09/22 19:50:12 by unovo-ru          #+#    #+#             */
+/*   Updated: 2025/09/22 19:50:25 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-long	ft_atol(char *str)
+/*this function is the main function, it calls the rest of them*/
+
+int	*final_input(char **str)
 {
-	long	i;
-	long	sig;
-	long	num;
+	char	*final_argument;
+	int		*res;
 
-	i = 0;
-	sig = 1;
-	while (str[i] < 32)
-		i++;
-	if (str[i] == '-')
+	final_argument = arg_join(str);
+	res = get_imput(final_argument);
+	if (!res || !no_empty_arg(str))
 	{
-		sig = -sig;
-		i++;
+		free(res);
+		print_error();
 	}
-	else if (str[i] == '+')
-		i++;
-	num = 0;
-	while ((str[i] >= '0') && (str[i] <= '9'))
-	{
-		num = (num * 10) + (str[i] - '0');
-		i++;
-		if (num > LONG_MAX)
-			return (LONG_MAX);
-	}
-	return (num * sig);
+	free(final_argument);
+	return (res);
 }
