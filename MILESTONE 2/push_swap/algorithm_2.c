@@ -6,12 +6,11 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/08 19:29:37 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/22 19:48:40 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/23 12:13:43 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 void	sort_2(t_node **stack_a)
 {

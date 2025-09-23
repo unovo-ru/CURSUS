@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 17:11:24 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/22 15:45:35 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/23 13:04:04 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,14 +69,11 @@ int	is_min_pos(t_node **stack_a)
 	return (n);
 }
 
-void	b_target_in_a(t_node **stack_a, t_node **stack_b)
+void	b_target_in_a(t_node **stack_a, t_node **stack_b, t_node *tmp)
 {
 	t_node	*aux_a;
 	t_node	*aux_b;
-	t_node	*tmp;
 
-	position_node(stack_a);
-	position_node(stack_b);
 	aux_a = (*stack_a);
 	aux_b = (*stack_b);
 	while (1)
@@ -100,5 +97,3 @@ void	b_target_in_a(t_node **stack_a, t_node **stack_b)
 			break ;
 	}
 }
-
-

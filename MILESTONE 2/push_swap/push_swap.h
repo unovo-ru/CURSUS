@@ -28,7 +28,6 @@ typedef struct t_node
 	struct t_node	*next;
 }			t_node;
 
-
 /*----------------  main  -----------------*/
 
 int		main(int argc, char **argv);
@@ -71,6 +70,13 @@ void	swap(t_node **stack);
 void	empty_dest(t_node **stack_source);
 void	push(t_node **stack_source, t_node **stack_dest);
 
+/*--------------costs moves----------------*/
+void	do_rr(t_node **stack_a, t_node **stack_b, t_node **cheapest);
+void	do_rra(t_node **stack_a, t_node **cheapest);
+void	do_ra(t_node **stack_a, t_node **cheapest);
+void	do_rrb(t_node **stack_b, t_node **cheapest);
+void	do_rb(t_node **stack_b, t_node **cheapest);
+void	do_rrr(t_node **stack_a, t_node **stack_b, t_node **cheapest);
 
 /*-----------------actions---------------*/
 void	sa(t_node **stack_a);
@@ -101,7 +107,7 @@ int		cost(t_node **stack, int position);
 int		abs_cost(int nbr);
 void	cost_both(t_node **stack_a, t_node **stack_b);
 void	total_cost(t_node **stack_b);
-void	b_target_in_a(t_node **stack_a, t_node **stack_b);
+void	b_target_in_a(t_node **stack_a, t_node **stack_b, t_node *tmp);
 t_node	*take_cheapest(t_node **stack);
 void	heavy_bucle(t_node **stack_a, t_node **stack_b);
 void	this_is_the_way(t_node **stack_a, t_node **stack_b, t_node **cheapest);
@@ -109,10 +115,6 @@ void	final_sort(t_node **stack);
 int		*push_swap_extension(char *str, char **arg);
 int		min_pos_aux(int n, t_node *aux, t_node *current);
 int		is_min_pos(t_node **stack_a);
-// void	b_target_in_a_extension(t_node **stack_a, t_node **stack_b);
-
-
-
 
 /*-------------  push swap  --------------*/
 

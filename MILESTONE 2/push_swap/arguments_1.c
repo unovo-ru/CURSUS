@@ -49,7 +49,6 @@ char	*arg_join(char **argv)
 	return (str);
 }
 
-
 /*this function tells me that the imput is valid, it takes only numbers and
 valid signs '-'*/
 
@@ -78,7 +77,6 @@ int	arg_valid(char *str)
 	}
 	return (1);
 }
-
 
 /*this fuction casts and fixes every number in an array to proof tha
 no one is duplicated*/
@@ -138,5 +136,3 @@ int	*get_imput(char *number_list)
 	}
 	return (num);
 }
-
-

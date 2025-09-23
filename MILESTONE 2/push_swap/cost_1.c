@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 16:19:18 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/22 15:00:20 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/23 13:07:10 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	cost(t_node **stack, int position)
 	if (size <= 0)
 		return (0);
 	cost = 0;
-
 	if (position > size / 2)
 		cost = (-1) * (size - position);
 	else
