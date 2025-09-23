@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/23 19:59:48 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/23 19:59:55 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/23 20:48:36 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	sa(t_node **stack_a)
 {
 	swap(&(*stack_a));
-	ft_printf("sa\n");
 }
 
 void	ra(t_node **stack_a)
@@ -23,7 +22,6 @@ void	ra(t_node **stack_a)
 	if (!*stack_a || !stack_a || (*stack_a)->next == (*stack_a))
 		return ;
 	rotate(stack_a);
-	ft_printf("ra\n");
 }
 
 void	pa(t_node **stack_b, t_node **stack_a)
@@ -31,18 +29,15 @@ void	pa(t_node **stack_b, t_node **stack_a)
 	if ((*stack_b)->next == (*stack_b))
 	{
 		push(stack_b, stack_a);
-		ft_printf("pa\n");
 		*stack_b = NULL;
 	}
 	else
 	{
 		push(stack_b, stack_a);
-		ft_printf("pa\n");
 	}
 }
 
 void	rra(t_node **stack_a)
 {
 	reverse_rotate(stack_a);
-	ft_printf("rra\n");
 }

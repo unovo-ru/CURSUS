@@ -54,7 +54,7 @@ int	repeat_number(int *numbers, int count)
 void	print_error(void)
 {
 	write(2, "Error\n", 6);
-	exit (1);
+	exit (2);
 }
 
 /*this function tells me error if there is an empty argument*/

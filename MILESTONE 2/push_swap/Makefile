@@ -6,7 +6,7 @@
 #    By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/07 18:08:01 by unovo-ru          #+#    #+#              #
-#    Updated: 2025/09/23 20:17:30 by unovo-ru         ###   ########.fr        #
+#    Updated: 2025/09/23 20:30:02 by unovo-ru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,6 +63,7 @@ SRC_BONUS= push_swap_bonus.c \
 		actions_b_bonus.c \
 		actions_both_bonus.c \
 		main_bonus.c \
+		stack_size_bonus.c \
 
 
 ALLFILES_BONUS:=$(addprefix $(SRC_BONUS_DIR)/, $(SRC_BONUS))
@@ -131,9 +132,9 @@ $(OBJ_DIR_BONUS):
 
 $(OBJ_DIR_BONUS)/%.o: $(SRC_BONUS_DIR)/%.c | $(OBJ_DIR_BONUS)
 	@echo "$(YELLOW)Linking bonus objects...$(RESET)"
-	@$(CC) $(CFLAGS) $(LIBFT_INC) -c $< -o $@
+	@$(CC) $(CFLAGS) -c $< -o $@
 
-bonus: $(OBJ_BONUS)
+bonus: $(OBJ_BONUS) $(LIBFT)
 	@echo "$(YELLOW)Linking bonus objects...$(RESET)"
 	@echo "$(GREEN)$(CHECK) Compilation successful!$(RESET)"
 	@$(CC) $(CFLAGS) $(OBJ_BONUS) $(LIBFT) -o $(BONUS_NAME)

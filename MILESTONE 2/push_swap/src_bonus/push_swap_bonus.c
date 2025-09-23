@@ -38,7 +38,7 @@ bool	is_sorted(t_node **stack)
 		if (aux->data > aux->next->data)
 			return (false);
 		aux = aux->next;
-		if (aux == (*stack))
+		if (aux == (*stack)->prev)
 			return (true);
 	}
 	return (true);
@@ -48,50 +48,52 @@ void	gnl_call(t_node **stack_a, t_node **stack_b)
 {
 	char	*str;
 
-	str = ft_strdup("");
-	while (str)
+	while (1)
 	{
-		free(str);
 		str = get_next_line(0);
+		if (str == NULL)
+			break ;
 		move_if(str, stack_a, stack_b);
+		free(str);
 	}
-	if (stack_size(stack_b))
-	{
-		free_nodes(stack_a);
-		free_nodes(stack_b);
-		ft_printf("KO\n");
-		exit (0);
-	}
-	if (is_sorted(stack_a) == true)
+	if (is_sorted(stack_a) == true && !(*stack_b))
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
+	// t_node *aux = (*stack_b);
+	// while (1)
+	// {
+	// 	printf("%d\n", aux->data);
+	// 	aux = aux->next;
+	// 	if (aux == (*stack_a))
+	// 		break ;
+	// }
 }
 
 void	move_if(char *str, t_node **stack_a, t_node **stack_b)
 {
-	if (ft_strncmp("ra", str, 2))
+	if (ft_strncmp("ra\n", str, 3) == 0)
 		ra(stack_a);
-	else if (ft_strncmp("rra", str, 2))
+	else if (ft_strncmp("rra\n", str, 4) == 0)
 		rra(stack_a);
-	else if (ft_strncmp("rb", str, 2))
+	else if (ft_strncmp("rb\n", str, 3) == 0)
 		rb(stack_b);
-	else if (ft_strncmp("rrb", str, 2))
+	else if (ft_strncmp("rrb\n", str, 4) == 0)
 		rrb(stack_b);
-	else if (ft_strncmp("rr", str, 2))
+	else if (ft_strncmp("rr\n", str, 3) == 0)
 		rr(stack_a, stack_b);
-	else if (ft_strncmp("rrr", str, 2))
+	else if (ft_strncmp("rrr\n", str, 4) == 0)
 		rrr(stack_a, stack_b);
-	else if (ft_strncmp("sa", str, 2))
+	else if (ft_strncmp("sa\n", str, 3) == 0)
 		sa(stack_a);
-	else if (ft_strncmp("sb", str, 2))
+	else if (ft_strncmp("sb\n", str, 3) == 0)
 		sb(stack_b);
-	else if (ft_strncmp("ss", str, 2))
+	else if (ft_strncmp("ss\n", str, 3) == 0)
 		ss(stack_a, stack_b);
-	else if (ft_strncmp("pa", str, 2))
-		pa(stack_a, stack_b);
-	else if (ft_strncmp("pb", str, 2))
-		pb(stack_b, stack_a);
+	else if (ft_strncmp("pa\n", str, 3) == 0)
+		pa(stack_b, stack_a);
+	else if (ft_strncmp("pb\n", str, 3) == 0)
+		pb(stack_a, stack_b);
 	else
 		ft_free_stacks(stack_a, stack_b);
 }
@@ -109,18 +111,14 @@ t_node	*push_swap(char **str)
 	final_argument = arg_join(str);
 	res = push_swap_extension(final_argument, str);
 	size = count_array(final_argument);
-	if (is_correct(res, size) == 1)
+
+	stack = node_aplication(res, size);
+	if (!stack)
 	{
-		stack = node_aplication(res, size);
-		if (!stack)
-		{
-			free(final_argument);
-			return (NULL);
-		}
-		gnl_call(&stack, &stack_b);
+		free(final_argument);
+		return (NULL);
 	}
-	else
-		free(res);
+	gnl_call(&stack, &stack_b);
 	free(final_argument);
 	return (stack);
 }

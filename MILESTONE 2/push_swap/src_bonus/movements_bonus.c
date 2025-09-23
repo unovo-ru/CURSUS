@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 16:22:27 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/23 20:02:05 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/23 22:23:57 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	swap(t_node **stack)
 	t_node	**h;
 
 	h = stack;
+	if (!(*stack))
+		return ;
 	(*h)->prev->next = (*h)->next;
 	(*h)->next->prev = (*h)->prev;
 	(*h)->prev = (*h)->next;
@@ -67,10 +69,14 @@ void	empty_dest(t_node **stack_source)
 
 void	rotate(t_node **stack)
 {
+	if (!(*stack))
+		return ;
 	(*stack) = (*stack)->next;
 }
 
 void	reverse_rotate(t_node **stack)
 {
+	if (!(*stack))
+		return ;
 	(*stack) = (*stack)->prev;
 }
