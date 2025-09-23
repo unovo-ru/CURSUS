@@ -6,7 +6,7 @@
 #    By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/07 18:08:01 by unovo-ru          #+#    #+#              #
-#    Updated: 2025/09/23 16:20:55 by unovo-ru         ###   ########.fr        #
+#    Updated: 2025/09/23 18:25:06 by unovo-ru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,9 @@ LIBFT = $(LIBFT_DIR)/libft.a
 LIBFT_INC = -I$(LIBFT_DIR)
 
 # Source and object files
-SRC = push_swap.c \
+SRCDIR=src
+
+SRC = 	push_swap.c \
 		movements.c \
 		arguments_1.c \
 		arguments_2.c \
@@ -42,8 +44,24 @@ SRC = push_swap.c \
 		actions_both.c \
 		main.c \
 
+ALLFILES:=$(addprefix $(SRCDIR)/, $(SRC))
+
 OBJ_DIR = obj
-OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
+# OBJ = $(ALLFILES:%.c=$(OBJ_DIR)/%.o)
+OBJ = $(patsubst $(SRCDIR)/%, $(OBJ_DIR)/%, $(ALLFILES:%.c=%.o))
+
+SRC_BONUS_DIR=src_bonus
+
+SRC_BONUS= \
+		main.c
+
+ALLFILES_BONUS:=$(addprefix $(SRC_BONUS_DIR)/, $(SRC_BONUS))
+
+OBJ_DIR_BONUS= obj_bonus
+
+# OBJ = $(ALLFILES:%.c=$(OBJ_DIR)/%.o)
+OBJ_BONUS = $(patsubst $(SRC_BONUS_DIR)/%, $(OBJ_DIR_BONUS)/%, $(ALLFILES_BONUS:%.c=%.o))
+
 
 # Commands
 RM = rm -f
@@ -68,7 +86,7 @@ $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $@
 
 # Compile .c -> .o in obj/
-$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
+$(OBJ_DIR)/%.o: $(SRCDIR)/%.c | $(OBJ_DIR)
 	@echo "$(YELLOW)Linking objects...$(RESET)"
 	@$(CC) $(CFLAGS) $(LIBFT_INC) -c $< -o $@
 
@@ -82,18 +100,33 @@ $(LIBFT):
 
 # Clean object files
 clean:
-	@$(RM) $(OBJ)
+	@$(RM) $(OBJ) $(OBJ_BONUS)
 	@$(MAKE) --no-print-directory -C $(LIBFT_DIR) clean
-	@$(RM) -r $(OBJ_DIR)
+	@$(RM) -r $(OBJ_DIR) $(OBJ_DIR_BONUS)
 	@echo "$(YELLOW)Cleaned object files.$(RESET)"
 
 # Full clean
 fclean: clean
-	@$(RM) $(NAME)
+	@$(RM) $(NAME) $(BONUS_NAME)
 	@$(MAKE) --no-print-directory -C $(LIBFT_DIR) fclean
 	@echo "$(BLUE)$(CROSS) Fully cleaned.$(RESET)"
 
 # Rebuild everything
 re: fclean all
+
+BONUS_NAME=checker
+
+$(OBJ_DIR_BONUS):
+	@mkdir -p $(OBJ_DIR_BONUS)
+
+$(OBJ_DIR_BONUS)/%.o: $(SRC_BONUS_DIR)/%.c | $(OBJ_DIR_BONUS)
+	@echo "$(YELLOW)Linking bonus objects...$(RESET)"
+	@$(CC) $(CFLAGS) $(LIBFT_INC) -c $< -o $@
+
+bonus: $(OBJ_BONUS)
+	@echo "$(YELLOW)Linking bonus objects...$(RESET)"
+	@echo "$(GREEN)$(CHECK) Compilation successful!$(RESET)"
+	@$(CC) $(CFLAGS) $(OBJ_BONUS) $(LIBFT) -o $(BONUS_NAME)
+
 
 .PHONY: all clean fclean re
