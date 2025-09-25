@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/13 18:03:25 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/24 16:35:14 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/24 17:37:24 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,7 @@ t_node	*ft_new_node(int data)
 	return (aux);
 }
 
-// t_node	*ft_last_node(t_node *lst)
-// {
-// 	if (!lst)
-// 		return (NULL);
-// 	while (lst->next)
-// 		lst = lst->next;
-// 	return (lst);
-// }
+
 
 void	ft_node_add_back(t_node **head, t_node *new_node)
 {
@@ -57,13 +50,4 @@ void	ft_node_add_back(t_node **head, t_node *new_node)
 	(*head)->prev = new_node;
 }
 
-/*this function adds a node at the beginning of the list*/
 
-// void	ft_front_node(t_node **node, t_node *new_node)
-// {
-// 	if (!new_node || !node)
-// 		return ;
-// 	new_node->next = *node;
-// 	new_node->prev = &(*new_node);
-// 	*node = new_node;
-// }

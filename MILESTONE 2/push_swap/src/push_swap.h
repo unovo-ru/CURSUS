@@ -43,7 +43,7 @@ void	free_array(char **s);
 int		repeat_number(int *numbers, int count);
 void	print_error(void);
 int		no_empty_arg(char **argv);
-int		*final_input(char **str);
+// int		*final_input(char **str);
 int		count_array(char *array_ints);
 
 /*-----------  nodes functions -----------*/
@@ -53,7 +53,7 @@ t_node	*ft_new_node(int data);
 void	ft_node_add_back(t_node **head, t_node *new_node);
 t_node	*ft_last_node(t_node *lst);
 void	ft_node_add_back(t_node **node, t_node *new_node);
-void	ft_front_node(t_node **node, t_node *new_node);
+// void	ft_front_node(t_node **node, t_node *new_node);
 void	free_nodes(t_node **node);
 int		stack_size(t_node **stack);
 
