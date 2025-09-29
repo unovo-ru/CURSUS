@@ -73,7 +73,7 @@ void	*free_all(char *str1, char **str2)
 3.- funcion de iniciar pipex, control de errores (solo trabajar con 5 argumentos)
 4.- despues llamar a initializer
 5.- path search (con el control de errores)
-6.- aplico el primer split a lo que me retorna path search con el separador " : ".
+6.- aplico el primer split a lo que me retorna path search con el separador ":".
 7.- liberar lo que trae split y manejar los errores (si da -1 libero)
 
 */
