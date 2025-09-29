@@ -14,7 +14,7 @@
 # define PIPEX_H
 
 # include <sys/wait.h>
-# include "libft/libft.h"
+# include "libft.h"
 
 typedef struct s_pipex
 {
@@ -33,13 +33,14 @@ typedef struct s_pipex
 
 /*------------------MAIN FUNCTIONS--------------------*/
 
-t_pipex ft_pipex(int argc, char **argv, char **envp);
+// t_pipex	ft_pipex(int argc, char **argv, char **envp);
 int		main(int argc, char **argv, char **envp);
 
 /*-----------PARSE AND INITIAL FUNCTIONS--------------*/
 
 void	initializer(t_pipex *pipex);
 void	free_array(char **array);
+char	*path_search(char **envp);
 
 
 #endif

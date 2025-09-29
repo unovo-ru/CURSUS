@@ -22,6 +22,9 @@ LIBFT_DIR = libft
 LIBFT = $(LIBFT_DIR)/libft.a
 LIBFT_INC = -I$(LIBFT_DIR)
 
+# Include directories
+INC = -I. $(LIBFT_INC)
+
 # Source and object files
 SRCDIR=src
 
@@ -58,8 +61,8 @@ $(NAME): $(OBJ)
 
 # Compile .c -> .o in obj/
 $(OBJ_DIR)/%.o: $(SRCDIR)/%.c | $(OBJ_DIR)
-	@echo "$(YELLOW)Linking objects...$(RESET)"
-	@$(CC) $(CFLAGS) $(LIBFT_INC) -c $< -o $@
+	@echo "$(YELLOW)Compiling $<...$(RESET)"
+	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 
 # Create obj/ directory if needed
 $(OBJ_DIR):
