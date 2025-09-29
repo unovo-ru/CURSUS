@@ -31,7 +31,16 @@ typedef struct s_pipex
 	char		**cmd2_av;
 }		t_pipex;
 
-void	initializer(t_pipex pipex);
+/*------------------MAIN FUNCTIONS--------------------*/
+
+t_pipex ft_pipex(int argc, char **argv, char **envp);
+int		main(int argc, char **argv, char **envp);
+
+/*-----------PARSE AND INITIAL FUNCTIONS--------------*/
+
+void	initializer(t_pipex *pipex);
+void	free_array(char **array);
+
 
 #endif
 
