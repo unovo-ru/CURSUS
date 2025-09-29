@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 11:20:02 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/29 22:55:16 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/29 23:40:49 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,9 @@ int	init_pipex(int argc, char **argv, char **envp, t_pipex *pipex)
 		return (0);
 	pipex->cmd1 = set_cmd(pipex, argv[2]);
 	pipex->cmd2 = set_cmd(pipex, argv[3]);
-	set_file(pipex, argv);
-	return (1);
+	if (set_file(pipex, argv))
+		return (1);
+	return (0);
 }
 
 char	*set_cmd(t_pipex *pipex, char *argv)
