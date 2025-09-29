@@ -16,8 +16,8 @@ void	initializer(t_pipex *pipex)
 {
 	pipex->infile = -1;
 	pipex->outfile = -1;
-	pipex->pipe[0] = -1;
-	pipex->pipe[1] = -1;
+	pipex->pipe_fd[0] = -1;
+	pipex->pipe_fd[1] = -1;
 	pipex->son_1 = -1;
 	pipex->son_2 = -1;
 	pipex->exit_code = 0;
@@ -55,6 +55,15 @@ void	free_array(char **array)
 		i++;
 	}
 	free(array);
+}
+
+void	*free_all(char *str1, char **str2)
+{
+	if (str1)
+		free(str1);
+	if (str2)
+		free_array(str2);
+	return (NULL);
 }
 
 /*DEBERES DE MARIA HACK*/

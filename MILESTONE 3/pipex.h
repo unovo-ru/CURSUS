@@ -20,14 +20,16 @@ typedef struct s_pipex
 {
 	int			infile;
 	int			outfile;
-	int			pipe[2];
+	int			pipe_fd[2];
 	pid_t		son_1;
 	pid_t		son_2;
 	int			exit_code;
 	char		**env_var;
-	char		*cmd1;
+	char		*cmd1; /*ls*/
 	char		*cmd2;
-	char		**cmd1_av;
+	char		**cmd1_av; /*ls 
+							-l
+							-a*/
 	char		**cmd2_av;
 }		t_pipex;
 
@@ -40,7 +42,16 @@ int		main(int argc, char **argv, char **envp);
 
 void	initializer(t_pipex *pipex);
 void	free_array(char **array);
+void	*free_all(char *str1, char **str2);
 char	*path_search(char **envp);
+
+char	*set_cmd(t_pipex *pipex, char *argv);
+int		parse_arg(int argc, char **argv);
+int		init_pipex(int argc, char **argv, char **envp, t_pipex *pipex);
+int		set_file(t_pipex *pipex, char **argv);
+
+
+
 
 
 #endif
