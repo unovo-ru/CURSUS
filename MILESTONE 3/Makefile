@@ -30,6 +30,7 @@ SRCDIR=src
 
 SRC =	utils.c \
 		pipex.c \
+		father_and_son.c \
 
 ALLFILES:=$(addprefix $(SRCDIR)/, $(SRC))
 

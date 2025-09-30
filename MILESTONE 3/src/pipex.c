@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 11:20:02 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/29 23:40:49 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/09/30 20:12:30 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	init_pipex(int argc, char **argv, char **envp, t_pipex *pipex)
 {
 	char	*path;
 
-	(void)argv;
+	// (void)argv;
 	if (!parse_arg(argc, argv))
 		return (0);
 	initializer(pipex);
@@ -75,16 +75,18 @@ char	*set_cmd(t_pipex *pipex, char *argv)
 	{
 		aux = ft_strjoin(pipex->env_var[i], "/");
 		full_path = ft_strjoin(aux, res[0]);
+		free(aux);
 		if (!full_path)
-			return (free_all(aux, &full_path));
+			return (free_all(NULL, &full_path));
 		if (access(full_path, X_OK) == 0)
 			return (full_path);
 		else
 		{
-			free_all(aux, &full_path);
+			free_all(NULL, &full_path);
 			i++;
 		}
 	}
+	/*ojo con devolver null que necesito realizar el 2 comando*/
 	return (NULL);
 }
 
@@ -109,8 +111,10 @@ int	main(int argc, char **argv, char **envp)
 {
 	t_pipex	pipex;
 
-	if (!parse_arg(argc, argv))
-		return (-57892);
+	init_pipex(argc, argv, envp, &pipex);
+	if (!father(&pipex, envp))
+		printf("todo bien\n");
 	else
-		init_pipex(argc, argv, envp, &pipex);
+		printf("todo mal\n");
+	return (0);
 }

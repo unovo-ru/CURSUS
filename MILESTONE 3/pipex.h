@@ -34,12 +34,10 @@ typedef struct s_pipex
 }		t_pipex;
 
 /*------------------MAIN FUNCTIONS--------------------*/
-
 // t_pipex	ft_pipex(int argc, char **argv, char **envp);
 int		main(int argc, char **argv, char **envp);
 
 /*-----------PARSE AND INITIAL FUNCTIONS--------------*/
-
 void	initializer(t_pipex *pipex);
 void	free_array(char **array);
 void	*free_all(char *str1, char **str2);
@@ -50,10 +48,7 @@ int		parse_arg(int argc, char **argv);
 int		init_pipex(int argc, char **argv, char **envp, t_pipex *pipex);
 int		set_file(t_pipex *pipex, char **argv);
 
-
-
+int		father(t_pipex *pipex, char **envp);
 
 
 #endif
-
-
