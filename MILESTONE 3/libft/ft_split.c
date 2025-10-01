@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/06 15:36:36 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/08/30 17:19:29 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/01 19:15:03 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,14 @@ char	**ft_split(char const *s, char c)
 	size_t	words;
 	char	**myarray;
 
-	i = 0;
+	i = -1;
 	j = 0;
 	words = ft_count_words(s, c);
 	myarray = malloc(sizeof(char *) * (words + 1));
 	if (!myarray)
 		return (NULL);
 	myarray[words] = NULL;
-	while (s[i++] && j < words)
+	while (s[++i] && j < words)
 	{
 		if (s[i] && s[i] != c)
 		{

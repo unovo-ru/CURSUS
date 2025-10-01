@@ -6,24 +6,27 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/29 11:20:02 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/30 20:12:30 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/01 19:57:53 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
-/*DEBERES DE MARIA HACK
-parseo a tener en cuenta:
-si hay mas o menos de 5 argumentos error
-si el infile no existe error
-si el outfile no tiene permisos de escritura error
-si alguno de los comandos no existe error
-*/
 
 int	parse_arg(int argc, char **argv)
 {
 	int	i;
 
+	if (argc != 5)
+	{
+		ft_putstr_fd("Error: Invalid number of arguments.\n", 2);
+		return (0);
+	}
 	i = 1;
+	if (argv[2][0] == '\0' || argv[3][0] == '\0')
+	{
+		ft_putstr_fd("Error: Invalid command.\n", 2);
+		return (0);
+	}
 	while (argv[i])
 	{
 		if (argv[i] == NULL)
@@ -31,9 +34,23 @@ int	parse_arg(int argc, char **argv)
 		else
 			i++;
 	}
-	if (argc != 5)
+	return (1);
+}
+
+static int	init_pipex_aux(char **argv, t_pipex *pipex)
+{
+	if (set_cmd(pipex, argv) == -1)
 	{
-		ft_putstr_fd("Error: Invalid number of arguments.\n", 2);
+		free_all(pipex);
+		ft_putstr_fd("command failure", 2);
+		return (0);
+	}
+	pipex->cmd1 = set_path(pipex, pipex->cmd1_av[0]);
+	pipex->cmd2 = set_path(pipex, pipex->cmd2_av[0]);
+	if (!pipex->cmd1 || !pipex->cmd2)
+	{
+		ft_putstr_fd("Command not found\n\n", 2);
+		free_all(pipex);
 		return (0);
 	}
 	return (1);
@@ -43,7 +60,6 @@ int	init_pipex(int argc, char **argv, char **envp, t_pipex *pipex)
 {
 	char	*path;
 
-	// (void)argv;
 	if (!parse_arg(argc, argv))
 		return (0);
 	initializer(pipex);
@@ -53,41 +69,11 @@ int	init_pipex(int argc, char **argv, char **envp, t_pipex *pipex)
 	pipex->env_var = ft_split(path, ':');
 	if (!pipex->env_var)
 		return (0);
-	pipex->cmd1 = set_cmd(pipex, argv[2]);
-	pipex->cmd2 = set_cmd(pipex, argv[3]);
-	if (set_file(pipex, argv))
-		return (1);
-	return (0);
-}
-
-char	*set_cmd(t_pipex *pipex, char *argv)
-{
-	int		i;
-	char	**res;
-	char	*aux;
-	char	*full_path;
-
-	i = 0;
-	res = ft_split(argv, ' ');
-	if (!*res || !res)
-		return (NULL);
-	while (pipex->env_var[i])
-	{
-		aux = ft_strjoin(pipex->env_var[i], "/");
-		full_path = ft_strjoin(aux, res[0]);
-		free(aux);
-		if (!full_path)
-			return (free_all(NULL, &full_path));
-		if (access(full_path, X_OK) == 0)
-			return (full_path);
-		else
-		{
-			free_all(NULL, &full_path);
-			i++;
-		}
-	}
-	/*ojo con devolver null que necesito realizar el 2 comando*/
-	return (NULL);
+	if (init_pipex_aux(argv, pipex) == 0)
+		return (0);
+	if (set_file(pipex, argv) == -1)
+		return (0);
+	return (1);
 }
 
 int	set_file(t_pipex *pipex, char **argv)
@@ -111,10 +97,9 @@ int	main(int argc, char **argv, char **envp)
 {
 	t_pipex	pipex;
 
-	init_pipex(argc, argv, envp, &pipex);
-	if (!father(&pipex, envp))
-		printf("todo bien\n");
-	else
-		printf("todo mal\n");
-	return (0);
+	if (init_pipex(argc, argv, envp, &pipex) == 0)
+		return (0);
+	if (launch_children(&pipex, envp) == -1)
+		return (1);
+	return (father(&pipex));
 }

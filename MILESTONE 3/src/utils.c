@@ -57,23 +57,39 @@ void	free_array(char **array)
 	free(array);
 }
 
-void	*free_all(char *str1, char **str2)
+void	free_all(t_pipex *pipex)
 {
-	if (str1)
-		free(str1);
-	if (str2)
-		free_array(str2);
-	return (NULL);
+	if (pipex->cmd1)
+		free(pipex->cmd1);
+	if (pipex->cmd2)
+		free(pipex->cmd2);
+	if (pipex->env_var)
+		free_array(pipex->env_var);
+	if (pipex->cmd1_av)
+		free_array(pipex->cmd1_av);
+	if (pipex->cmd2_av)
+		free_array(pipex->cmd2_av);
 }
 
-/*DEBERES DE MARIA HACK*/
-/*
-1.- free array ** HECHO
-2.- free all dobles punteros **
-3.- funcion de iniciar pipex, control de errores (solo trabajar con 5 argumentos)
-4.- despues llamar a initializer
-5.- path search (con el control de errores)
-6.- aplico el primer split a lo que me retorna path search con el separador ":".
-7.- liberar lo que trae split y manejar los errores (si da -1 libero)
+char	*set_path(t_pipex *pipex, char *cmd)
+{
+	int		i;
+	char	*aux;
+	char	*full_path;
 
-*/
+	i = 0;
+	aux = NULL;
+	while (pipex->env_var && pipex->env_var[i])
+	{
+		aux = ft_strjoin(pipex->env_var[i], "/");
+		full_path = ft_strjoin(aux, cmd);
+		free(aux);
+		if (!full_path)
+			return (NULL);
+		if (access(full_path, X_OK) == 0)
+			return (full_path);
+		free(full_path);
+		i++;
+	}
+	return (NULL);
+}

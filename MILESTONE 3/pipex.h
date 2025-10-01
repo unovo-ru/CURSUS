@@ -25,30 +25,30 @@ typedef struct s_pipex
 	pid_t		son_2;
 	int			exit_code;
 	char		**env_var;
-	char		*cmd1; /*ls*/
+	char		*cmd1;
 	char		*cmd2;
-	char		**cmd1_av; /*ls 
-							-l
-							-a*/
+	char		**cmd1_av;
 	char		**cmd2_av;
 }		t_pipex;
 
 /*------------------MAIN FUNCTIONS--------------------*/
-// t_pipex	ft_pipex(int argc, char **argv, char **envp);
 int		main(int argc, char **argv, char **envp);
 
 /*-----------PARSE AND INITIAL FUNCTIONS--------------*/
 void	initializer(t_pipex *pipex);
 void	free_array(char **array);
-void	*free_all(char *str1, char **str2);
+void	free_all(t_pipex *pipex);
 char	*path_search(char **envp);
 
-char	*set_cmd(t_pipex *pipex, char *argv);
+int		set_cmd(t_pipex *pipex, char **argv);
+char	*set_path(t_pipex *pipex, char *cmd);
 int		parse_arg(int argc, char **argv);
 int		init_pipex(int argc, char **argv, char **envp, t_pipex *pipex);
 int		set_file(t_pipex *pipex, char **argv);
 
-int		father(t_pipex *pipex, char **envp);
-
+int		son_1(t_pipex *pipex, char **envp);
+int		son_2(t_pipex *pipex, char **envp);
+int		launch_children(t_pipex *pipex, char **envp);
+int		father(t_pipex *pipex);
 
 #endif
