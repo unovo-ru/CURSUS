@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/30 13:57:51 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/01 19:57:22 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/02 12:02:33 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,18 @@
 int	set_cmd(t_pipex *pipex, char **argv)
 {
 	pipex->cmd1_av = ft_split(argv[2], ' ');
-	if (!*pipex->cmd1_av || !pipex->cmd1_av)
+	if (!pipex->cmd1_av || !*pipex->cmd1_av)
 		return (-1);
 	pipex->cmd2_av = ft_split(argv[3], ' ');
-	if (!*pipex->cmd2_av || !pipex->cmd2_av)
+	if (!pipex->cmd2_av || !*pipex->cmd2_av)
 		return (-1);
 	return (0);
 }
 
 int	son_1(t_pipex *pipex, char **envp)
 {
+	if (!pipex->cmd1 || !pipex->cmd1_av)
+		exit(127);
 	close(pipex->pipe_fd[0]);
 	dup2(pipex->infile, STDIN_FILENO);
 	close(pipex->infile);
@@ -32,12 +34,14 @@ int	son_1(t_pipex *pipex, char **envp)
 	close(pipex->outfile);
 	close(pipex->pipe_fd[1]);
 	execve(pipex->cmd1, pipex->cmd1_av, envp);
-	perror("execve failure\n\n");
+	perror("execve failure\n");
 	exit(EXIT_FAILURE);
 }
 
 int	son_2(t_pipex *pipex, char **envp)
 {
+	if (!pipex->cmd2 || !pipex->cmd2_av)
+		exit(127);
 	close(pipex->pipe_fd[1]);
 	dup2(pipex->outfile, STDOUT_FILENO);
 	close(pipex->outfile);
@@ -45,7 +49,7 @@ int	son_2(t_pipex *pipex, char **envp)
 	close(pipex->infile);
 	close(pipex->pipe_fd[0]);
 	execve(pipex->cmd2, pipex->cmd2_av, envp);
-	perror("execve failed");
+	perror("execve failure\n");
 	exit(EXIT_FAILURE);
 }
 
@@ -65,7 +69,7 @@ int	launch_children(t_pipex *pipex, char **envp)
 {
 	if (pipe(pipex->pipe_fd) == -1)
 	{
-		perror("pipe failed");
+		perror("pipe failure\n");
 		return (-1);
 	}
 	pipex->son_1 = fork();

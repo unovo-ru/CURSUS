@@ -40,12 +40,14 @@ void	free_array(char **array);
 void	free_all(t_pipex *pipex);
 char	*path_search(char **envp);
 
+/*----------------SET COMMAND AND PATHS---------------*/
 int		set_cmd(t_pipex *pipex, char **argv);
 char	*set_path(t_pipex *pipex, char *cmd);
 int		parse_arg(int argc, char **argv);
 int		init_pipex(int argc, char **argv, char **envp, t_pipex *pipex);
 int		set_file(t_pipex *pipex, char **argv);
 
+/*-------------FORK AND CHILDREN PROCESS---------------*/
 int		son_1(t_pipex *pipex, char **envp);
 int		son_2(t_pipex *pipex, char **envp);
 int		launch_children(t_pipex *pipex, char **envp);
