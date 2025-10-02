@@ -1,7 +1,7 @@
-/srv/nfs4/sgoinfre/shared/MLX42/build/CMakeFiles/mlx42.dir
-/srv/nfs4/sgoinfre/shared/MLX42/build/CMakeFiles/edit_cache.dir
-/srv/nfs4/sgoinfre/shared/MLX42/build/CMakeFiles/rebuild_cache.dir
-/srv/nfs4/sgoinfre/shared/MLX42/build/CMakeFiles/list_install_components.dir
-/srv/nfs4/sgoinfre/shared/MLX42/build/CMakeFiles/install.dir
-/srv/nfs4/sgoinfre/shared/MLX42/build/CMakeFiles/install/local.dir
-/srv/nfs4/sgoinfre/shared/MLX42/build/CMakeFiles/install/strip.dir
+/home/unovo-ru/42/CURSUS/MILESTONE 2/fractol/MLX42/build/CMakeFiles/mlx42.dir
+/home/unovo-ru/42/CURSUS/MILESTONE 2/fractol/MLX42/build/CMakeFiles/edit_cache.dir
+/home/unovo-ru/42/CURSUS/MILESTONE 2/fractol/MLX42/build/CMakeFiles/rebuild_cache.dir
+/home/unovo-ru/42/CURSUS/MILESTONE 2/fractol/MLX42/build/CMakeFiles/list_install_components.dir
+/home/unovo-ru/42/CURSUS/MILESTONE 2/fractol/MLX42/build/CMakeFiles/install.dir
+/home/unovo-ru/42/CURSUS/MILESTONE 2/fractol/MLX42/build/CMakeFiles/install/local.dir
+/home/unovo-ru/42/CURSUS/MILESTONE 2/fractol/MLX42/build/CMakeFiles/install/strip.dir
