@@ -5,65 +5,77 @@
 #                                                     +:+ +:+         +:+      #
 #    By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/07/01 12:47:57 by unovo-ru          #+#    #+#              #
-#    Updated: 2025/10/02 18:51:38 by unovo-ru         ###   ########.fr        #
+#    Created: 2025/10/02 20:00:58 by msedeno-          #+#    #+#              #
+#    Updated: 2025/10/04 07:35:08 by unovo-ru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# Executable name
-NAME		= fractol
+NAME = fractol
+INCLUDE = fractol.h
+AR = ar rcs
+CC = cc
+CFLAGS = -Wall -Wextra -Werror -I. -Ilibft
+RM = rm -rf
 
-# Compiler and flags
-CC			= cc
-CFLAGS		= -Wextra -Wall -Werror -Wunreachable-code -Ofast
-RM			= rm -rf
+#librarys
+LIBFT_DIR = libft
+LIBFT = $(LIBFT_DIR)/libft.a
 
-# MLX42 configuration
-LIBMLX		= ./MLX42
-MLX42_BUILD	= $(LIBMLX)/build
-MLX42_LIB	= $(MLX42_BUILD)/libmlx42.a
-MLX42_INC	= -I$(LIBMLX)/include
+# MLX42 library
+MLX42_DIR = MLX42
+MLX42 = $(MLX42_DIR)/build/libmlx42.a
+MLX42_FLAGS = -I$(MLX42_DIR)/include
+MLX42_LDFLAGS = -ldl -lglfw -pthread -lm
 
-# Libraries and includes
-HEADERS		= -I./includes $(MLX42_INC)
-LIBS		= $(MLX42_LIB) -ldl -lglfw -pthread -lm
+# Update CFLAGS to include MLX42 headers
+CFLAGS += $(MLX42_FLAGS)
 
-# Source files (add your source files here)
-SRCS		= $(shell find ./src -name "*.c" 2>/dev/null || echo "src/main.c")
-OBJS		= ${SRCS:.c=.o}
+# Using shell command instead of addprefix
+SRCS = 	src/fractol.c \
+		src/mandelbrot.c \
+		src/render.c \
+		src/main.c \
+		
+OBJS = $(SRCS:%.c=%.o)
 
-# Colors
-CYAN		= \033[96m
-RESET		= \033[0m
+all: $(NAME)
 
-# Rules
-all: libmlx $(NAME)
+%.o: %.c $(INCLUDE)
+	@echo "🛠 Compiling $<..."
+	@$(CC) $(CFLAGS) -c $< -o $@
 
-libmlx:
-	@echo "$(CYAN)Building MLX42...$(RESET)"
-	@cmake $(LIBMLX) -B $(MLX42_BUILD) && make -C $(MLX42_BUILD) -j4
+$(NAME): $(OBJS) $(LIBFT) $(MLX42)
+	@echo "🔗 Linking $(NAME)..."
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX42) $(MLX42_LDFLAGS) -o $(NAME)
+	@echo "✅ Compilation finished successfully."
 
-%.o: %.c
-	@echo "$(CYAN)Compiling $<...$(RESET)"
-	@$(CC) $(CFLAGS) $(HEADERS) -c $< -o $@
+#build libft only if libft.a is outdated
+$(LIBFT):
+	@echo "📦 Building libft..."
+	@$(MAKE) -s -C $(LIBFT_DIR)
 
-$(NAME): $(OBJS) $(MLX42_LIB)
-	@echo "$(CYAN)Creating $(NAME)...$(RESET)"
-	@$(CC) $(OBJS) $(LIBS) -o $(NAME)
-	@echo "$(CYAN)$(NAME) created successfully!$(RESET)"
+#build MLX42 only if libmlx42.a is outdated
+$(MLX42):
+	@echo "📦 Building MLX42..."
+	@cmake -S $(MLX42_DIR) -B $(MLX42_DIR)/build >/dev/null 2>&1
+	@cmake --build $(MLX42_DIR)/build -j >/dev/null 2>&1
 
 clean:
-	@echo "$(CYAN)Cleaning object files...$(RESET)"
+	@echo "🧹 Cleaning objects..."
 	@$(RM) $(OBJS)
-
+	@$(MAKE) -s -C $(LIBFT_DIR) clean
+	
 fclean: clean
-	@echo "$(CYAN)Cleaning $(NAME)...$(RESET)"
+	@echo "🗑 removing executables y libreries..."
 	@$(RM) $(NAME)
+	@$(MAKE) -s -C $(LIBFT_DIR) fclean
+	@echo "✅ Cleanup completed successfully."
 
-mlx_clean:
-	@echo "$(CYAN)Cleaning MLX42 build...$(RESET)"
-	@$(RM) $(MLX42_BUILD)
+# Clean MLX42 build directory
+mclean:
+	@echo "🧹 Cleaning MLX42..."
+	@$(RM) $(MLX42_DIR)/build
 
 re: fclean all
 
-.PHONY: all clean fclean re libmlx mlx_clean
+.PHONY: all clean fclean re mclean

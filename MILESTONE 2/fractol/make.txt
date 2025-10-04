@@ -1,89 +1,89 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    make                                               :+:      :+:    :+:    #
+#    make.txt                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/10/02 18:39:42 by unovo-ru          #+#    #+#              #
-#    Updated: 2025/10/02 18:49:04 by unovo-ru         ###   ########.fr        #
+#    Created: 2025/10/04 07:14:12 by unovo-ru          #+#    #+#              #
+#    Updated: 2025/10/04 07:31:49 by unovo-ru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# Executable name
 NAME = fractol
 
-# Compiler and flags
+INCLUDE = fractol.h
+
+AR = ar rcs
+
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
 
-# Libft
+CFLAGS = -Wall -Wextra -Werror -I. -Ilibft
+
+RM = rm -rf
+
+#librarys
 LIBFT_DIR = libft
+
 LIBFT = $(LIBFT_DIR)/libft.a
-LIBFT_INC = -I$(LIBFT_DIR)
 
-# Include directories
-INC = -I. $(LIBFT_INC)
+# MLX42 library
+MLX42_DIR = MLX42
 
-# Source and object files
-SRCDIR=src
+MLX42 = $(MLX42_DIR)/build/libmlx42.a
 
-SRC =	
+MLX42_FLAGS = -I$(MLX42_DIR)/include
 
-ALLFILES:=$(addprefix $(SRCDIR)/, $(SRC))
+MLX42_LDFLAGS = -ldl -lglfw -pthread -lm
 
-OBJ_DIR = obj
-# OBJ = $(ALLFILES:%.c=$(OBJ_DIR)/%.o)
-OBJ = $(patsubst $(SRCDIR)/%, $(OBJ_DIR)/%, $(ALLFILES:%.c=%.o))
+# Update CFLAGS to include MLX42 headers
+CFLAGS += $(MLX42_FLAGS)
 
-# Commands
-RM = rm -f
+# Using shell command instead of addprefix
+SRCS = 	src/fractol.c \
+		src/render.c \
+		src/mandelbrot.c \
+		
+OBJS = $(SRCS:%.c=%.o)
 
-# Colors and symbols
-GREEN = \033[1;32m
-RED = \033[1;31m
-YELLOW = \033[1;33m
-BLUE = \033[1;34m
-RESET = \033[0m
-CHECK = ✅
-CROSS = ❌
+all: $(NAME)
 
-# Default rule
-all: $(LIBFT) $(NAME)
-	@echo "$(GREEN)$(CHECK) Compilation successful!$(RESET)"
+%.o: %.c $(INCLUDE)
+	@echo ":hammer_and_wrench: Compiling $<..."
+	@$(CC) $(CFLAGS) -c $< -o $@
+	
+$(NAME): $(OBJS) $(LIBFT) $(MLX42)
+	@echo ":link: Linking $(NAME)..."
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX42) $(MLX42_LDFLAGS) -o $(NAME)
+	@echo ":white_check_mark: Compilation finished successfully."
+#build libft only if libft.a is outdated
 
-# Build executable
-$(NAME): $(OBJ)
-	@echo "$(YELLOW)Linking objects...$(RESET)"
-	@$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $@
-
-# Compile .c -> .o in obj/
-$(OBJ_DIR)/%.o: $(SRCDIR)/%.c | $(OBJ_DIR)
-	@echo "$(YELLOW)Compiling $<...$(RESET)"
-	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
-
-# Create obj/ directory if needed
-$(OBJ_DIR):
-	@mkdir -p $(OBJ_DIR)
-
-# Build libft
 $(LIBFT):
-	@$(MAKE) --no-print-directory -C $(LIBFT_DIR)
+	@echo ":package: Building libft..."
+	@$(MAKE) -s -C $(LIBFT_DIR)
+	
+#build MLX42 only if libmlx42.a is outdated
 
-# Clean object files
+$(MLX42):
+	@echo ":package: Building MLX42..."
+	@cmake -S $(MLX42_DIR) -B $(MLX42_DIR)/build >/dev/null 2>&1
+	@cmake --build $(MLX42_DIR)/build -j >/dev/null 2>&1
+	
 clean:
-	@$(RM) $(OBJ)
-	@$(MAKE) --no-print-directory -C $(LIBFT_DIR) clean
-	@$(RM) -r $(OBJ_DIR)
-	@echo "$(YELLOW)Cleaned object files.$(RESET)"
+	@echo ":broom: Cleaning objects..."
+	@$(RM) $(OBJS)
+	@$(MAKE) -s -C $(LIBFT_DIR) clean
 
-# Full clean
 fclean: clean
+	@echo ":wastebasket: removing executables y libreries..."
 	@$(RM) $(NAME)
-	@$(MAKE) --no-print-directory -C $(LIBFT_DIR) fclean
-	@echo "$(BLUE)$(CROSS) Fully cleaned.$(RESET)"
+	@$(MAKE) -s -C $(LIBFT_DIR) fclean
+	@echo ":white_check_mark: Cleanup completed successfully."# Clean MLX42 build directory
 
-# Rebuild everything
+mclean:
+	@echo ":broom: Cleaning MLX42..."
+	@$(RM) $(MLX42_DIR)/build
+
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re mclean
