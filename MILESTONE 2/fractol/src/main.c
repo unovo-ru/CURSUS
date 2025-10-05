@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 19:58:33 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/04 09:40:29 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/05 17:35:02 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ int	main(int ac, char **av)
 
 	(void)ac;
 	(void)av;
-	if (!parse_arg(ac, av))
-		return (0);
+	// if (!parse_arg(ac, av))
+	// 	return (0);
 	init_fractol(&fractol);
 	init_window(&fractol);
 	render_mandelbrot(&fractol);
