@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 02:33:07 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/04 09:25:37 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/08 14:00:52 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,17 @@ void	init_window(t_fractol *fractol)
 		mlx_terminate(fractol->mlx);
 		exit(EXIT_FAILURE);
 	}
+	mlx_scroll_hook(fractol->mlx, handle_keys, fractol);
+	mlx_loop_hook(fractol->mlx, handle_keys, fractol);
+	
+}
+
+void	render_fractals(t_fractol *f)
+{
+	if (f->type == MANDELBROT)
+		render_mandelbrot(f);
+	if (f->type == JULIA)
+		render_julia(f);
+	else
+		return ;
 }

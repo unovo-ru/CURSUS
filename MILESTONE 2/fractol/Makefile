@@ -6,7 +6,7 @@
 #    By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/02 20:00:58 by msedeno-          #+#    #+#              #
-#    Updated: 2025/10/04 07:35:08 by unovo-ru         ###   ########.fr        #
+#    Updated: 2025/10/08 13:02:48 by unovo-ru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,9 @@ CFLAGS += $(MLX42_FLAGS)
 SRCS = 	src/fractol.c \
 		src/mandelbrot.c \
 		src/render.c \
+		src/utils.c \
 		src/main.c \
+		src/color_render.c \
 		
 OBJS = $(SRCS:%.c=%.o)
 

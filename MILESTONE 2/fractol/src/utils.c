@@ -12,9 +12,9 @@
 
 #include "../fractol.h"
 
-void	skip_ws_sign(const char *s, int *sign)
+static void	skip_ws_sign(const char *s, int *sign)
 {
-	sign = 1;
+	*sign = 1;
 	while (*s < 33)
 		s++;
 	if (*s == '+' || *s == '-')
@@ -25,7 +25,7 @@ void	skip_ws_sign(const char *s, int *sign)
 	}
 }
 
-double	parse_fraction(const char *s)
+static double	parse_fraction(const char *s)
 {
 	double	frac;
 	double	base;
@@ -52,10 +52,10 @@ double	ft_atof(const char *s)
 	val = 0.0;
 	frac = 0.0;
 	if (!s)
-		return (0.0)
-	skip_ws_sign(&s, &sign);
+		return (0.0);
+	skip_ws_sign(s, &sign);
 	while (ft_isdigit(*s))
-		vale = val * 10.0 + (*s++ - '0');
-	frac = parse_fraction(&s);
+		val = val * 10.0 + (*s++ - '0');
+	frac = parse_fraction(s);
 	return (sign * (val + frac));
 }

@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 18:08:05 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/04 09:38:50 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/08 14:01:15 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,16 +74,34 @@ typedef struct s_calc
 	double	real;
 }			t_calc;
 
-void	init_fractol(t_fractol *fractol);
-void	init_calc(t_calc *calc);
-void	init_window(t_fractol *fractol);
+void		init_fractol(t_fractol *fractol);
+void		init_calc(t_calc *calc);
+void		init_window(t_fractol *fractol);
+double		ft_atof(const char *s);
 
-int		mandelbrot(t_calc c);
-t_calc	pixel_to_complex(int x, int y, t_fractol *fractol);
-void	render_mandelbrot(t_fractol *fractol);
-int		parse_arg(int ac, char **av);
-void	free_exit(t_fractol *fractol);
-int		main(int ac, char **av);
+int			mandelbrot(t_calc c);
+t_calc		pixel_to_complex(int x, int y, t_fractol *fractol);
+void		render_mandelbrot(t_fractol *fractol);
+int			parse_arg(int ac, char **av, t_fractol fractal);
+void		free_exit(t_fractol *fractol);
+int			main(int ac, char **av);
+
+uint32_t	color_blue_purple(int iter, int max_iter);
+uint32_t	create_rgba(int r, int g, int b, int a);
+int			lerp(int start, int end, double t);
+uint32_t	color_blue_purple(int iter, int max_iter);
+uint32_t	color_blue_purple_smooth(int iter, int max_iter);
+uint32_t	color_ultraviolet(int iter, int max_iter);
+
+uint32_t	color_electric_edge(int iter, int max_iter);
+void		zoom_fractal(t_fractol *fractal, double mx, double my, double factor);
+void		handle_scroll(double xdelta, double ydelta, void *param);
+void		handle_keys(void *param);
+
+void		render_fractals(t_fractol *f);
+
+
+
 
 
 
