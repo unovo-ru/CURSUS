@@ -6,7 +6,7 @@
 #    By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/02 20:00:58 by msedeno-          #+#    #+#              #
-#    Updated: 2025/10/08 13:02:48 by unovo-ru         ###   ########.fr        #
+#    Updated: 2025/10/08 16:57:18 by unovo-ru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,8 @@ SRCS = 	src/fractol.c \
 		src/render.c \
 		src/utils.c \
 		src/main.c \
+		src/events.c \
+		src/render_julia.c \
 		src/color_render.c \
 		
 OBJS = $(SRCS:%.c=%.o)

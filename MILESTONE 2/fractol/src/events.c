@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 13:22:35 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/08 13:52:16 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/08 19:53:27 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	zoom_fractal(t_fractol *fractal, double mx, double my, double factor)
 		* (fractal->max_imag - fractal->min_imag);
 	new_w = (fractal->max_real - fractal->min_real) * factor;
 	new_h = (fractal->max_imag - fractal->min_imag) * factor;
-	fractal->min_real = cy - (mx / (double)WIDTH) * new_w;
+	fractal->min_real = cx - (mx / (double)WIDTH) * new_w;
 	fractal->max_real = fractal->min_real + new_w;
 	fractal->min_imag = cy - (my / (double)HEIGHT) * new_h;
 	fractal->max_imag = fractal->min_imag + new_h;
@@ -33,18 +33,22 @@ void	zoom_fractal(t_fractol *fractal, double mx, double my, double factor)
 
 void	handle_scroll(double xdelta, double ydelta, void *param)
 {
-	t_fractol	*fractol;
+	t_fractol	*f;
 	int32_t		mouse_x;
 	int32_t		mouse_y;
+	double		factor;
 
-	fractol = (t_fractol *)param;
 	(void)xdelta;
-	mlx_get_mouse_pos(fractol->mlx, &mouse_x, &mouse_y);
+	f = (t_fractol *)param;
+	if (!f || !f->mlx)
+		return ;
+	mlx_get_mouse_pos(f->mlx, &mouse_x, &mouse_y);
 	if (ydelta > 0)
-		zoom_fractal(fractol, ZOOM_FACTOR, mouse_x, mouse_y);
-	else if (ydelta < 0)
-		zoom_fractal(fractol, 1.0 / ZOOM_FACTOR, mouse_x, mouse_y);
-	render_mandelbrot(fractol);
+		factor = 1.0 / ZOOM_FACTOR;
+	else
+		factor = ZOOM_FACTOR;
+	zoom_fractal(f, (double)mouse_x, (double)mouse_y, factor);
+	render_fractals(f);
 }
 
 static int	horizontal_move(t_fractol *f)
@@ -55,7 +59,7 @@ static int	horizontal_move(t_fractol *f)
 	if (mlx_is_key_down(f->mlx, MLX_KEY_LEFT)
 		|| mlx_is_key_down(f->mlx, MLX_KEY_A))
 	{
-		pan_view(f, 0.05, 0.0);
+		pan_view(f, -0.05, 0.0);
 		updated = 1;
 	}
 	if (mlx_is_key_down(f->mlx, MLX_KEY_RIGHT)
@@ -75,13 +79,13 @@ static int	vertical_move(t_fractol *f)
 	if (mlx_is_key_down(f->mlx, MLX_KEY_UP)
 		|| mlx_is_key_down(f->mlx, MLX_KEY_W))
 	{
-		pan_view(f, 0.05, 0.0);
+		pan_view(f, 0.0, -0.05);
 		updated = 1;
 	}
 	if (mlx_is_key_down(f->mlx, MLX_KEY_DOWN)
 		|| mlx_is_key_down(f->mlx, MLX_KEY_S))
 	{
-		pan_view(f, 0.05, 0.0);
+		pan_view(f, 0.0, 0.05);
 		updated = 1;
 	}
 	return (updated);

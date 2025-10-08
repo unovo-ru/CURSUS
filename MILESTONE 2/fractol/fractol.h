@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 18:08:05 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/08 14:01:15 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/08 20:01:59 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ typedef struct s_fractol
 	double		min_real;
 	double		max_imag;
 	double		min_imag;
-	int			fractal_type;
 	uint32_t	color_draw;
 	double		real;
 	double		imaginary;
@@ -67,43 +66,42 @@ typedef struct s_fractol
 	double		julia_imag;
 }				t_fractol;
 
-
 typedef struct s_calc
 {
 	double	img;
 	double	real;
 }			t_calc;
 
+typedef struct s_atod
+{
+	double			frac;
+	double			base;
+	double			val;
+	const char		*mary;
+	int				point;
+}			t_atod;
+
 void		init_fractol(t_fractol *fractol);
 void		init_calc(t_calc *calc);
 void		init_window(t_fractol *fractol);
-double		ft_atof(const char *s);
-
+double		ft_atod(const char *s, t_atod *atod);
 int			mandelbrot(t_calc c);
 t_calc		pixel_to_complex(int x, int y, t_fractol *fractol);
 void		render_mandelbrot(t_fractol *fractol);
-int			parse_arg(int ac, char **av, t_fractol fractal);
+int			parse_arg(int ac, char **av, t_fractol *fractal, t_atod *atod);
 void		free_exit(t_fractol *fractol);
 int			main(int ac, char **av);
-
-uint32_t	color_blue_purple(int iter, int max_iter);
 uint32_t	create_rgba(int r, int g, int b, int a);
 int			lerp(int start, int end, double t);
-uint32_t	color_blue_purple(int iter, int max_iter);
 uint32_t	color_blue_purple_smooth(int iter, int max_iter);
 uint32_t	color_ultraviolet(int iter, int max_iter);
-
-uint32_t	color_electric_edge(int iter, int max_iter);
-void		zoom_fractal(t_fractol *fractal, double mx, double my, double factor);
+void		zoom_fractal(t_fractol *fractal, double mx, double my, double f);
 void		handle_scroll(double xdelta, double ydelta, void *param);
 void		handle_keys(void *param);
-
 void		render_fractals(t_fractol *f);
-
-
-
-
-
-
+void		render_julia(t_fractol *fractal);
+void		pan_view(t_fractol *f, double dx, double dy);
+int			julia(t_fractol *fractal, t_calc c);
+void	finish_exit(t_fractol *fractal);
 
 #endif

@@ -6,27 +6,29 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 19:58:33 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/08 13:55:46 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/08 20:04:00 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fractol.h"
 
-int	parse_arg(int ac, char **av, t_fractol fractol)
+int	parse_arg(int ac, char **av, t_fractol *fractol, t_atod *atod)
 {
-	(void)fractol;
-	if (ft_strncmp(av[1], "mandelbrot", 10) != 0
-		&& ft_strncmp(av[1], "julia", 5) != 0)
-		return (0);
-	else if (ft_strncmp(av[1], "mandelbrot", 10) == 0 && ac != 2)
-		return (0);
-	else if (ft_strncmp(av[1], "julia", 5) == 0)
+	if (ft_strncmp(av[1], "julia", 5) == 0 && (ac == 2 || ac == 4))
 	{
+		fractol->type = JULIA;
+		fractol->julia_real = -0.7;
+		fractol->julia_imag = 0.27015;
 		if (ac == 4)
 		{
-			fractol.julia_imag = ft_atof(av[2]);
-			fractol.julia_real = ft_atof(av[3]);
+			fractol->julia_real = ft_atod(av[2], atod);
+			fractol->julia_imag = ft_atod(av[3], atod);
 		}
+	}
+	else if (ft_strncmp(av[1], "mandelbrot", 10) == 0 && ac == 2)
+		fractol->type = MANDELBROT;
+	else
+	{
 		return (0);
 	}
 	return (1);
@@ -42,9 +44,10 @@ void	free_exit(t_fractol *fractol)
 int	main(int ac, char **av)
 {
 	t_fractol	fractol;
+	t_atod		atod;
 
 	init_fractol(&fractol);
-	if (!parse_arg(ac, av, fractol))
+	if (!parse_arg(ac, av, &fractol, &atod))
 	{
 		ft_putstr_fd("err: invalid arguments", 2);
 		return (0);
@@ -52,8 +55,8 @@ int	main(int ac, char **av)
 	init_window(&fractol);
 	render_fractals(&fractol);
 	mlx_loop(fractol.mlx);
-	free_exit(&fractol);
+	finish_exit(&fractol);
 	mlx_terminate(fractol.mlx);
-	printf("puto");
+	free_exit(&fractol);
 	return (0);
 }

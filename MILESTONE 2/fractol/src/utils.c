@@ -12,7 +12,7 @@
 
 #include "../fractol.h"
 
-static void	skip_ws_sign(const char *s, int *sign)
+static const char	*skip_ws_sign(const char *s, int *sign)
 {
 	*sign = 1;
 	while (*s < 33)
@@ -23,39 +23,49 @@ static void	skip_ws_sign(const char *s, int *sign)
 			*sign = -1;
 		s++;
 	}
+	return (s);
 }
 
-static double	parse_fraction(const char *s)
+static double	parse_fraction(const char *s, t_atod *atod)
 {
-	double	frac;
-	double	base;
-
-	frac = 0.0;
-	base = 1.0;
+	atod->frac = 0.0;
+	atod->base = 1.0;
 	if (*s != '.')
 		return (0.0);
+	s++;
 	while (ft_isdigit(*s))
 	{
-		frac = frac * 10.0 + (*s - '0');
-		base *= 10.0;
+		atod->frac = atod->frac * 10.0 + (*s - '0');
+		atod->base *= 10.0;
 		s++;
 	}
-	return (frac / base);
+	return (atod->frac / atod->base);
 }
 
-double	ft_atof(const char *s)
+double	ft_atod(const char *s, t_atod *atod)
 {
-	int		sign;
-	double	val;
-	double	frac;
+	int	sign;
 
-	val = 0.0;
-	frac = 0.0;
+	sign = 1;
+	atod->val = 0.0;
+	atod->frac = 0.0;
+	atod->point = 0;
 	if (!s)
 		return (0.0);
-	skip_ws_sign(s, &sign);
-	while (ft_isdigit(*s))
-		val = val * 10.0 + (*s++ - '0');
-	frac = parse_fraction(s);
-	return (sign * (val + frac));
+	atod->mary = skip_ws_sign(s, &sign);
+	while (ft_isdigit(*atod->mary))
+		atod->val = atod->val * 10.0 + (*atod->mary++ - '0');
+	if (*atod->mary == '.')
+	{
+		atod->frac = parse_fraction(atod->mary, atod);
+		atod->point = 1;
+	}
+	while ((*atod->mary == '.' && atod->point == 1) || ft_isdigit(*atod->mary))
+		atod->mary++;
+	if (*atod->mary != '\0')
+	{
+		ft_putstr_fd("err:wrong type of number", 2);
+		exit(EXIT_FAILURE);
+	}
+	return (sign * (atod->val + atod->frac));
 }

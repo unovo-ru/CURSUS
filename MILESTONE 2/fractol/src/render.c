@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/04 06:43:51 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/08 13:22:02 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/08 19:51:39 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,8 @@ void	render_mandelbrot(t_fractol *fractol)
 		{
 			c = pixel_to_complex(x, y, fractol);
 			i = mandelbrot(c);
-			// printf("esto es i %d", i);
-			// printf("esto es max iter %d", fractol->max_iter);
 			if (i == fractol->max_iter)
-				color = color_electric_edge(i, fractol->max_iter);
+				color = color_blue_purple_smooth(i, fractol->max_iter);
 			else
 				color = color_blue_purple_smooth(i, fractol->max_iter);
 			mlx_put_pixel(fractol->img, x, y, color);

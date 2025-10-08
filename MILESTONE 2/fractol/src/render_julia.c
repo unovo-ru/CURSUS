@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 14:02:13 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/08 14:23:28 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/08 19:48:18 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,16 @@ int	julia(t_fractol *fractal, t_calc c)
 {
 	int		i;
 	double	tmp;
-	t_calc	aux;
+	t_calc	cc;
 
-	aux.real = fractal->julia_real;
-	aux.img = fractal->julia_imag;
-	while (c.real * c.real + c.img * c.img <= 4.0 && i < fractal->max_iter)
+	i = 0;
+	cc.real = c.real;
+	cc.img = c.img;
+	while (cc.real * cc.real + cc.img * cc.img <= 4.0 && i < fractal->max_iter)
 	{
-		tmp = c.real * c.real - c.img * c.img + aux.real;
-		c.img = 2 * c.real * c.img + aux.img;
-		c.real = tmp;
+		tmp = cc.real * cc.real - cc.img * cc.img + fractal->julia_real;
+		cc.img = 2 * cc.real * cc.img + fractal->julia_imag;
+		cc.real = tmp;
 		i++;
 	}
 	return (i);
@@ -60,9 +61,9 @@ void	render_julia(t_fractol *fractal)
 			c = pixel_to_complex(x, y, fractal);
 			iter = julia(fractal, c);
 			if (iter == fractal->max_iter)
-				color = BLACK;
+				color = color_blue_purple_smooth(iter, fractal->max_iter);
 			else
-				color = WHITE;
+				color = color_blue_purple_smooth(iter, fractal->max_iter);
 			mlx_put_pixel(fractal->img, x, y, color);
 			y++;
 		}
