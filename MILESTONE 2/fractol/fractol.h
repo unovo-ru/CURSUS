@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 18:08:05 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/09 15:42:17 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/09 20:19:59 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@
 # define COLOR_SHIFT 15
 # define MANDELBROT 1
 # define JULIA 2
-# define BURNING_SHIP 3
 # define JULIA_C_REAL -0.7
 # define JULIA_C_IMAG 0.27015
 # define ERROR_ARGS "Error: Invalid arguments\n"
