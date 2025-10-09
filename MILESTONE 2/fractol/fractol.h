@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 18:08:05 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/08 20:01:59 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/09 15:42:17 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,6 @@ void		render_fractals(t_fractol *f);
 void		render_julia(t_fractol *fractal);
 void		pan_view(t_fractol *f, double dx, double dy);
 int			julia(t_fractol *fractal, t_calc c);
-void	finish_exit(t_fractol *fractal);
+void		finish_exit(t_fractol *fractal);
 
 #endif

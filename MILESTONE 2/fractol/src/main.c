@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 19:58:33 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/08 20:04:00 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/09 15:52:03 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,11 @@ int	main(int ac, char **av)
 	t_fractol	fractol;
 	t_atod		atod;
 
+	if (ac == 1)
+	{
+		ft_putstr_fd("Fractol type not specified.\n", 2);
+		return (0);
+	}
 	init_fractol(&fractol);
 	if (!parse_arg(ac, av, &fractol, &atod))
 	{
