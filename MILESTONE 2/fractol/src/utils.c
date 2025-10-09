@@ -64,7 +64,7 @@ double	ft_atod(const char *s, t_atod *atod)
 		atod->mary++;
 	if (*atod->mary != '\0')
 	{
-		ft_putstr_fd("err:wrong type of number", 2);
+		ft_putstr_fd("err: wrong type of number", 2);
 		exit(EXIT_FAILURE);
 	}
 	return (sign * (atod->val + atod->frac));

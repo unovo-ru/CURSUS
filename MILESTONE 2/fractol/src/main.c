@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/02 19:58:33 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/09 15:52:03 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/09 17:55:27 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 int	parse_arg(int ac, char **av, t_fractol *fractol, t_atod *atod)
 {
-	if (ft_strncmp(av[1], "julia", 5) == 0 && (ac == 2 || ac == 4))
+	if (ft_strlen(av[1]) == 0)
+		return (0);
+	if (ft_strncmp(av[1], "julia", ft_strlen(av[1])) == 0
+		&& (ac == 2 || ac == 4))
 	{
 		fractol->type = JULIA;
 		fractol->julia_real = -0.7;
@@ -25,7 +28,8 @@ int	parse_arg(int ac, char **av, t_fractol *fractol, t_atod *atod)
 			fractol->julia_imag = ft_atod(av[3], atod);
 		}
 	}
-	else if (ft_strncmp(av[1], "mandelbrot", 10) == 0 && ac == 2)
+	else if (ft_strncmp(av[1], "mandelbrot", ft_strlen(av[1])) == 0
+		&& ac == 2)
 		fractol->type = MANDELBROT;
 	else
 	{
@@ -48,13 +52,13 @@ int	main(int ac, char **av)
 
 	if (ac == 1)
 	{
-		ft_putstr_fd("Fractol type not specified.\n", 2);
+		ft_putstr_fd("Fractol type not specified\n", 2);
 		return (0);
 	}
 	init_fractol(&fractol);
 	if (!parse_arg(ac, av, &fractol, &atod))
 	{
-		ft_putstr_fd("err: invalid arguments", 2);
+		ft_putstr_fd("err: invalid arguments\n", 2);
 		return (0);
 	}
 	init_window(&fractol);
