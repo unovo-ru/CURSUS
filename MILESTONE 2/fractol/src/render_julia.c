@@ -6,24 +6,11 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/08 14:02:13 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/08 19:48:18 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/10 13:19:02 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-void	pan_view(t_fractol *f, double dx, double dy)
-{
-	double	w;
-	double	h;
-
-	w = f->max_real - f->min_real;
-	h = f->max_imag - f->min_imag;
-	f->min_real += dx * w;
-	f->max_real += dx * w;
-	f->min_imag += dy * h;
-	f->max_imag += dy * h;
-}
 
 int	julia(t_fractol *fractal, t_calc c)
 {
