@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   target_1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/17 17:11:24 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/23 13:04:04 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/12 14:56:12 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int	is_min_pos(t_node **stack_a)
 	t_node	*aux;
 	t_node	*current;
 
+	n = 0;
 	aux = (*stack_a);
 	current = aux;
 	while (1)

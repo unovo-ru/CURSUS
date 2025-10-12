@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+         #
+#    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/07 18:08:01 by unovo-ru          #+#    #+#              #
-#    Updated: 2025/10/04 03:03:49 by unovo-ru         ###   ########.fr        #
+#    Updated: 2025/10/12 14:35:08 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -137,6 +137,5 @@ bonus: $(OBJ_BONUS) $(LIBFT)
 	@echo "$(YELLOW)Linking bonus objects...$(RESET)"
 	@echo "$(GREEN)$(CHECK) Compilation successful!$(RESET)"
 	@$(CC) $(CFLAGS) $(OBJ_BONUS) $(LIBFT) -o $(BONUS_NAME)
-
 
 .PHONY: all clean fclean re

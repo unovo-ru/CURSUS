@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/04 18:54:13 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/09/24 17:06:28 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/12 14:54:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int	is_min(t_node **stack_a)
 	t_node	*aux;
 	t_node	*current;
 
+	n = 0;
 	aux = (*stack_a);
 	current = aux;
 	while (1)
