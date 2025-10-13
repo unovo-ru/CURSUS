@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 13:16:08 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/13 13:17:26 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/13 16:16:21 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <pthread.h>
 # include <sys/time.h>
 # include <string.h>
+# include <limits.h>
 
 /* ========================================================================== */
 /*                                   MACROS                                   */
@@ -35,5 +36,14 @@
 # define MSG_SLEEP		"is sleeping"
 # define MSG_THINK		"is thinking"
 # define MSG_DIED		"died"
+
+
+/* ========================================================================== */
+/*                                 FUNCTIONS                                  */
+/* ========================================================================== */
+
+int		parse_arg(int ac, char **av);
+int		ft_atoi(const char *nptr);
+int		ft_isdigit(int c);
 
 #endif

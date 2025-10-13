@@ -6,7 +6,7 @@
 #    By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 13:16:58 by unovo-ru          #+#    #+#              #
-#    Updated: 2025/10/13 13:18:38 by unovo-ru         ###   ########.fr        #
+#    Updated: 2025/10/13 15:44:40 by unovo-ru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,8 @@ INC_DIR		= include
 # ========================================================================== #
 
 SRC_FILES	= main.c \
+				parse.c \
+				utils.c \
 
 
 SRCS		= $(addprefix $(SRC_DIR)/, $(SRC_FILES))
@@ -53,7 +55,7 @@ HEADER		= $(INC_DIR)/philo.h
 #                                COMPILATION                                 #
 # ========================================================================== #
 
-CC			= gcc
+CC			= cc
 CFLAGS		= -Wall -Wextra -Werror -I$(INC_DIR)
 PTHREAD		= -pthread
 RM			= rm -rf
