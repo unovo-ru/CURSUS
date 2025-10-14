@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 15:33:22 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/14 17:02:07 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/14 19:27:27 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_atoi(const char *nptr)
 
 int	ft_isdigit(int c)
 {
-	if ((c >= 48) && (c <= 57))
+	if (((c >= 48) && (c <= 57)) || is_space(c))
 		return (1);
 	else
 		return (0);
