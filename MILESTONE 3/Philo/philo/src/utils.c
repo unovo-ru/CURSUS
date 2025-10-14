@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 15:33:22 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/13 18:52:49 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/14 17:02:07 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,12 @@ int	ft_isdigit(int c)
 		return (1);
 	else
 		return (0);
+}
+
+int	is_space(char c)
+{
+	if (c == ' ' || c == '\t' || c == '\n'
+		|| c == '\r' || c == '\f' || c == '\v')
+		return (1);
+	return (0);
 }

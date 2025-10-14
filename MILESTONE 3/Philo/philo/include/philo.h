@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 13:16:08 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/13 18:29:39 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/14 17:02:24 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,6 @@ int		parse_arg(int ac, char **av);
 int		ft_atoi(const char *nptr);
 int		ft_isdigit(int c);
 void	print_error(int error_code);
+int	is_space(char c);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 13:07:59 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/13 17:48:41 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/14 17:06:55 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ int	main(int ac, char **av)
 	if (parse_arg(ac, av) < 0)
 		print_error(parse_arg(ac, av));
 	else
-		printf("AGUANTE BOQUITA\n\n");
+		printf("\nAGUANTE BOQUITA\n\n");
 	return (0);
 }
