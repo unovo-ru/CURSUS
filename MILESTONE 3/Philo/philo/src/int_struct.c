@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 16:21:47 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/13 18:38:56 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/15 15:48:24 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ void	init_status(int ac, char **av, t_status *status)
 		status->must_eat_count = ft_atoi(av[5]);
 }
 
-// void	init_philos(int ac, char **av, t_philo *philos)
-// {
-// 	philos->id
-// 	philos->meals_eaten
-// 	philos->last_meal_time
-// 	philos->thread
-// 	philos->*left_fork
-// 	philos->*right_fork
-// 	philos->*data
-// }
+void	init_philos(int ac, char **av, t_philo *philos)
+{
+	philos->id = 
+	philos->meals_eaten = 0;
+	philos->last_meal_time = /*inicia con el tiempo de la simulacion*/
+	philos->thread = 
+	philos->*left_fork
+	philos->*right_fork
+	philos->*status
+}
