@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 14:02:43 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/14 19:39:52 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/16 11:50:10 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	parse_arg(int ac, char **av)
 	{
 		j = 0;
 		while (av[i][j])
-			if (!ft_isdigit(av[i][j++]))
+			if (!ft_isdigit_space(av[i][j++]))
 				return (-2);
 		i++;
 	}
