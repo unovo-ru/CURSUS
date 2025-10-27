@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 13:16:08 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/16 13:02:23 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/27 13:28:18 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct s_philo
 	int					id;
 	int					meals_eaten;
 	long long			last_meal_time;
+	int					is_eating;
 	pthread_t			thread;
 	pthread_mutex_t		*left_fork;
 	pthread_mutex_t		*right_fork;
@@ -54,18 +55,24 @@ typedef struct s_philo
 
 typedef struct s_status
 {
+	int					mutex_count;
+	int					forks_setted;
+
+	// int					code_err_count;
 	int					num_philos;
 	int					time_to_die;
 	int					time_to_eat;
 	int					time_to_sleep;
 	int					must_eat_count;
+	int					has_num_must_eat;
 	int					someone_died;		// proteger con mutex
 	int					all_ate;			// proteger con mutex
 	long long			start_time;
-	t_philo				*philos;
 	pthread_mutex_t		*forks;
-	pthread_mutex_t		print;
-	pthread_mutex_t		meal_check;
+	pthread_mutex_t		print_mutex;
+	pthread_mutex_t		meal_mutex;
+	pthread_mutex_t		death_mutex;
+	t_philo				*philos;
 }			t_status;
 
 /* ========================================================================== */
@@ -75,7 +82,10 @@ typedef struct s_status
 int		parse_arg(int ac, char **av);
 int		ft_atoi(const char *nptr);
 int		ft_isdigit_space(int c);
-void	print_error(int error_code);
 int		is_space(char c);
+
+int		init_status(int ac, char **av, t_status *status);
+int		init_mutex(t_status *status);
+int		init_philos(t_status *status);
 
 #endif
