@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 13:16:08 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/27 13:28:18 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/27 16:13:14 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,12 @@
 # define ERROR_MALLOC	"Error: Memory allocation failed\n"		// -3
 # define ERROR_THREAD	"Error: Thread creation failed\n"		// -4
 # define ERROR_MUTEX	"Error: Mutex initialization failed\n"	// -5
+
+# define RED "\033[0;31m"
+# define GREEN "\033[0;32m"
+# define YELLOW "\033[0;33m"
+# define BLUE "\033[0;34m"
+# define RESET "\033[0m"
 
 # define MSG_FORK		"has taken a fork"
 # define MSG_EAT		"is eating"
