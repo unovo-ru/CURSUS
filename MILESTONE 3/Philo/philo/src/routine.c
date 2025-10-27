@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 16:03:46 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/27 16:56:50 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/27 20:05:54 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	create_threads(t_status *status)
 	int	i;
 
 	i = 0;
-	while (i > status->num_philos)
+	while (i < status->num_philos)
 	{
 		if (pthread_create(&status->philos[i].thread, NULL, routine,
 				&status->philos[i]) != 0)
@@ -56,7 +56,7 @@ void	*philo_routine(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	pthread_mutex_lock(&philo->status->death_mutex);
+	// pthread_mutex_lock(&philo->status->death_mutex);
 	if (philo->id % 2 == 0)
 		ft_usleep(philo->status->time_to_eat / 2, philo);
 	if (philo->status->num_philos > 3)
@@ -83,7 +83,7 @@ void	*routine(void *arg)
 	philo = (t_philo *)arg;
 	if (philo->status->num_philos == 1)
 		return (one_philo(philo));
-	if (philo->id % 2 == 2)
+	if (philo->id % 2 == 0)
 		usleep(1000);
 	return (philo_routine(philo));
 }

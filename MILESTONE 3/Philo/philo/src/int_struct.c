@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 16:21:47 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/27 13:32:30 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/27 20:13:43 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,11 @@ int	init_philos(t_status *status)
 {
 	int	i;
 
+	if (init_mutex(status) != 0)
+	{
+		msg_error(status);
+		return (1);
+	}
 	i = 0;
 	while (i < status->num_philos)
 	{
