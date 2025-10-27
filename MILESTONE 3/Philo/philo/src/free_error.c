@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 16:08:36 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/27 16:27:24 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/27 19:13:27 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	error(void)
 {
-	printf(RED "usage: ", RESET);
+	printf("usage: ");
 	printf("./philo n_philos t_die t_eat t_sleep [num_meals_to_eat]\n");
 }
 

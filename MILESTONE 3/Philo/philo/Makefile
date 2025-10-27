@@ -6,7 +6,7 @@
 #    By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 13:16:58 by unovo-ru          #+#    #+#              #
-#    Updated: 2025/10/27 13:13:11 by unovo-ru         ###   ########.fr        #
+#    Updated: 2025/10/27 19:14:48 by unovo-ru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,6 +46,11 @@ SRC_FILES	= main.c \
 				parse.c \
 				utils.c \
 				int_struct.c \
+				routine_utils.c \
+				routine.c \
+				table.c \
+				big_brother.c \
+				free_error.c \
 
 
 SRCS		= $(addprefix $(SRC_DIR)/, $(SRC_FILES))

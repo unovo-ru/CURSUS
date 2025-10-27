@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 13:16:08 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/27 16:13:14 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/27 19:12:29 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,17 @@
 /*                                   MACROS                                   */
 /* ========================================================================== */
 
-# define ERROR_ARGS		"Error: Invalid number of arguments\n"	// -1
-# define ERROR_INPUT	"Error: Invalid input\n"				// -2
-# define ERROR_MALLOC	"Error: Memory allocation failed\n"		// -3
-# define ERROR_THREAD	"Error: Thread creation failed\n"		// -4
-# define ERROR_MUTEX	"Error: Mutex initialization failed\n"	// -5
+# define PHILO_MAX 200
+# define ERR_ARGS	"Error: Invalid number of arguments\n"
+# define ERR_MALLOC	"Error: Memory allocation failed\n"
+# define ERR_MUTEX	"Error: Mutex initialization failed\n"
+# define ERR_INPUT	"Error: Invalid input\n"
 
 # define RED "\033[0;31m"
 # define GREEN "\033[0;32m"
 # define YELLOW "\033[0;33m"
 # define BLUE "\033[0;34m"
 # define RESET "\033[0m"
-
-# define MSG_FORK		"has taken a fork"
-# define MSG_EAT		"is eating"
-# define MSG_SLEEP		"is sleeping"
-# define MSG_THINK		"is thinking"
-# define MSG_DIED		"died"
 
 /* ========================================================================== */
 /*                                  STRUCTS                                   */
@@ -85,13 +79,44 @@ typedef struct s_status
 /*                                 FUNCTIONS                                  */
 /* ========================================================================== */
 
-int		parse_arg(int ac, char **av);
-int		ft_atoi(const char *nptr);
-int		ft_isdigit_space(int c);
-int		is_space(char c);
+/* --------------------------------- Parse ---------------------------------- */
+int			parse_arg(int ac, char **av);
 
-int		init_status(int ac, char **av, t_status *status);
-int		init_mutex(t_status *status);
-int		init_philos(t_status *status);
+/* --------------------------------- Utils ---------------------------------- */
+int			ft_atoi(const char *nptr);
+int			ft_isdigit_space(int c);
+int			is_space(char c);
+
+/* ---------------------------- Initialization ------------------------------ */
+int			init_status(int ac, char **av, t_status *status);
+int			init_mutex(t_status *status);
+int			init_philos(t_status *status);
+
+/* --------------------------------- Time ----------------------------------- */
+long long	get_time(void);
+void		ft_usleep(long long time_ms, t_philo *philo);
+
+/* ------------------------------- Routines --------------------------------- */
+int			print_status(t_philo *philo, char *status_msg, int force_print);
+int			check_death(t_philo *philo);
+void		*one_philo(t_philo *philo);
+void		*philo_routine(void *arg);
+void		set_sim_stop(t_status *status, int val);
+void		*routine(void *arg);
+void		philo_eat(t_philo *philo);
+void		philo_sleep(t_philo *philo);
+void		philo_think(t_philo *philo);
+int			is_all_ate_enough(t_status *status);
+
+
+
+/* -------------------------------- Threads --------------------------------- */
+void		create_threads(t_status *status);
+void		wait_threads(t_status *status);
+void		*big_brother(void *arg);
+
+/* -------------------------------- Cleanup --------------------------------- */
+void		free_the_chain(t_status *status);
+void		msg_error(t_status *status);
 
 #endif

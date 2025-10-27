@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 16:03:46 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/27 16:33:21 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/27 16:56:50 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,45 @@ int	should_stop(t_philo *philo)
 {
 	int	stop;
 
-	pthread_mutex_lock(&philo->status->meal_mutex);
-	philo->last_meal_time = get_time();
-	pthread_mutex_unlock(&philo->status->meal_mutex);
+	pthread_mutex_lock(&philo->status->death_mutex);
+	stop = philo->status->someone_died;
+	pthread_mutex_unlock(&philo->status->death_mutex);
+	return (stop);
+}
+
+void	*philo_routine(void *arg)
+{
+	t_philo	*philo;
+
+	philo = (t_philo *)arg;
+	pthread_mutex_lock(&philo->status->death_mutex);
 	if (philo->id % 2 == 0)
 		ft_usleep(philo->status->time_to_eat / 2, philo);
-	
+	if (philo->status->num_philos > 3)
+		ft_usleep((philo->id % 3) * 10, philo);
+	while (1)
+	{
+		if (should_stop(philo))
+			break ;
+		philo_think(philo);
+		if (should_stop(philo))
+			break ;
+		philo_eat(philo);
+		if (should_stop(philo))
+			break ;
+		philo_sleep(philo);
+	}
+	return (NULL);
+}
+
+void	*routine(void *arg)
+{
+	t_philo	*philo;
+
+	philo = (t_philo *)arg;
+	if (philo->status->num_philos == 1)
+		return (one_philo(philo));
+	if (philo->id % 2 == 2)
+		usleep(1000);
+	return (philo_routine(philo));
 }

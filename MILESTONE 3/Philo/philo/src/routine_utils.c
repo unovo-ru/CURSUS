@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 13:15:14 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/27 16:03:21 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/27 18:03:43 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_usleep(long long time_ms, t_philo *philo)
 	long long	start;
 
 	start = get_time();
-	while (get_time - start < time_ms)
+	while (get_time() - start < time_ms)
 	{
 		pthread_mutex_lock(&philo->status->death_mutex);
 		if (philo->status->someone_died)
