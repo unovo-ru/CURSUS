@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 13:15:14 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/28 11:58:00 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/28 15:46:33 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,16 +20,33 @@ long long	get_time(void)
 	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
 }
 
+// int	print_status(t_philo *philo, char *status, int force_print)
+// {
+// 	long long	time;
+
+// 	pthread_mutex_lock(&philo->status->print_mutex);
+// 	if (philo->status->someone_died == 1 && !force_print)
+// 	{
+// 		pthread_mutex_unlock(&philo->status->print_mutex);
+// 		return (1);
+// 	}
+// 	time = get_time() - philo->status->start_time;
+// 	printf("%lld %d %s\n", time, philo->id, status);
+// 	pthread_mutex_unlock(&philo->status->print_mutex);
+// 	return (0);
+// }
+
 int	print_status(t_philo *philo, char *status, int force_print)
 {
 	long long	time;
+	int			died;
 
-	pthread_mutex_lock(&philo->status->print_mutex);
-	if (philo->status->someone_died == 1 && !force_print)
-	{
-		pthread_mutex_unlock(&philo->status->print_mutex);
+	pthread_mutex_lock(&philo->status->death_mutex);
+	died = philo->status->someone_died;
+	pthread_mutex_unlock(&philo->status->death_mutex);
+	if (died && !force_print)
 		return (1);
-	}
+	pthread_mutex_lock(&philo->status->print_mutex);
 	time = get_time() - philo->status->start_time;
 	printf("%lld %d %s\n", time, philo->id, status);
 	pthread_mutex_unlock(&philo->status->print_mutex);
