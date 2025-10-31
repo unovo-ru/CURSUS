@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 13:15:14 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/28 18:35:15 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/28 19:39:27 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,22 +19,6 @@ long long	get_time(void)
 	gettimeofday(&tv, NULL);
 	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
 }
-
-// int	print_status(t_philo *philo, char *status, int force_print)
-// {
-// 	long long	time;
-
-// 	pthread_mutex_lock(&philo->status->print_mutex);
-// 	if (philo->status->someone_died == 1 && !force_print)
-// 	{
-// 		pthread_mutex_unlock(&philo->status->print_mutex);
-// 		return (1);
-// 	}
-// 	time = get_time() - philo->status->start_time;
-// 	printf("%lld %d %s\n", time, philo->id, status);
-// 	pthread_mutex_unlock(&philo->status->print_mutex);
-// 	return (0);
-// }
 
 int	print_status(t_philo *philo, char *status, int force_print)
 {
@@ -70,27 +54,6 @@ int	check_death(t_philo *philo)
 	}
 	return (0);
 }
-
-// int	check_death(t_philo *philo)
-// {
-// 	long long	t_since_meal;
-// 	int			should_die;
-
-// 	should_die = 0;
-// 	t_since_meal = 0;
-// 	pthread_mutex_lock(&philo->status->meal_mutex);
-// 	t_since_meal = (t_since_meal >= philo->status->time_to_die
-// 			&& !philo->is_eating);
-// 	pthread_mutex_unlock(&philo->status->meal_mutex);
-// 	if (should_die)
-// 	{
-// 		set_sim_stop(philo->status, 1);
-// 		print_status(philo, "died", 1);
-// 		return (1);
-// 	}
-// 	return (0);
-// }
-
 
 void	ft_usleep(long long time_ms, t_philo *philo)
 {

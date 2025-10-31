@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 16:21:47 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/27 20:13:43 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/28 19:39:11 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,8 +113,6 @@ int	init_mutex(t_status *status)
 		return (1);
 	return (0);
 }
-
-
 
 int	init_philos(t_status *status)
 {

@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 13:16:08 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/27 19:12:29 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/28 19:51:20 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ typedef struct s_status
 int			parse_arg(int ac, char **av);
 
 /* --------------------------------- Utils ---------------------------------- */
-int			ft_atoi(const char *nptr);
+int			ft_atoi(char *nptr);
 int			ft_isdigit_space(int c);
 int			is_space(char c);
 

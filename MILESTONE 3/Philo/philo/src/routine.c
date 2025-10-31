@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/27 16:03:46 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/28 11:57:31 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/28 19:39:34 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ void	*philo_routine(void *arg)
 	t_philo	*philo;
 
 	philo = (t_philo *)arg;
-	// pthread_mutex_lock(&philo->status->death_mutex);
 	if (philo->id % 2 == 0)
 		ft_usleep(philo->status->time_to_eat / 2, philo);
 	if (philo->status->num_philos > 3)

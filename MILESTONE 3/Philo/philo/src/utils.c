@@ -6,13 +6,13 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 15:33:22 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/16 11:52:06 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/28 19:51:09 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-int	ft_atoi(const char *nptr)
+int	ft_atoi( char *nptr)
 {
 	int		i;
 	int		sig;
