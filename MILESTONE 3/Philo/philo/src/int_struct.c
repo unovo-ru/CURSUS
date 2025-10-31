@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 16:21:47 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/28 19:39:11 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/31 14:00:25 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,6 @@ static int	init_mutex_aux(t_status *status)
 	}
 	return (0);
 }
-
-/*posible contador para destruir mutex si hay errores*/
 
 int	init_mutex(t_status *status)
 {

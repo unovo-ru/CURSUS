@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 13:16:08 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/28 19:51:20 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/31 14:00:58 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,14 @@ typedef struct s_status
 	int					mutex_count;
 	int					forks_setted;
 
-	// int					code_err_count;
 	int					num_philos;
 	int					time_to_die;
 	int					time_to_eat;
 	int					time_to_sleep;
 	int					must_eat_count;
 	int					has_num_must_eat;
-	int					someone_died;		// proteger con mutex
-	int					all_ate;			// proteger con mutex
+	int					someone_died;
+	int					all_ate;
 	long long			start_time;
 	pthread_mutex_t		*forks;
 	pthread_mutex_t		print_mutex;
@@ -107,8 +106,6 @@ void		philo_eat(t_philo *philo);
 void		philo_sleep(t_philo *philo);
 void		philo_think(t_philo *philo);
 int			is_all_ate_enough(t_status *status);
-
-
 
 /* -------------------------------- Threads --------------------------------- */
 void		create_threads(t_status *status);
