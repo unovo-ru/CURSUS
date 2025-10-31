@@ -6,7 +6,7 @@
 #    By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/13 13:16:58 by unovo-ru          #+#    #+#              #
-#    Updated: 2025/10/31 14:01:28 by unovo-ru         ###   ########.fr        #
+#    Updated: 2025/10/31 14:08:12 by unovo-ru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ HEADER		= $(INC_DIR)/philo.h
 
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror -I$(INC_DIR) 
-PTHREAD		= -pthread -fsanitize=thread
+PTHREAD		= -pthread #-fsanitize=thread
 RM			= rm -rf
 # HELLGRIND = valgrind --tool=helgrind --history-level=approx -s
 # setarch `uname -m` -R $SHELL
