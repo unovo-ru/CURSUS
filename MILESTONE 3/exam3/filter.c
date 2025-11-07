@@ -15,15 +15,13 @@ int ft_strncmp(char* s1, char* s2, int size)
 	return(0);
 }
 
-
-
 int main(int argc, char **argv)
 {
 	if (argc!=2 || argv[1] == NULL)
 		return(1);
 	char buf[1001];
 
-	int i=0;
+	int i = 0;
 	int size = strlen(argv[1]);
 	int bytes_read = read(0, buf, 1000);
 	if (bytes_read < 0)
@@ -38,7 +36,7 @@ int main(int argc, char **argv)
 		}
 		else
 		{
-			for (int j=0; j<size; j++)
+			for (int j = 0; j < size; j++)
 				write(1, "*", 1);
 			i += size;
 		}
