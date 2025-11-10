@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 13:07:59 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/31 13:57:18 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/31 17:13:50 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	main(int ac, char **av)
 
 	if (parse_arg(ac, av))
 	{
-		printf(ERR_ARGS);
+		error();
 		return (1);
 	}
 	philos_at_table(&status, ac, av);

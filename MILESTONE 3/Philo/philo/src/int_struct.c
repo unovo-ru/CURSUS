@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 16:21:47 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/31 14:00:25 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/31 19:03:11 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,8 @@ int	init_status(int ac, char **av, t_status *status)
 	status->time_to_eat = ft_atoi(av[3]);
 	status->time_to_sleep = ft_atoi(av[4]);
 	status->must_eat_count = -1;
-	status->has_num_must_eat = 0;
 	if (ac == 6)
-	{
 		status->must_eat_count = ft_atoi(av[5]);
-		status->has_num_must_eat = 1;
-	}
 	status->someone_died = 0;
 	status->all_ate = 0;
 	status->start_time = 0;

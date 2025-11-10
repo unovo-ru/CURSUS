@@ -6,7 +6,7 @@
 /*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/13 13:16:08 by unovo-ru          #+#    #+#             */
-/*   Updated: 2025/10/31 14:00:58 by unovo-ru         ###   ########.fr       */
+/*   Updated: 2025/10/31 17:18:16 by unovo-ru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ typedef struct s_status
 	int					time_to_eat;
 	int					time_to_sleep;
 	int					must_eat_count;
-	int					has_num_must_eat;
+	// int					has_num_must_eat;
 	int					someone_died;
 	int					all_ate;
 	long long			start_time;
@@ -115,5 +115,6 @@ void		*big_brother(void *arg);
 /* -------------------------------- Cleanup --------------------------------- */
 void		free_the_chain(t_status *status);
 void		msg_error(t_status *status);
+void		error(void);
 
 #endif
