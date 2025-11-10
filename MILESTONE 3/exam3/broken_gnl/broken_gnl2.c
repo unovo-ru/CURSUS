@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   broken_gnl2.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: unovo-ru <unovo-ru@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/10 10:34:47 by unovo-ru          #+#    #+#             */
+/*   Updated: 2025/11/10 10:34:50 by unovo-ru         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 char	*get_next_line(int fd)
@@ -27,10 +39,12 @@ char	*get_next_line(int fd)
 	}
 	return (line);
 }
+
 int	main(void)
 {
 	int		fd;
 	char	*line;
+
 	fd = open("get_next_line.h", O_RDONLY);
 	line = get_next_line(fd);
 	while (line)
