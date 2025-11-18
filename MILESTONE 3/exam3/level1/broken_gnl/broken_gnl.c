@@ -58,7 +58,7 @@ void *ft_memmove(void *dest, const void *src, int n)
     return dest;
   int j = ft_strlen((char *)src); //igualar el len de src a j una variable que declaramos ahi, y ajustar i para que itere de 0 a j copiando de atras hacia adelante
   int i = 0; 
-  while (i >= j) // cambiamos i >= 0 por i < j o i <= j
+  while (i </<= j) // cambiamos i >= 0 por i < j o i <= j
   {
     ((char *)dest)[i] = ((char *)src)[i];
     i++; // cambiamos i-- por i++
